@@ -884,11 +884,31 @@
     "named": false
   },
   {
+    "type": "add",
+    "named": false
+  },
+  {
+    "type": "alter",
+    "named": false
+  },
+  {
     "type": "and",
     "named": false
   },
   {
+    "type": "apply",
+    "named": false
+  },
+  {
     "type": "ascii",
+    "named": false
+  },
+  {
+    "type": "batch",
+    "named": false
+  },
+  {
+    "type": "begin",
     "named": false
   },
   {
@@ -908,6 +928,14 @@
     "named": false
   },
   {
+    "type": "compact",
+    "named": false
+  },
+  {
+    "type": "contains",
+    "named": false
+  },
+  {
     "type": "counter",
     "named": false
   },
@@ -920,11 +948,23 @@
     "named": false
   },
   {
+    "type": "delete",
+    "named": false
+  },
+  {
     "type": "dotted_identifier",
     "named": true
   },
   {
     "type": "double",
+    "named": false
+  },
+  {
+    "type": "drop",
+    "named": false
+  },
+  {
+    "type": "durable_writes",
     "named": false
   },
   {
@@ -937,11 +977,15 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
+  },
+  {
+    "type": "from",
+    "named": false
   },
   {
     "type": "frozen",
@@ -956,7 +1000,15 @@
     "named": false
   },
   {
+    "type": "in",
+    "named": false
+  },
+  {
     "type": "inet",
+    "named": false
+  },
+  {
+    "type": "insert",
     "named": false
   },
   {
@@ -968,12 +1020,32 @@
     "named": true
   },
   {
+    "type": "into",
+    "named": false
+  },
+  {
+    "type": "key",
+    "named": false
+  },
+  {
+    "type": "keyspace",
+    "named": false
+  },
+  {
     "type": "list",
     "named": false
   },
   {
     "type": "list_identifier",
     "named": true
+  },
+  {
+    "type": "logged",
+    "named": false
+  },
+  {
+    "type": "login",
+    "named": false
   },
   {
     "type": "map",
@@ -984,8 +1056,40 @@
     "named": true
   },
   {
+    "type": "materialized",
+    "named": false
+  },
+  {
+    "type": "nosuperuser",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "options",
+    "named": false
+  },
+  {
+    "type": "password",
+    "named": false
+  },
+  {
     "type": "quoted_identifier",
     "named": true
+  },
+  {
+    "type": "rename",
+    "named": false
+  },
+  {
+    "type": "replication",
+    "named": false
+  },
+  {
+    "type": "role",
+    "named": false
   },
   {
     "type": "set",
@@ -996,8 +1100,16 @@
     "named": false
   },
   {
+    "type": "storage",
+    "named": false
+  },
+  {
     "type": "string_literal",
     "named": true
+  },
+  {
+    "type": "superuser",
+    "named": false
   },
   {
     "type": "table",
@@ -1036,7 +1148,23 @@
     "named": false
   },
   {
+    "type": "ttl",
+    "named": false
+  },
+  {
     "type": "tuple",
+    "named": false
+  },
+  {
+    "type": "type",
+    "named": false
+  },
+  {
+    "type": "unlogged",
+    "named": false
+  },
+  {
+    "type": "update",
     "named": false
   },
   {
@@ -1044,7 +1172,19 @@
     "named": false
   },
   {
+    "type": "user",
+    "named": false
+  },
+  {
+    "type": "using",
+    "named": false
+  },
+  {
     "type": "uuid",
+    "named": false
+  },
+  {
+    "type": "values",
     "named": false
   },
   {
@@ -1053,6 +1193,18 @@
   },
   {
     "type": "varint",
+    "named": false
+  },
+  {
+    "type": "view",
+    "named": false
+  },
+  {
+    "type": "where",
+    "named": false
+  },
+  {
+    "type": "with",
     "named": false
   },
   {

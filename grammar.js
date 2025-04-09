@@ -185,276 +185,307 @@ module.exports = grammar({
 
     cql_types_list: ($) => seq("list", "<", $.cql_types, ">"),
 
-    use_keyspace_statement: ($) => seq(choice("USE", "use"), $.literal, ";"),
+    use_keyspace_statement: ($) => seq($._kw_use, $.literal, ";"),
 
-    cql_commands: ($) =>
-      choice(
-        seq(
-          choice("ALTER", "alter"),
-          choice("KEYSPACE", "keyspace"),
-          $.identifier,
-          choice("WITH", "with"),
-          choice("REPLICATION", "replication"),
-          "=",
-          "{",
-          repeat(choice($.replication_statement, $.replication_statement_dc)),
-          "}",
-          optional(
-            seq(
-              choice("AND", "and"),
-              choice("DURABLE_WRITES", "durable_writes"),
-              "=",
-              $.bool_choice,
-            ),
-          ),
-          ";",
-        ),
-        seq(
-          choice("ALTER", "alter"),
-          choice("MATERIALIZED", "materialized"),
-          choice("VIEW", "view"),
-          choice($.dotted_identifier, $.identifier),
-          optional(
-            seq(
-              choice("WITH", "with"),
-              choice($.table_option_single, $.table_option_multi),
-              repeat(
-                seq(
-                  choice("AND", "and"),
-                  choice($.table_option_single, $.table_option_multi),
-                ),
-              ),
-            ),
-          ),
-          ";",
-        ),
-        seq(
-          choice("ALTER", "alter"),
-          choice("ROLE", "role"),
-          $.identifier,
-          optional(
-            seq(choice("WITH", "with"), repeat($.alter_role_option_args)),
-          ),
-          ";",
-        ),
-        prec.left(
-          1,
+    _kw_use: ($) => choice("USE", "use"),
+    _kw_alter: ($) => choice("ALTER", "alter"),
+    _kw_create: ($) => choice("CREATE", "create"),
+    _kw_keyspace: ($) => choice("KEYSPACE", "keyspace"),
+    _kw_table: ($) => choice("TABLE", "table"),
+    _kw_with: ($) => choice("WITH", "with"),
+    _kw_where: ($) => choice("WHERE", "where"),
+    _kw_if: ($) => choice("IF", "if"),
+    _kw_and: ($) => choice("AND", "and"),
+    _kw_set: ($) => choice("SET", "set"),
+    _kw_in: ($) => choice("IN", "in"),
+    _kw_to: ($) => choice("TO", "to"),
+    _kw_from: ($) => choice("FROM", "from"),
+    _kw_using: ($) => choice("USING", "using"),
+    _kw_timestamp: ($) => choice("TIMESTAMP", "timestamp"),
+    _kw_ttl: ($) => choice("TTL", "ttl"),
+    _kw_exists: ($) => choice("EXISTS", "exists"),
+    _kw_not: ($) => choice("NOT", "not"),
+    _kw_type: ($) => choice("TYPE", "type"),
+    _kw_view: ($) => choice("VIEW", "view"),
+    _kw_materialized: ($) => choice("MATERIALIZED", "materialized"),
+    _kw_replication: ($) => choice("REPLICATION", "replication"),
+    _kw_durable_writes: ($) => choice("DURABLE_WRITES", "durable_writes"),
+    _kw_batch: ($) => choice("BATCH", "batch"),
+    _kw_apply: ($) => choice("APPLY", "apply"),
+    _kw_begin: ($) => choice("BEGIN", "begin"),
+    _kw_unlogged: ($) => choice("UNLOGGED", "unlogged"),
+    _kw_logged: ($) => choice("LOGGED", "logged"),
+    _kw_counter: ($) => choice("COUNTER", "counter"),
+    _kw_truncate: ($) => choice("TRUNCATE", "truncate"),
+    _kw_insert: ($) => choice("INSERT", "insert"),
+    _kw_into: ($) => choice("INTO", "into"),
+    _kw_values: ($) => choice("VALUES", "values"),
+    _kw_update: ($) => choice("UPDATE", "update"),
+    _kw_delete: ($) => choice("DELETE", "delete"),
+    _kw_role: ($) => choice("ROLE", "role"),
+    _kw_password: ($) => choice("PASSWORD", "password"),
+    _kw_user: ($) => choice("USER", "user"),
+    _kw_superuser: ($) => choice("SUPERUSER", "superuser"),
+    _kw_nosuperuser: ($) => choice("NOSUPERUSER", "nosuperuser"),
+    _kw_add: ($) => choice("ADD", "add"),
+    _kw_drop: ($) => choice("DROP", "drop"),
+    _kw_rename: ($) => choice("RENAME", "rename"),
+    _kw_compact: ($) => choice("COMPACT", "compact"),
+    _kw_storage: ($) => choice("STORAGE", "storage"),
+    _kw_contains: ($) => choice("CONTAINS", "contains"),
+    _kw_key: ($) => choice("KEY", "key"),
+    _kw_login: ($) => choice("LOGIN", "login"),
+    _kw_options: ($) => choice("OPTIONS", "options"),
+
+    _alter_keyspace: ($) =>
+      seq(
+        $._kw_alter,
+        $._kw_keyspace,
+        $.identifier,
+        $._kw_with,
+        $._kw_replication,
+        "=",
+        "{",
+        repeat(choice($.replication_statement, $.replication_statement_dc)),
+        "}",
+        optional(seq($._kw_and, $._kw_durable_writes, "=", $.bool_choice)),
+        ";",
+      ),
+    _alter_materialized_view: ($) =>
+      seq(
+        $._kw_alter,
+        $._kw_materialized,
+        $._kw_view,
+        choice($.dotted_identifier, $.identifier),
+        optional(
           seq(
-            choice("ALTER", "alter"),
-            choice("TABLE", "table"),
-            choice($.dotted_identifier, $.identifier),
-            optional($.alter_table_options),
-            ";",
-          ),
-        ),
-        prec.left(
-          1,
-          seq(
-            choice("ALTER", "alter"),
-            choice("TYPE", "type"),
-            choice($.dotted_identifier, $.identifier),
-            optional($.alter_type_options),
-            ";",
-          ),
-        ),
-        seq(
-          choice("ALTER", "alter"),
-          choice("USER", "user"),
-          $.identifier,
-          optional(
-            seq(
-              choice("WITH", "with"),
-              choice("PASSWORD", "password"),
-              $.string_literal,
-            ),
-          ),
-          optional(
-            choice(
-              choice("SUPERUSER", "superuser"),
-              choice("NOSUPERUSER", "nosuperuser"),
-            ),
-          ),
-          ";",
-        ),
-        prec.left(
-          1,
-          seq(
-            choice("BEGIN", "begin"),
-            optional(
-              choice(
-                choice("UNLOGGED", "unlogged"),
-                choice("LOGGED", "logged"),
-                choice("COUNTER", "counter"),
-              ),
-            ),
-            choice("BATCH", "batch"),
-            optional(
+            $._kw_with,
+            choice($.table_option_single, $.table_option_multi),
+            repeat(
               seq(
-                choice("USING", "using"),
-                choice("TIMESTAMP", "timestamp"),
-                optional($.number),
+                $._kw_and,
+                choice($.table_option_single, $.table_option_multi),
               ),
             ),
-            repeat(seq($.dml_statement)),
-            choice("APPLY", "apply"),
-            choice("BATCH", "batch"),
-            ";",
           ),
         ),
+        ";",
+      ),
+    _alter_role: ($) =>
+      seq(
+        $._kw_alter,
+        $._kw_role,
+        $.identifier,
+        optional(seq($._kw_with, repeat($.alter_role_option_args))),
+        ";",
+      ),
+    _alter_table: ($) =>
+      prec.left(
+        1,
         seq(
-          choice("TRUNCATE", "truncate"),
-          optional(choice("TABLE", "table")),
+          $._kw_alter,
+          $._kw_table,
           choice($.dotted_identifier, $.identifier),
+          optional($.alter_table_options),
           ";",
         ),
+      ),
+    _alter_type: ($) =>
+      prec.left(
+        1,
         seq(
-          choice("UPDATE", "update"),
+          $._kw_alter,
+          $._kw_type,
           choice($.dotted_identifier, $.identifier),
-          optional(
-            choice(
-              seq(choice("USING", "using"), choice("TTL", "ttl"), $.number),
-              seq(
-                choice("USING", "using"),
-                choice("TIMESTAMP", "timestamp"),
-                $.number,
-              ),
-            ),
+          optional($.alter_type_options),
+          ";",
+        ),
+      ),
+    _alter_user: ($) =>
+      seq(
+        $._kw_alter,
+        $._kw_user,
+        $.identifier,
+        optional(seq($._kw_with, $._kw_password, $.string_literal)),
+        optional(choice($._kw_superuser, $._kw_nosuperuser)),
+        ";",
+      ),
+    _batch: ($) =>
+      prec.left(
+        1,
+        seq(
+          $._kw_begin,
+          optional(choice($._kw_unlogged, $._kw_logged, $._kw_counter)),
+          $._kw_batch,
+          optional(seq($._kw_using, $._kw_timestamp, optional($.number))),
+          repeat(seq($.dml_statement)),
+          $._kw_apply,
+          $._kw_batch,
+          ";",
+        ),
+      ),
+    _truncate: ($) =>
+      seq(
+        $._kw_truncate,
+        optional($._kw_table),
+        choice($.dotted_identifier, $.identifier),
+        ";",
+      ),
+    _update: ($) =>
+      seq(
+        $._kw_update,
+        choice($.dotted_identifier, $.identifier),
+        optional(
+          choice(
+            seq($._kw_using, $._kw_ttl, $.number),
+            seq($._kw_using, $._kw_timestamp, $.number),
           ),
-          choice("SET", "set"),
-          repeat(
+        ),
+        $._kw_set,
+        repeat(
+          seq(
+            choice($.literal, $.collection),
+            "=",
+            $.expression,
+            optional(","),
+          ),
+        ),
+        $._kw_where,
+        seq(
+          choice(
             seq(
               choice($.literal, $.collection),
               "=",
-              $.expression,
-              optional(","),
+              choice($.literal, $.collection),
+            ),
+            seq(
+              choice($.literal, $.collection),
+              $._kw_in,
+              "(",
+              repeat(choice($.literal, $.collection)),
+              ")",
             ),
           ),
-          choice("WHERE", "where"),
+        ),
+        repeat(
           seq(
+            $._kw_and,
             choice(
+              seq(choice($.literal, $.collection), "=", $.expression),
               seq(
                 choice($.literal, $.collection),
-                "=",
-                choice($.literal, $.collection),
-              ),
-              seq(
-                choice($.literal, $.collection),
-                choice("IN", "in"),
+                $._kw_in,
                 "(",
                 repeat(choice($.literal, $.collection)),
                 ")",
               ),
             ),
           ),
-          repeat(
+        ),
+        optional(
+          choice(
+            seq($._kw_if, $._kw_exists),
             seq(
-              choice("AND", "and"),
-              choice(
-                seq(choice($.literal, $.collection), "=", $.expression),
+              $._kw_if,
+              choice($.literal, $.collection),
+              $.if_conditions,
+              choice($.literal, $.collection, $.iconditions_blocks),
+              repeat(
                 seq(
+                  $._kw_and,
                   choice($.literal, $.collection),
-                  choice("IN", "in"),
-                  "(",
-                  repeat(choice($.literal, $.collection)),
-                  ")",
+                  $.if_conditions,
+                  choice($.literal, $.collection, $.iconditions_blocks),
                 ),
               ),
             ),
           ),
-          optional(
-            choice(
-              seq(choice("IF", "if"), choice("EXISTS", "exists")),
-              seq(
-                choice("IF", "if"),
-                choice($.literal, $.collection),
-                $.if_conditions,
-                choice($.literal, $.collection, $.iconditions_blocks),
-                repeat(
-                  seq(
-                    choice("AND", "and"),
-                    choice($.literal, $.collection),
-                    $.if_conditions,
-                    choice($.literal, $.collection, $.iconditions_blocks),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          ";",
         ),
-        seq(
-          choice("INSERT", "insert"),
-          choice("INTO", "into"),
-          choice($.dotted_identifier, $.identifier),
-          optional("("),
-          repeat(seq($.identifier, optional(","))),
-          optional(")"),
-          choice("VALUES", "values"),
-          "(",
-          repeat(seq(choice($.literal, $.collection), optional(","))),
-          ")",
-          optional(
+        ";",
+      ),
+    _insert: ($) =>
+      seq(
+        $._kw_insert,
+        $._kw_into,
+        choice($.dotted_identifier, $.identifier),
+        optional("("),
+        repeat(seq($.identifier, optional(","))),
+        optional(")"),
+        $._kw_values,
+        "(",
+        repeat(seq(choice($.literal, $.collection), optional(","))),
+        ")",
+        optional(seq($._kw_if, $._kw_not, $._kw_exists)),
+        optional($._using_ttl_or_timestamp),
+        ";",
+      ),
+    _delete: ($) =>
+      seq(
+        $._kw_delete,
+        repeat(seq($.literal, optional(","), optional($.batch_delete_terms))),
+        $._kw_from,
+        choice($.dotted_identifier, $.identifier),
+        optional(seq($._kw_using, $._kw_timestamp, $.number)),
+        $._kw_where,
+        choice($.literal, $.collection),
+        $.if_conditions,
+        choice($.literal, $.collection, $.iconditions_blocks),
+        repeat(
+          choice(
             seq(
-              choice("IF", "if"),
-              choice("NOT", "not"),
-              choice("EXISTS", "exists"),
+              $._kw_and,
+              $.literal,
+              $.if_conditions,
+              choice($.literal, $.iconditions_blocks),
             ),
           ),
-          optional(
-            choice(
-              seq(choice("USING", "using"), choice("TTL", "ttl"), $.number),
-              seq(choice("TIMESTAMP", "timestamp"), $.number),
-            ),
-          ),
-          ";",
         ),
-        seq(
-          choice("DELETE", "delete"),
-          repeat(seq($.literal, optional(","), optional($.batch_delete_terms))),
-          choice("FROM", "from"),
-          choice($.dotted_identifier, $.identifier),
-          optional(
+        optional(
+          choice(
+            seq($._kw_if, $._kw_exists),
             seq(
-              choice("USING", "using"),
-              choice("TIMESTAMP", "timestamp"),
-              $.number,
-            ),
-          ),
-          choice("WHERE", "where"),
-          choice($.literal, $.collection),
-          $.if_conditions,
-          choice($.literal, $.collection, $.iconditions_blocks),
-          repeat(
-            choice(
-              seq(
-                choice("AND", "and"),
-                $.literal,
-                $.if_conditions,
-                choice($.literal, $.iconditions_blocks),
-              ),
-            ),
-          ),
-          optional(
-            choice(
-              seq(choice("IF", "if"), choice("EXISTS", "exists")),
-              seq(
-                choice("IF", "if"),
-                choice($.literal, $.collection),
-                $.if_conditions,
-                choice($.literal, $.collection, $.iconditions_blocks),
-                repeat(
-                  seq(
-                    choice("AND", "and"),
-                    choice($.literal, $.collection),
-                    $.if_conditions,
-                    choice($.literal, $.collection, $.iconditions_blocks),
-                  ),
+              $._kw_if,
+              choice($.literal, $.collection),
+              $.if_conditions,
+              choice($.literal, $.collection, $.iconditions_blocks),
+              repeat(
+                seq(
+                  $._kw_and,
+                  choice($.literal, $.collection),
+                  $.if_conditions,
+                  choice($.literal, $.collection, $.iconditions_blocks),
                 ),
               ),
             ),
           ),
-          ";",
         ),
+        ";",
+      ),
+
+    _using_ttl_or_timestamp: ($) =>
+      choice(
+        seq(
+          $._kw_using,
+          $._kw_ttl,
+          $.identifier,
+          optional(seq($._kw_and, $._kw_timestamp, $.identifier)),
+        ),
+        seq($._kw_timestamp, $.identifier),
+      ),
+
+    cql_commands: ($) =>
+      choice(
+        $._alter_keyspace,
+        $._alter_materialized_view,
+        $._alter_role,
+        $._alter_table,
+        $._alter_type,
+        $._alter_user,
+        $._batch,
+        $._truncate,
+        $._update,
+        $._insert,
+        $._delete,
       ),
 
     replication_statement: ($) =>
@@ -474,162 +505,12 @@ module.exports = grammar({
         choice($.string_literal, $.number),
         optional(","),
       ),
-    dml_statement: ($) =>
-      choice(
-        prec.left(
-          2,
-          seq(
-            choice("INSERT", "insert"),
-            choice("INTO", "into"),
-            choice($.dotted_identifier, $.identifier),
-            optional("("),
-            repeat(seq($.identifier, optional(","))),
-            optional(")"),
-            choice("VALUES", "values"),
-            "(",
-            repeat(seq(choice($.literal, $.collection), optional(","))),
-            ")",
-            optional(
-              seq(
-                choice("IF", "if"),
-                choice("NOT", "not"),
-                choice("EXISTS", "exists"),
-              ),
-            ),
-            optional(
-              choice(
-                seq(choice("USING", "using"), choice("TTL", "ttl"), $.number),
-                seq(choice("TIMESTAMP", "timestamp"), $.number),
-              ),
-            ),
-            ";",
-          ),
-        ),
-        prec.left(
-          2,
-          seq(
-            choice("UPDATE", "update"),
-            choice($.dotted_identifier, $.identifier),
-            optional(
-              choice(
-                seq(choice("USING", "using"), choice("TTL", "ttl"), $.number),
-                seq(
-                  choice("USING", "using"),
-                  choice("TIMESTAMP", "timestamp"),
-                  $.number,
-                ),
-              ),
-            ),
-            choice("SET", "set"),
-            repeat(
-              seq(
-                choice($.literal, $.collection),
-                "=",
-                $.expression,
-                optional(","),
-              ),
-            ),
-            choice("WHERE", "where"),
-            seq(
-              choice(
-                seq(choice($.literal, $.collection), "=", $.expression),
-                seq(
-                  choice($.literal, $.collection),
-                  choice("IN", "in"),
-                  "(",
-                  repeat(choice($.literal, $.collection)),
-                  ")",
-                ),
-              ),
-            ),
-            repeat(
-              seq(
-                choice("AND", "and"),
-                choice(
-                  seq(choice($.literal, $.collection), "=", $.expression),
-                  seq(
-                    choice($.literal, $.collection),
-                    choice("IN", "in"),
-                    "(",
-                    repeat(choice($.literal, $.collection)),
-                    ")",
-                  ),
-                ),
-              ),
-            ),
-            optional(
-              choice(
-                seq(choice("IF", "if"), choice("EXISTS", "exists")),
-                seq(
-                  choice("IF", "if"),
-                  choice($.literal, $.collection),
-                  $.if_conditions,
-                  choice($.literal, $.collection, $.iconditions_blocks),
-                  repeat(
-                    seq(
-                      choice("AND", "and"),
-                      choice($.literal, $.collection),
-                      $.if_conditions,
-                      choice($.literal, $.collection, $.iconditions_blocks),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            ";",
-          ),
-        ),
-        prec.left(
-          2,
-          seq(
-            choice("DELETE", "delete"),
-            repeat(seq($.literal, $.batch_delete_terms)),
-            choice("FROM", "from"),
-            choice($.dotted_identifier, $.identifier),
-            optional(
-              seq(
-                choice("USING", "using"),
-                choice("TIMESTAMP", "timestamp"),
-                $.number,
-              ),
-            ),
-            choice("WHERE", "where"),
-            choice($.literal, $.collection),
-            $.if_conditions,
-            choice($.literal, $.collection, $.iconditions_blocks),
-            repeat(
-              choice(
-                seq(
-                  choice("AND", "and"),
-                  $.literal,
-                  $.if_conditions,
-                  choice($.literal, $.iconditions_blocks),
-                ),
-              ),
-            ),
-            optional(
-              choice(
-                seq(choice("IF", "if"), choice("EXISTS", "exists")),
-                seq(
-                  choice("IF", "if"),
-                  choice($.literal, $.collection),
-                  $.if_conditions,
-                  choice($.literal, $.collection, $.iconditions_blocks),
-                  repeat(
-                    seq(
-                      choice("AND", "and"),
-                      choice($.literal, $.collection),
-                      $.if_conditions,
-                      choice($.literal, $.collection, $.iconditions_blocks),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            ";",
-          ),
-        ),
-      ),
+
+    _dml_insert: ($) => prec.left(2, $._insert),
+    _dml_update: ($) => prec.left(2, $._update),
+    _dml_delete: ($) => prec.left(2, $._delete),
+
+    dml_statement: ($) => choice($._dml_insert, $._dml_update, $._dml_delete),
 
     iconditions_blocks: ($) =>
       choice(seq("(", repeat(seq($.literal, optional(","))), ")")),
@@ -668,17 +549,17 @@ module.exports = grammar({
         ">=",
         "<=",
         "!=",
-        choice("IN", "in"),
-        choice("CONTAINS", "contains"),
-        seq(choice("CONTAINS", "contains"), choice("KEY", "key")),
+        $._kw_in,
+        $._kw_contains,
+        seq($._kw_contains, $._kw_key),
       ),
 
     alter_role_option_args: ($) =>
       choice(
-        seq(choice("PASSWORD", "password"), "=", $.string_literal),
-        seq(choice("LOGIN", "login"), "=", $.bool_choice),
-        seq(choice("SUPERUSER", "superuser"), "=", $.bool_choice),
-        seq(choice("OPTIONS", "options"), "=", $.string_literal),
+        seq($._kw_password, "=", $.string_literal),
+        seq($._kw_login, "=", $.bool_choice),
+        seq($._kw_superuser, "=", $.bool_choice),
+        seq($._kw_options, "=", $.string_literal),
       ),
 
     alter_table_options: ($) =>
@@ -686,14 +567,14 @@ module.exports = grammar({
         prec.left(
           2,
           seq(
-            choice("ALTER", "alter"),
+            $._kw_alter,
             $.identifier,
-            choice("TYPE", "type"),
+            $._kw_type,
             choice($.cql_types, $.cql_types_list),
           ),
         ),
         seq(
-          choice("ADD", "add"),
+          $._kw_add,
           repeat(
             seq(
               $.identifier,
@@ -703,26 +584,18 @@ module.exports = grammar({
           ),
         ),
         seq(
-          choice("DROP", "drop"),
+          $._kw_drop,
           choice(
             repeat(seq($.identifier, optional(","))),
-            seq(choice("COMPACT", "compact"), choice("STORAGE", "storage")),
+            seq($._kw_compact, $._kw_storage),
           ),
         ),
+        seq($._kw_rename, $.identifier, $._kw_to, $.identifier),
         seq(
-          choice("RENAME", "rename"),
-          $.identifier,
-          choice("TO", "to"),
-          $.identifier,
-        ),
-        seq(
-          choice("WITH", "with"),
+          $._kw_with,
           choice($.table_option_single, $.table_option_multi),
           repeat(
-            seq(
-              choice("AND", "and"),
-              choice($.table_option_single, $.table_option_multi),
-            ),
+            seq($._kw_and, choice($.table_option_single, $.table_option_multi)),
           ),
         ),
       ),
@@ -732,14 +605,14 @@ module.exports = grammar({
         prec.left(
           2,
           seq(
-            choice("ALTER", "alter"),
+            $._kw_alter,
             $.identifier,
-            choice("TYPE", "type"),
+            $._kw_type,
             choice($.cql_types, $.cql_types_list),
           ),
         ),
         seq(
-          choice("ADD", "add"),
+          $._kw_add,
           repeat(
             seq(
               $.identifier,
@@ -749,18 +622,11 @@ module.exports = grammar({
           ),
         ),
         seq(
-          choice("RENAME", "rename"),
+          $._kw_rename,
           $.identifier,
-          choice("TO", "to"),
+          $._kw_to,
           $.identifier,
-          repeat(
-            seq(
-              choice("AND", "and"),
-              $.identifier,
-              choice("TO", "to"),
-              $.identifier,
-            ),
-          ),
+          repeat(seq($._kw_and, $.identifier, $._kw_to, $.identifier)),
         ),
       ),
 
