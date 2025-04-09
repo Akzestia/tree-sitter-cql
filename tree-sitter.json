@@ -1,0 +1,39 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "cql",
+      "camelcase": "Cql",
+      "title": "Cql",
+      "scope": "source.cql",
+      "file-types": [
+        "cql"
+      ],
+      "injection-regex": "^cql$",
+      "class-name": "TreeSitterCql"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Cql grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "アクゼスティア",
+        "email": "akzestia@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Akzestia/tree-sitter-cql"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
