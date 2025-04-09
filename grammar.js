@@ -462,17 +462,6 @@ module.exports = grammar({
         ";",
       ),
 
-    _using_ttl_or_timestamp: ($) =>
-      choice(
-        seq(
-          $._kw_using,
-          $._kw_ttl,
-          $.identifier,
-          optional(seq($._kw_and, $._kw_timestamp, $.identifier)),
-        ),
-        seq($._kw_timestamp, $.identifier),
-      ),
-
     cql_commands: ($) =>
       choice(
         $._alter_keyspace,
@@ -486,6 +475,17 @@ module.exports = grammar({
         $._update,
         $._insert,
         $._delete,
+      ),
+
+    _using_ttl_or_timestamp: ($) =>
+      choice(
+        seq(
+          $._kw_using,
+          $._kw_ttl,
+          $.identifier,
+          optional(seq($._kw_and, $._kw_timestamp, $.identifier)),
+        ),
+        seq($._kw_timestamp, $.identifier),
       ),
 
     replication_statement: ($) =>
