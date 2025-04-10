@@ -1,5 +1,6 @@
+# Cql syntax highlighting for [Zed](https://zed.dev/)
 
-### [Reference docs](https://docs.datastax.com/en/cql/hcd/reference/cql-commands/create-index.html)
+### [Reference docs](https://docs.datastax.com/en/cql/hcd/reference/cql-commands/commands-toc.html)
 
 | function_name              | implemented |
 |:--------------------------:|:-----------:|
