@@ -1,3 +1,6 @@
+
+### [Reference docs](https://docs.datastax.com/en/cql/hcd/reference/cql-commands/create-index.html)
+
 | function_name              | implemented |
 |:--------------------------:|:-----------:|
 | ALTER KEYSPACE              | yes          |
