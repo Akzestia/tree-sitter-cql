@@ -27,15 +27,19 @@
       "required": false,
       "types": [
         {
-          "type": "cql_types",
-          "named": true
-        },
-        {
-          "type": "cql_types_list",
+          "type": "cql_types_union",
           "named": true
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "table_option_label",
           "named": true
         },
         {
@@ -58,11 +62,7 @@
       "required": false,
       "types": [
         {
-          "type": "cql_types",
-          "named": true
-        },
-        {
-          "type": "cql_types_list",
+          "type": "cql_types_union",
           "named": true
         },
         {
@@ -106,6 +106,33 @@
     }
   },
   {
+    "type": "construct_types",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types_constructor_list",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_map",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_tuple",
+          "named": true
+        },
+        {
+          "type": "uuid_construct",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cql_commands",
     "named": true,
     "fields": {},
@@ -134,15 +161,19 @@
           "named": true
         },
         {
+          "type": "code_block",
+          "named": true
+        },
+        {
           "type": "collection",
           "named": true
         },
         {
-          "type": "dml_statement",
+          "type": "cql_types_union",
           "named": true
         },
         {
-          "type": "dotted_identifier",
+          "type": "dml_statement",
           "named": true
         },
         {
@@ -162,7 +193,19 @@
           "named": true
         },
         {
+          "type": "indexed_name",
+          "named": true
+        },
+        {
+          "type": "key_space_name",
+          "named": true
+        },
+        {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "map",
           "named": true
         },
         {
@@ -182,6 +225,14 @@
           "named": true
         },
         {
+          "type": "table_label",
+          "named": true
+        },
+        {
+          "type": "table_option_label",
+          "named": true
+        },
+        {
           "type": "table_option_multi",
           "named": true
         },
@@ -198,7 +249,7 @@
     "fields": {}
   },
   {
-    "type": "cql_types_list",
+    "type": "cql_types_constructor_list",
     "named": true,
     "fields": {},
     "children": {
@@ -207,6 +258,63 @@
       "types": [
         {
           "type": "cql_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cql_types_constructor_map",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cql_types_constructor_tuple",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cql_types_union",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_list",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_map",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_tuple",
           "named": true
         }
       ]
@@ -229,10 +337,6 @@
           "named": true
         },
         {
-          "type": "dotted_identifier",
-          "named": true
-        },
-        {
           "type": "expression",
           "named": true
         },
@@ -249,11 +353,23 @@
           "named": true
         },
         {
+          "type": "indexed_name",
+          "named": true
+        },
+        {
+          "type": "key_space_name",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "table_label",
           "named": true
         }
       ]
@@ -434,6 +550,10 @@
           "named": true
         },
         {
+          "type": "construct_types",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
@@ -509,9 +629,43 @@
         {
           "type": "cql_commands",
           "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "quoted_identifier",
+          "named": true
         },
         {
-          "type": "use_keyspace_statement",
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table_option_label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -584,31 +738,59 @@
     "fields": {}
   },
   {
-    "type": "use_keyspace_statement",
+    "type": "uuid",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "uuid_construct",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "literal",
+          "type": "uuid",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "uuid",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "!=",
     "named": false
   },
   {
+    "type": "$$",
+    "named": false
+  },
+  {
     "type": "%",
+    "named": false
+  },
+  {
+    "type": "'Classic'",
+    "named": false
+  },
+  {
+    "type": "'Core'",
+    "named": false
+  },
+  {
+    "type": "'SAI'",
+    "named": false
+  },
+  {
+    "type": "'SASI'",
+    "named": false
+  },
+  {
+    "type": "'sai'",
+    "named": false
+  },
+  {
+    "type": "'sasi'",
     "named": false
   },
   {
@@ -624,7 +806,15 @@
     "named": false
   },
   {
+    "type": "*=",
+    "named": false
+  },
+  {
     "type": "+",
+    "named": false
+  },
+  {
+    "type": "+=",
     "named": false
   },
   {
@@ -636,7 +826,15 @@
     "named": false
   },
   {
+    "type": "-=",
+    "named": false
+  },
+  {
     "type": "/",
+    "named": false
+  },
+  {
+    "type": "/=",
     "named": false
   },
   {
@@ -672,6 +870,10 @@
     "named": false
   },
   {
+    "type": "AGGREGATE",
+    "named": false
+  },
+  {
     "type": "ALTER",
     "named": false
   },
@@ -684,11 +886,51 @@
     "named": false
   },
   {
+    "type": "AS",
+    "named": false
+  },
+  {
+    "type": "ASC",
+    "named": false
+  },
+  {
+    "type": "ASCII",
+    "named": false
+  },
+  {
     "type": "BATCH",
     "named": false
   },
   {
     "type": "BEGIN",
+    "named": false
+  },
+  {
+    "type": "BIGINT",
+    "named": false
+  },
+  {
+    "type": "BLOB",
+    "named": false
+  },
+  {
+    "type": "BOOLEAN",
+    "named": false
+  },
+  {
+    "type": "BY",
+    "named": false
+  },
+  {
+    "type": "CALLED",
+    "named": false
+  },
+  {
+    "type": "CLUSTERING",
+    "named": false
+  },
+  {
+    "type": "COMMIT",
     "named": false
   },
   {
@@ -704,7 +946,35 @@
     "named": false
   },
   {
+    "type": "CREATE",
+    "named": false
+  },
+  {
+    "type": "CUSTOM",
+    "named": false
+  },
+  {
+    "type": "DATE",
+    "named": false
+  },
+  {
+    "type": "DECIMAL",
+    "named": false
+  },
+  {
     "type": "DELETE",
+    "named": false
+  },
+  {
+    "type": "DESC",
+    "named": false
+  },
+  {
+    "type": "DETERMINISTIC",
+    "named": false
+  },
+  {
+    "type": "DOUBLE",
     "named": false
   },
   {
@@ -716,6 +986,14 @@
     "named": false
   },
   {
+    "type": "EDGE",
+    "named": false
+  },
+  {
+    "type": "ENTRIES",
+    "named": false
+  },
+  {
     "type": "EXISTS",
     "named": false
   },
@@ -724,7 +1002,31 @@
     "named": false
   },
   {
+    "type": "FINALFUNC",
+    "named": false
+  },
+  {
+    "type": "FLOAT",
+    "named": false
+  },
+  {
     "type": "FROM",
+    "named": false
+  },
+  {
+    "type": "FROZEN",
+    "named": false
+  },
+  {
+    "type": "FULL",
+    "named": false
+  },
+  {
+    "type": "FUNCTION",
+    "named": false
+  },
+  {
+    "type": "HASHED",
     "named": false
   },
   {
@@ -736,7 +1038,27 @@
     "named": false
   },
   {
+    "type": "INDEX",
+    "named": false
+  },
+  {
+    "type": "INET",
+    "named": false
+  },
+  {
+    "type": "INITCOND",
+    "named": false
+  },
+  {
+    "type": "INPUT",
+    "named": false
+  },
+  {
     "type": "INSERT",
+    "named": false
+  },
+  {
+    "type": "INT",
     "named": false
   },
   {
@@ -744,7 +1066,23 @@
     "named": false
   },
   {
+    "type": "IS",
+    "named": false
+  },
+  {
     "type": "Infinity",
+    "named": false
+  },
+  {
+    "type": "JAVA",
+    "named": false
+  },
+  {
+    "type": "JAVASCRIPT",
+    "named": false
+  },
+  {
+    "type": "JSON",
     "named": false
   },
   {
@@ -752,7 +1090,23 @@
     "named": false
   },
   {
+    "type": "KEYS",
+    "named": false
+  },
+  {
     "type": "KEYSPACE",
+    "named": false
+  },
+  {
+    "type": "LABEL",
+    "named": false
+  },
+  {
+    "type": "LANGUAGE",
+    "named": false
+  },
+  {
+    "type": "LIST",
     "named": false
   },
   {
@@ -764,7 +1118,19 @@
     "named": false
   },
   {
+    "type": "MAP",
+    "named": false
+  },
+  {
     "type": "MATERIALIZED",
+    "named": false
+  },
+  {
+    "type": "MONOTONIC",
+    "named": false
+  },
+  {
+    "type": "NORECURSIVE",
     "named": false
   },
   {
@@ -776,7 +1142,19 @@
     "named": false
   },
   {
+    "type": "NULL",
+    "named": false
+  },
+  {
     "type": "NaN",
+    "named": false
+  },
+  {
+    "type": "OF",
+    "named": false
+  },
+  {
+    "type": "ON",
     "named": false
   },
   {
@@ -784,7 +1162,19 @@
     "named": false
   },
   {
+    "type": "OR",
+    "named": false
+  },
+  {
+    "type": "ORDER",
+    "named": false
+  },
+  {
     "type": "PASSWORD",
+    "named": false
+  },
+  {
+    "type": "PRIMARY",
     "named": false
   },
   {
@@ -792,7 +1182,19 @@
     "named": false
   },
   {
+    "type": "REPLACE",
+    "named": false
+  },
+  {
     "type": "REPLICATION",
+    "named": false
+  },
+  {
+    "type": "RETURNS",
+    "named": false
+  },
+  {
+    "type": "REVOKE",
     "named": false
   },
   {
@@ -800,11 +1202,35 @@
     "named": false
   },
   {
+    "type": "ROLES",
+    "named": false
+  },
+  {
+    "type": "SEARCH",
+    "named": false
+  },
+  {
+    "type": "SELECT",
+    "named": false
+  },
+  {
     "type": "SET",
     "named": false
   },
   {
+    "type": "SFUNC",
+    "named": false
+  },
+  {
+    "type": "SMALLINT",
+    "named": false
+  },
+  {
     "type": "STORAGE",
+    "named": false
+  },
+  {
+    "type": "STYPE",
     "named": false
   },
   {
@@ -816,7 +1242,23 @@
     "named": false
   },
   {
+    "type": "TEXT",
+    "named": false
+  },
+  {
+    "type": "TIME",
+    "named": false
+  },
+  {
     "type": "TIMESTAMP",
+    "named": false
+  },
+  {
+    "type": "TIMEUUID",
+    "named": false
+  },
+  {
+    "type": "TINYINT",
     "named": false
   },
   {
@@ -833,6 +1275,10 @@
   },
   {
     "type": "TTL",
+    "named": false
+  },
+  {
+    "type": "TUPLE",
     "named": false
   },
   {
@@ -856,11 +1302,31 @@
     "named": false
   },
   {
+    "type": "USERS",
+    "named": false
+  },
+  {
     "type": "USING",
     "named": false
   },
   {
+    "type": "UUID",
+    "named": false
+  },
+  {
     "type": "VALUES",
+    "named": false
+  },
+  {
+    "type": "VARCHAR",
+    "named": false
+  },
+  {
+    "type": "VARINT",
+    "named": false
+  },
+  {
+    "type": "VERTEX",
     "named": false
   },
   {
@@ -876,6 +1342,10 @@
     "named": false
   },
   {
+    "type": "WITHOUT",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -888,6 +1358,10 @@
     "named": false
   },
   {
+    "type": "aggregate",
+    "named": false
+  },
+  {
     "type": "alter",
     "named": false
   },
@@ -897,6 +1371,14 @@
   },
   {
     "type": "apply",
+    "named": false
+  },
+  {
+    "type": "as",
+    "named": false
+  },
+  {
+    "type": "asc",
     "named": false
   },
   {
@@ -917,14 +1399,34 @@
   },
   {
     "type": "blob",
-    "named": false
-  },
-  {
-    "type": "blob",
     "named": true
   },
   {
+    "type": "blob",
+    "named": false
+  },
+  {
     "type": "boolean",
+    "named": false
+  },
+  {
+    "type": "by",
+    "named": false
+  },
+  {
+    "type": "called",
+    "named": false
+  },
+  {
+    "type": "clustering",
+    "named": false
+  },
+  {
+    "type": "code_block",
+    "named": true
+  },
+  {
+    "type": "commit",
     "named": false
   },
   {
@@ -940,6 +1442,14 @@
     "named": false
   },
   {
+    "type": "create",
+    "named": false
+  },
+  {
+    "type": "custom",
+    "named": false
+  },
+  {
     "type": "date",
     "named": false
   },
@@ -952,8 +1462,12 @@
     "named": false
   },
   {
-    "type": "dotted_identifier",
-    "named": true
+    "type": "desc",
+    "named": false
+  },
+  {
+    "type": "deterministic",
+    "named": false
   },
   {
     "type": "double",
@@ -968,6 +1482,10 @@
     "named": false
   },
   {
+    "type": "entries",
+    "named": false
+  },
+  {
     "type": "exists",
     "named": false
   },
@@ -976,12 +1494,16 @@
     "named": false
   },
   {
-    "type": "float",
-    "named": true
+    "type": "finalfunc",
+    "named": false
   },
   {
     "type": "float",
     "named": false
+  },
+  {
+    "type": "float",
+    "named": true
   },
   {
     "type": "from",
@@ -989,6 +1511,18 @@
   },
   {
     "type": "frozen",
+    "named": false
+  },
+  {
+    "type": "full",
+    "named": false
+  },
+  {
+    "type": "function",
+    "named": false
+  },
+  {
+    "type": "graph_engine",
     "named": false
   },
   {
@@ -1004,7 +1538,23 @@
     "named": false
   },
   {
+    "type": "index",
+    "named": false
+  },
+  {
+    "type": "indexed_name",
+    "named": true
+  },
+  {
     "type": "inet",
+    "named": false
+  },
+  {
+    "type": "initcond",
+    "named": false
+  },
+  {
+    "type": "input",
     "named": false
   },
   {
@@ -1024,11 +1574,35 @@
     "named": false
   },
   {
+    "type": "is",
+    "named": false
+  },
+  {
+    "type": "java",
+    "named": false
+  },
+  {
+    "type": "javascript",
+    "named": false
+  },
+  {
     "type": "key",
     "named": false
   },
   {
+    "type": "key_space_name",
+    "named": true
+  },
+  {
+    "type": "keys",
+    "named": false
+  },
+  {
     "type": "keyspace",
+    "named": false
+  },
+  {
+    "type": "language",
     "named": false
   },
   {
@@ -1060,6 +1634,14 @@
     "named": false
   },
   {
+    "type": "monotonic",
+    "named": false
+  },
+  {
+    "type": "norecursive",
+    "named": false
+  },
+  {
     "type": "nosuperuser",
     "named": false
   },
@@ -1068,11 +1650,35 @@
     "named": false
   },
   {
+    "type": "null",
+    "named": false
+  },
+  {
+    "type": "of",
+    "named": false
+  },
+  {
+    "type": "on",
+    "named": false
+  },
+  {
     "type": "options",
     "named": false
   },
   {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "order",
+    "named": false
+  },
+  {
     "type": "password",
+    "named": false
+  },
+  {
+    "type": "primary",
     "named": false
   },
   {
@@ -1084,7 +1690,19 @@
     "named": false
   },
   {
+    "type": "replace",
+    "named": false
+  },
+  {
     "type": "replication",
+    "named": false
+  },
+  {
+    "type": "returns",
+    "named": false
+  },
+  {
+    "type": "revoke",
     "named": false
   },
   {
@@ -1092,7 +1710,23 @@
     "named": false
   },
   {
+    "type": "roles",
+    "named": false
+  },
+  {
+    "type": "searh",
+    "named": false
+  },
+  {
+    "type": "select",
+    "named": false
+  },
+  {
     "type": "set",
+    "named": false
+  },
+  {
+    "type": "sfunc",
     "named": false
   },
   {
@@ -1108,12 +1742,20 @@
     "named": true
   },
   {
+    "type": "stype",
+    "named": false
+  },
+  {
     "type": "superuser",
     "named": false
   },
   {
     "type": "table",
     "named": false
+  },
+  {
+    "type": "table_label",
+    "named": true
   },
   {
     "type": "text",
@@ -1173,6 +1815,10 @@
   },
   {
     "type": "user",
+    "named": false
+  },
+  {
+    "type": "users",
     "named": false
   },
   {
