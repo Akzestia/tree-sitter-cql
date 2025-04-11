@@ -1,6 +1,6 @@
 # Cql syntax highlighting for [Zed](https://zed.dev/)
 
-### Reference docs [DataSax HCD](https://docs.datastax.com/en/cql/hcd/reference/cql-commands/commands-toc.html)
+### Reference docs [DataStax HCD](https://docs.datastax.com/en/cql/hcd/reference/cql-commands/commands-toc.html)
 
 | function_name              | implemented   |
 |:--------------------------:|:-------------:|
