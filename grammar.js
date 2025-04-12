@@ -401,6 +401,8 @@ module.exports = grammar({
         alias($._kw_offset, "cql_keyword"),
       ),
 
+    cql_words_union: ($) => choice($.cql_keywords),
+
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
 
     _alter_keyspace: ($) =>

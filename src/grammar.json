@@ -3839,6 +3839,15 @@
         }
       ]
     },
+    "cql_words_union": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "cql_keywords"
+        }
+      ]
+    },
     "_use": {
       "type": "SEQ",
       "members": [
