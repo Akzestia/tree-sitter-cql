@@ -4,11 +4,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "bool_choice",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
           "named": true
         },
         {
@@ -26,6 +30,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
         {
           "type": "cql_types_union",
           "named": true
@@ -57,6 +65,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
         {
           "type": "cql_types_union",
           "named": true
@@ -102,6 +114,11 @@
     }
   },
   {
+    "type": "comma_separated",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "construct_types",
     "named": true,
     "fields": {},
@@ -134,7 +151,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "alter_role_option_args",
@@ -165,11 +182,19 @@
           "named": true
         },
         {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
           "type": "cql_types_union",
           "named": true
         },
         {
           "type": "dml_statement",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
           "named": true
         },
         {
@@ -217,6 +242,18 @@
           "named": true
         },
         {
+          "type": "selector_conditions",
+          "named": true
+        },
+        {
+          "type": "selectors",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -253,6 +290,45 @@
     "fields": {}
   },
   {
+    "type": "cql_types_constructor_frozen",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_list",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_map",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_set",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_tuple",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cql_types_constructor_list",
     "named": true,
     "fields": {},
@@ -273,6 +349,21 @@
     "fields": {},
     "children": {
       "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cql_types_constructor_set",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -310,6 +401,10 @@
           "named": true
         },
         {
+          "type": "cql_types_constructor_frozen",
+          "named": true
+        },
+        {
           "type": "cql_types_constructor_list",
           "named": true
         },
@@ -318,7 +413,15 @@
           "named": true
         },
         {
+          "type": "cql_types_constructor_set",
+          "named": true
+        },
+        {
           "type": "cql_types_constructor_tuple",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         }
       ]
@@ -338,6 +441,14 @@
         },
         {
           "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
           "named": true
         },
         {
@@ -373,6 +484,10 @@
           "named": true
         },
         {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
           "type": "table_keyspace_name",
           "named": true
         }
@@ -399,6 +514,52 @@
     }
   },
   {
+    "type": "func_definition",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "AS",
+            "named": false
+          },
+          {
+            "type": "cql_types",
+            "named": true
+          },
+          {
+            "type": "cql_types_union",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          }
+        ]
+      },
+      "function_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "iconditions_blocks",
     "named": true,
     "fields": {},
@@ -406,6 +567,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
         {
           "type": "literal",
           "named": true
@@ -416,7 +581,17 @@
   {
     "type": "if_conditions",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "list",
@@ -607,6 +782,48 @@
     }
   },
   {
+    "type": "selector_conditions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "func_definition",
+          "named": true
+        },
+        {
+          "type": "table_keyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "selectors",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "func_definition",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "set",
     "named": true,
     "fields": {},
@@ -711,6 +928,10 @@
       "required": true,
       "types": [
         {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -734,6 +955,10 @@
           "named": true
         },
         {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         }
@@ -748,6 +973,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        },
         {
           "type": "identifier",
           "named": true
@@ -861,6 +1090,10 @@
     "named": false
   },
   {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
@@ -873,19 +1106,11 @@
     "named": false
   },
   {
-    "type": ";",
-    "named": false
-  },
-  {
     "type": "<",
     "named": false
   },
   {
     "type": "<=",
-    "named": false
-  },
-  {
-    "type": "=",
     "named": false
   },
   {
@@ -913,11 +1138,19 @@
     "named": false
   },
   {
+    "type": "ALLOW",
+    "named": false
+  },
+  {
     "type": "ALTER",
     "named": false
   },
   {
     "type": "AND",
+    "named": false
+  },
+  {
+    "type": "ANN",
     "named": false
   },
   {
@@ -934,6 +1167,10 @@
   },
   {
     "type": "ASCII",
+    "named": false
+  },
+  {
+    "type": "AUTHORIZE",
     "named": false
   },
   {
@@ -1025,7 +1262,15 @@
     "named": false
   },
   {
+    "type": "DESCRIBE",
+    "named": false
+  },
+  {
     "type": "DETERMINISTIC",
+    "named": false
+  },
+  {
+    "type": "DISTINCT",
     "named": false
   },
   {
@@ -1049,11 +1294,19 @@
     "named": false
   },
   {
+    "type": "EXECUTE",
+    "named": false
+  },
+  {
     "type": "EXISTS",
     "named": false
   },
   {
     "type": "FALSE",
+    "named": false
+  },
+  {
+    "type": "FILTERING",
     "named": false
   },
   {
@@ -1081,7 +1334,23 @@
     "named": false
   },
   {
+    "type": "FUNCTIONS",
+    "named": false
+  },
+  {
+    "type": "GRANT",
+    "named": false
+  },
+  {
+    "type": "GROUP",
+    "named": false
+  },
+  {
     "type": "HASHED",
+    "named": false
+  },
+  {
+    "type": "ID",
     "named": false
   },
   {
@@ -1153,11 +1422,23 @@
     "named": false
   },
   {
+    "type": "KEYSPACES",
+    "named": false
+  },
+  {
     "type": "LABEL",
     "named": false
   },
   {
     "type": "LANGUAGE",
+    "named": false
+  },
+  {
+    "type": "LIKE",
+    "named": false
+  },
+  {
+    "type": "LIMIT",
     "named": false
   },
   {
@@ -1178,6 +1459,18 @@
   },
   {
     "type": "MATERIALIZED",
+    "named": false
+  },
+  {
+    "type": "MBEAN",
+    "named": false
+  },
+  {
+    "type": "MBEANS",
+    "named": false
+  },
+  {
+    "type": "MODIFY",
     "named": false
   },
   {
@@ -1209,6 +1502,10 @@
     "named": false
   },
   {
+    "type": "OFFSET",
+    "named": false
+  },
+  {
     "type": "ON",
     "named": false
   },
@@ -1225,7 +1522,23 @@
     "named": false
   },
   {
+    "type": "PARTITION",
+    "named": false
+  },
+  {
     "type": "PASSWORD",
+    "named": false
+  },
+  {
+    "type": "PATTERN",
+    "named": false
+  },
+  {
+    "type": "PER",
+    "named": false
+  },
+  {
+    "type": "PERMISSIONS",
     "named": false
   },
   {
@@ -1234,6 +1547,10 @@
   },
   {
     "type": "PROFILES",
+    "named": false
+  },
+  {
+    "type": "PROXY",
     "named": false
   },
   {
@@ -1262,6 +1579,10 @@
   },
   {
     "type": "ROLES",
+    "named": false
+  },
+  {
+    "type": "ROWS",
     "named": false
   },
   {
@@ -1429,11 +1750,19 @@
     "named": false
   },
   {
+    "type": "allow",
+    "named": false
+  },
+  {
     "type": "alter",
     "named": false
   },
   {
     "type": "and",
+    "named": false
+  },
+  {
+    "type": "ann",
     "named": false
   },
   {
@@ -1453,6 +1782,10 @@
     "named": false
   },
   {
+    "type": "authorize",
+    "named": false
+  },
+  {
     "type": "batch",
     "named": false
   },
@@ -1466,11 +1799,11 @@
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "boolean",
@@ -1549,7 +1882,15 @@
     "named": false
   },
   {
+    "type": "describe",
+    "named": false
+  },
+  {
     "type": "deterministic",
+    "named": false
+  },
+  {
+    "type": "distinct",
     "named": false
   },
   {
@@ -1569,6 +1910,14 @@
     "named": false
   },
   {
+    "type": "equal_sign",
+    "named": true
+  },
+  {
+    "type": "execute",
+    "named": false
+  },
+  {
     "type": "exists",
     "named": false
   },
@@ -1577,16 +1926,20 @@
     "named": false
   },
   {
+    "type": "filtering",
+    "named": false
+  },
+  {
     "type": "finalfunc",
     "named": false
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "from",
@@ -1605,11 +1958,27 @@
     "named": false
   },
   {
+    "type": "functions",
+    "named": false
+  },
+  {
+    "type": "grant",
+    "named": false
+  },
+  {
     "type": "graph_engine",
     "named": false
   },
   {
+    "type": "group",
+    "named": false
+  },
+  {
     "type": "hashed",
+    "named": false
+  },
+  {
+    "type": "id",
     "named": false
   },
   {
@@ -1673,6 +2042,10 @@
     "named": false
   },
   {
+    "type": "json",
+    "named": false
+  },
+  {
     "type": "key",
     "named": false
   },
@@ -1689,7 +2062,19 @@
     "named": false
   },
   {
+    "type": "keyspaces",
+    "named": false
+  },
+  {
     "type": "language",
+    "named": false
+  },
+  {
+    "type": "like",
+    "named": false
+  },
+  {
+    "type": "limit",
     "named": false
   },
   {
@@ -1721,6 +2106,18 @@
     "named": false
   },
   {
+    "type": "mbean",
+    "named": false
+  },
+  {
+    "type": "mbeans",
+    "named": false
+  },
+  {
+    "type": "modify",
+    "named": false
+  },
+  {
     "type": "monotonic",
     "named": false
   },
@@ -1745,6 +2142,10 @@
     "named": false
   },
   {
+    "type": "offset",
+    "named": false
+  },
+  {
     "type": "on",
     "named": false
   },
@@ -1761,7 +2162,23 @@
     "named": false
   },
   {
+    "type": "partition",
+    "named": false
+  },
+  {
     "type": "password",
+    "named": false
+  },
+  {
+    "type": "pattern",
+    "named": false
+  },
+  {
+    "type": "per",
+    "named": false
+  },
+  {
+    "type": "permissions",
     "named": false
   },
   {
@@ -1770,6 +2187,10 @@
   },
   {
     "type": "profiles",
+    "named": false
+  },
+  {
+    "type": "proxy",
     "named": false
   },
   {
@@ -1805,12 +2226,20 @@
     "named": false
   },
   {
+    "type": "rows",
+    "named": false
+  },
+  {
     "type": "searh",
     "named": false
   },
   {
     "type": "select",
     "named": false
+  },
+  {
+    "type": "semi_colon",
+    "named": true
   },
   {
     "type": "set",
