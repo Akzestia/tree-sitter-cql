@@ -267,94 +267,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_kw_ascii"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_bigint"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_blob"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_boolean"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_date"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_decimal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_double"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_duration"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_float"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_frozen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_int"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_list"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_map"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_set"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_smallint"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_text"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_timeuuid"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_tinyint"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_tuple"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_uuid"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_varchar"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_varint"
-        },
-        {
-          "type": "SYMBOL",
           "name": "_kw_filtering"
         },
         {
@@ -368,6 +280,14 @@
         {
           "type": "SYMBOL",
           "name": "_kw_keys"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_group"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_by"
         },
         {
           "type": "SYMBOL",
@@ -412,6 +332,274 @@
         {
           "type": "SYMBOL",
           "name": "_kw_custom"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_aggregate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_all"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_allow"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_any"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_asc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_authorize"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_clustering"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_columnfamily"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_consistency"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_desc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_describe"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_each_quorum"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_entries"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_full"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_grant"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_index"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_infinity"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_keyspaces"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_level"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_limit"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_local_one"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_local_quorum"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_modify"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_nan"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_norecursive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_of"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_one"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_order"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_partition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_per"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_permission"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_permissions"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_primary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_quorum"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_revoke"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_schema"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_select"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_static"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_three"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_two"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_users"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_commit"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_search"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_roles"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_deterministic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_monotonic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_java"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_java_script"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_is"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_hashed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_access"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_dcs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_cidrs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_columns"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_profiles"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_config"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_rows"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_functions"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_mbeans"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_mbean"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_pattern"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_execute"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_proxy"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_like"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_ann"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_offset"
         }
       ]
     },
@@ -1838,279 +2026,6 @@
         }
       ]
     },
-    "_kw_ascii": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "ASCII"
-        },
-        {
-          "type": "STRING",
-          "value": "ascii"
-        }
-      ]
-    },
-    "_kw_bigint": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "BIGINT"
-        },
-        {
-          "type": "STRING",
-          "value": "bigint"
-        }
-      ]
-    },
-    "_kw_blob": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "BLOB"
-        },
-        {
-          "type": "STRING",
-          "value": "blob"
-        }
-      ]
-    },
-    "_kw_boolean": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "BOOLEAN"
-        },
-        {
-          "type": "STRING",
-          "value": "boolean"
-        }
-      ]
-    },
-    "_kw_date": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "DATE"
-        },
-        {
-          "type": "STRING",
-          "value": "date"
-        }
-      ]
-    },
-    "_kw_decimal": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "DECIMAL"
-        },
-        {
-          "type": "STRING",
-          "value": "decimal"
-        }
-      ]
-    },
-    "_kw_double": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "DOUBLE"
-        },
-        {
-          "type": "STRING",
-          "value": "double"
-        }
-      ]
-    },
-    "_kw_duration": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "DURATION"
-        },
-        {
-          "type": "STRING",
-          "value": "duration"
-        }
-      ]
-    },
-    "_kw_float": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "FLOAT"
-        },
-        {
-          "type": "STRING",
-          "value": "float"
-        }
-      ]
-    },
-    "_kw_frozen": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "FROZEN"
-        },
-        {
-          "type": "STRING",
-          "value": "frozen"
-        }
-      ]
-    },
-    "_kw_int": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "INT"
-        },
-        {
-          "type": "STRING",
-          "value": "int"
-        }
-      ]
-    },
-    "_kw_list": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "LIST"
-        },
-        {
-          "type": "STRING",
-          "value": "list"
-        }
-      ]
-    },
-    "_kw_map": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "MAP"
-        },
-        {
-          "type": "STRING",
-          "value": "map"
-        }
-      ]
-    },
-    "_kw_smallint": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "SMALLINT"
-        },
-        {
-          "type": "STRING",
-          "value": "smallint"
-        }
-      ]
-    },
-    "_kw_text": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "TEXT"
-        },
-        {
-          "type": "STRING",
-          "value": "text"
-        }
-      ]
-    },
-    "_kw_timeuuid": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "TIMEUUID"
-        },
-        {
-          "type": "STRING",
-          "value": "timeuuid"
-        }
-      ]
-    },
-    "_kw_tinyint": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "TINYINT"
-        },
-        {
-          "type": "STRING",
-          "value": "tinyint"
-        }
-      ]
-    },
-    "_kw_tuple": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "TUPLE"
-        },
-        {
-          "type": "STRING",
-          "value": "tuple"
-        }
-      ]
-    },
-    "_kw_uuid": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "UUID"
-        },
-        {
-          "type": "STRING",
-          "value": "uuid"
-        }
-      ]
-    },
-    "_kw_varchar": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "VARCHAR"
-        },
-        {
-          "type": "STRING",
-          "value": "varchar"
-        }
-      ]
-    },
-    "_kw_varint": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "VARINT"
-        },
-        {
-          "type": "STRING",
-          "value": "varint"
-        }
-      ]
-    },
     "_kw_filtering": {
       "type": "CHOICE",
       "members": [
@@ -2537,19 +2452,6 @@
         {
           "type": "STRING",
           "value": "index"
-        }
-      ]
-    },
-    "_kw_inet": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "INET"
-        },
-        {
-          "type": "STRING",
-          "value": "inet"
         }
       ]
     },
@@ -3213,6 +3115,19 @@
         {
           "type": "STRING",
           "value": "offset"
+        }
+      ]
+    },
+    "_kw_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "LIST"
+        },
+        {
+          "type": "STRING",
+          "value": "list"
         }
       ]
     },
@@ -9717,7 +9632,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_kw_uuid"
+          "name": "_type_uuid"
         },
         {
           "type": "STRING",
