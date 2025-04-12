@@ -16,7 +16,7 @@ module.exports = grammar({
 
     _statement: ($) => choice($.cql_commands),
 
-    _keywords: ($) =>
+    cql_keywords: ($) =>
       choice(
         $._kw_use,
         $._kw_alter,
