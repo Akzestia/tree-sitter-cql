@@ -39,15 +39,11 @@
           "named": true
         },
         {
+          "type": "table_option",
+          "named": true
+        },
+        {
           "type": "table_option_label",
-          "named": true
-        },
-        {
-          "type": "table_option_multi",
-          "named": true
-        },
-        {
-          "type": "table_option_single",
           "named": true
         }
       ]
@@ -221,7 +217,15 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "table_keyspace_name",
           "named": true
         },
         {
@@ -229,7 +233,7 @@
           "named": true
         },
         {
-          "type": "table_option_label",
+          "type": "table_option",
           "named": true
         },
         {
@@ -369,7 +373,7 @@
           "named": true
         },
         {
-          "type": "table_label",
+          "type": "table_keyspace_name",
           "named": true
         }
       ]
@@ -653,6 +657,52 @@
     }
   },
   {
+    "type": "table_keyspace_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "key_space_name",
+          "named": true
+        },
+        {
+          "type": "table_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table_option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "table_option_label",
+          "named": true
+        },
+        {
+          "type": "table_option_multi",
+          "named": true
+        },
+        {
+          "type": "table_option_single",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "table_option_label",
     "named": true,
     "fields": {},
@@ -680,11 +730,11 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "collection",
           "named": true
         },
         {
-          "type": "table_statement",
+          "type": "identifier",
           "named": true
         }
       ]
@@ -702,25 +752,6 @@
           "type": "identifier",
           "named": true
         },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "table_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
         {
           "type": "number",
           "named": true
@@ -866,11 +897,19 @@
     "named": false
   },
   {
+    "type": "ACCESS",
+    "named": false
+  },
+  {
     "type": "ADD",
     "named": false
   },
   {
     "type": "AGGREGATE",
+    "named": false
+  },
+  {
+    "type": "ALL",
     "named": false
   },
   {
@@ -926,7 +965,15 @@
     "named": false
   },
   {
+    "type": "CIDRS",
+    "named": false
+  },
+  {
     "type": "CLUSTERING",
+    "named": false
+  },
+  {
+    "type": "COLUMNS",
     "named": false
   },
   {
@@ -935,6 +982,10 @@
   },
   {
     "type": "COMPACT",
+    "named": false
+  },
+  {
+    "type": "CONFIG",
     "named": false
   },
   {
@@ -951,6 +1002,10 @@
   },
   {
     "type": "CUSTOM",
+    "named": false
+  },
+  {
+    "type": "DATACENTERS",
     "named": false
   },
   {
@@ -1178,6 +1233,10 @@
     "named": false
   },
   {
+    "type": "PROFILES",
+    "named": false
+  },
+  {
     "type": "RENAME",
     "named": false
   },
@@ -1354,11 +1413,19 @@
     "named": false
   },
   {
+    "type": "access",
+    "named": false
+  },
+  {
     "type": "add",
     "named": false
   },
   {
     "type": "aggregate",
+    "named": false
+  },
+  {
+    "type": "all",
     "named": false
   },
   {
@@ -1399,11 +1466,11 @@
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "boolean",
@@ -1418,6 +1485,10 @@
     "named": false
   },
   {
+    "type": "cidrs",
+    "named": false
+  },
+  {
     "type": "clustering",
     "named": false
   },
@@ -1426,11 +1497,19 @@
     "named": true
   },
   {
+    "type": "columns",
+    "named": false
+  },
+  {
     "type": "commit",
     "named": false
   },
   {
     "type": "compact",
+    "named": false
+  },
+  {
+    "type": "config",
     "named": false
   },
   {
@@ -1447,6 +1526,10 @@
   },
   {
     "type": "custom",
+    "named": false
+  },
+  {
+    "type": "datacenters",
     "named": false
   },
   {
@@ -1499,11 +1582,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "from",
@@ -1523,6 +1606,10 @@
   },
   {
     "type": "graph_engine",
+    "named": false
+  },
+  {
+    "type": "hashed",
     "named": false
   },
   {
@@ -1679,6 +1766,10 @@
   },
   {
     "type": "primary",
+    "named": false
+  },
+  {
+    "type": "profiles",
     "named": false
   },
   {
