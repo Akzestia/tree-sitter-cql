@@ -17,8 +17,8 @@
 | CREATE INDEX                | :white_check_mark: |
 | CREATE KEYSPACE             | :white_check_mark: |
 | CREATE MATERIALIZED VIEW    | :white_check_mark: |
-| CREATE ROLE                 | :x:                |
-| CREATE SEARCH INDEX         | :x:                |
+| CREATE ROLE                 | :white_check_mark: |
+| CREATE SEARCH INDEX         | :white_check_mark: |
 | CREATE TABLE                | :x:                |
 | CREATE TYPE                 | :x:                |
 | CREATE USER (Deprecated)    | :x:                |
