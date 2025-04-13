@@ -359,3 +359,5 @@
 [
   "$$"
 ] @string.special
+
+(comment) @comment
