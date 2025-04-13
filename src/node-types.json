@@ -552,8 +552,64 @@
         "required": true,
         "types": [
           {
+            "type": "AVG",
+            "named": false
+          },
+          {
+            "type": "COUNT",
+            "named": false
+          },
+          {
+            "type": "MAX",
+            "named": false
+          },
+          {
+            "type": "MIN",
+            "named": false
+          },
+          {
+            "type": "SUM",
+            "named": false
+          },
+          {
+            "type": "TOKEN",
+            "named": false
+          },
+          {
+            "type": "WRITETIME",
+            "named": false
+          },
+          {
+            "type": "avg",
+            "named": false
+          },
+          {
+            "type": "count",
+            "named": false
+          },
+          {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "max",
+            "named": false
+          },
+          {
+            "type": "min",
+            "named": false
+          },
+          {
+            "type": "sum",
+            "named": false
+          },
+          {
+            "type": "token",
+            "named": false
+          },
+          {
+            "type": "writetime",
+            "named": false
           }
         ]
       }
@@ -1208,6 +1264,10 @@
     "named": false
   },
   {
+    "type": "AVG",
+    "named": false
+  },
+  {
     "type": "BATCH",
     "named": false
   },
@@ -1261,6 +1321,10 @@
   },
   {
     "type": "CONTAINS",
+    "named": false
+  },
+  {
+    "type": "COUNT",
     "named": false
   },
   {
@@ -1496,11 +1560,19 @@
     "named": false
   },
   {
+    "type": "MAX",
+    "named": false
+  },
+  {
     "type": "MBEAN",
     "named": false
   },
   {
     "type": "MBEANS",
+    "named": false
+  },
+  {
+    "type": "MIN",
     "named": false
   },
   {
@@ -1648,6 +1720,10 @@
     "named": false
   },
   {
+    "type": "SUM",
+    "named": false
+  },
+  {
     "type": "SUPERUSER",
     "named": false
   },
@@ -1677,6 +1753,10 @@
   },
   {
     "type": "TO",
+    "named": false
+  },
+  {
+    "type": "TOKEN",
     "named": false
   },
   {
@@ -1760,6 +1840,10 @@
     "named": false
   },
   {
+    "type": "WRITETIME",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -1820,6 +1904,10 @@
     "named": false
   },
   {
+    "type": "avg",
+    "named": false
+  },
+  {
     "type": "batch",
     "named": false
   },
@@ -1833,11 +1921,11 @@
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "boolean",
@@ -1881,6 +1969,10 @@
   },
   {
     "type": "contains",
+    "named": false
+  },
+  {
+    "type": "count",
     "named": false
   },
   {
@@ -2136,11 +2228,19 @@
     "named": false
   },
   {
+    "type": "max",
+    "named": false
+  },
+  {
     "type": "mbean",
     "named": false
   },
   {
     "type": "mbeans",
+    "named": false
+  },
+  {
+    "type": "min",
     "named": false
   },
   {
@@ -2296,6 +2396,10 @@
     "named": false
   },
   {
+    "type": "sum",
+    "named": false
+  },
+  {
     "type": "superuser",
     "named": false
   },
@@ -2329,6 +2433,10 @@
   },
   {
     "type": "to",
+    "named": false
+  },
+  {
+    "type": "token",
     "named": false
   },
   {
@@ -2401,6 +2509,10 @@
   },
   {
     "type": "with",
+    "named": false
+  },
+  {
+    "type": "writetime",
     "named": false
   },
   {
