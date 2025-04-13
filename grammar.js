@@ -236,24 +236,52 @@ module.exports = grammar({
     _kw_token: ($) => choice("TOKEN", "token"),
     _kw_writetime: ($) => choice("WRITETIME", "writetime"),
     _kw_count: ($) => choice("COUNT", "count"),
-    // ----------------------------------------------------------
-    _kw_having: ($) => choice("HAVING", "having"), // X
-    _kw_any: ($) => choice("ANY", "any"), // X
-    _kw_columnfamily: ($) => choice("COLUMNFAMILY", "columnfamily"), // X
-    _kw_consistency: ($) => choice("CONSISTENCY", "consistency"), // X
-    _kw_each_quorum: ($) => choice("EACH_QUORUM", "each_quorum"), // X
-    _kw_infinity: ($) => choice("INFINITY", "infinity"), // X
-    _kw_level: ($) => choice("LEVEL", "level"), // X
-    _kw_local_one: ($) => choice("LOCAL_ONE", "local_one"), // X
-    _kw_local_quorum: ($) => choice("LOCAL_QUORUM", "local_quorum"), // X
-    _kw_nan: ($) => choice("NAN", "nan"), // X
-    _kw_one: ($) => choice("ONE", "one"), // X
-    _kw_quorum: ($) => choice("QUORUM", "quorum"), // X
-    _kw_schema: ($) => choice("SCHEMA", "schema"), // X
-    _kw_static: ($) => choice("STATIC", "static"), // X
-    _kw_three: ($) => choice("THREE", "three"), // X
-    _kw_two: ($) => choice("TWO", "two"), // X
-    _kw_permission: ($) => choice("PERMISSION", "permission"), // X
+    _kw_infinity: ($) => choice("INFINITY", "infinity"),
+    _kw_nan: ($) => choice("NAN", "nan"),
+    _kw_static: ($) => choice("STATIC", "static"),
+    _kw_any: ($) => choice("ANY", "any"),
+    _kw_having: ($) => choice("HAVING", "having"),
+    _kw_consistency: ($) => choice("CONSISTENCY", "consistency"),
+    _kw_level: ($) => choice("LEVEL", "level"),
+    _kw_one: ($) => choice("ONE", "one"),
+    _kw_two: ($) => choice("TWO", "two"),
+    _kw_three: ($) => choice("THREE", "three"),
+    _kw_quorum: ($) => choice("QUORUM", "quorum"),
+    _kw_local_one: ($) => choice("LOCAL_ONE", "local_one"),
+    _kw_local_quorum: ($) => choice("LOCAL_QUORUM", "local_quorum"),
+    _kw_each_quorum: ($) => choice("EACH_QUORUM", "each_quorum"),
+
+    // ---------[NOT SUPPORTED] | [DEPRECATED]-----------
+
+    // _kw_schema: ($) => choice("SCHEMA", "schema"), // Not supported
+    // _kw_columnfamily: ($) => choice("COLUMNFAMILY", "columnfamily"), // Not supported
+
+    _consistency_lvls: ($) =>
+      choice(
+        $._kw_one,
+        $._kw_two,
+        $._kw_three,
+        $._kw_quorum,
+        $._kw_local_one,
+        $._kw_local_quorum,
+        $._kw_each_quorum,
+      ),
+
+    _using_consistency_level: ($) =>
+      seq(
+        $._kw_using,
+        $._kw_consistency,
+        optional($._kw_level),
+        $._consistency_lvls,
+      ),
+
+    _consistency_level: ($) =>
+      seq(
+        $._kw_consistency,
+        optional($._kw_level),
+        $._consistency_lvls,
+        $.semi_colon,
+      ),
 
     cql_keyword: ($) =>
       choice(
@@ -386,24 +414,20 @@ module.exports = grammar({
         $._kw_min,
         $._kw_sum,
         $._kw_avg,
-        // -----------------------
-        $._kw_having,
         $._kw_any,
-        $._kw_columnfamily,
-        $._kw_consistency,
-        $._kw_each_quorum,
+        $._kw_nan,
         $._kw_infinity,
+        $._kw_static,
+        $._kw_consistency,
         $._kw_level,
         $._kw_local_one,
         $._kw_local_quorum,
-        $._kw_nan,
-        $._kw_one,
         $._kw_quorum,
-        $._kw_schema,
-        $._kw_static,
-        $._kw_three,
+        $._kw_each_quorum,
+        $._kw_one,
         $._kw_two,
-        $._kw_permission,
+        $._kw_three,
+        $._kw_having,
       ),
 
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
@@ -507,6 +531,7 @@ module.exports = grammar({
           repeat(seq($.dml_statement)),
           $._kw_apply,
           $._kw_batch,
+          optional($._using_consistency_level),
           $.semi_colon,
         ),
       ),
@@ -606,6 +631,7 @@ module.exports = grammar({
             ),
           ),
         ),
+        optional($._using_consistency_level),
         $.semi_colon,
       ),
     _insert: ($) =>
@@ -625,6 +651,7 @@ module.exports = grammar({
         ")",
         optional($._if_not_exists),
         optional($._using_ttl_or_timestamp),
+        optional($._using_consistency_level),
         $.semi_colon,
       ),
     _delete: ($) =>
@@ -673,6 +700,7 @@ module.exports = grammar({
             ),
           ),
         ),
+        optional($._using_consistency_level),
         $.semi_colon,
       ),
     _create_aggregate: ($) =>
@@ -994,7 +1022,7 @@ module.exports = grammar({
         $.table_keyspace_name,
         "(",
         optional(repeat($._column_definition)),
-        optional($._pk_main),
+        optional(choice($._pk_main, $._kw_static)),
         ")",
         repeat($._create_table_and_options),
         $.semi_colon,
@@ -1007,6 +1035,7 @@ module.exports = grammar({
         $._kw_from,
         $.table_keyspace_name,
         repeat($._conditions_select),
+        optional($._using_consistency_level),
         $.semi_colon,
       ),
 
@@ -1034,6 +1063,9 @@ module.exports = grammar({
                 optional(choice($._kw_asc, $._kw_desc)),
               ),
             ),
+          ),
+          optional(
+            seq($._kw_having, $.expression, $.if_conditions, $.expression),
           ),
         ),
         seq(
@@ -1433,6 +1465,7 @@ module.exports = grammar({
         $._truncate, // Working
         $._update, // Working
         $._use, // Working
+        $._consistency_level, // Working
       ),
 
     _using_ttl_or_timestamp: ($) =>
@@ -1529,6 +1562,7 @@ module.exports = grammar({
         $.identifier,
         $.collection,
         $.construct_types,
+        $.func_definition,
         seq("(", $.expression, ")"),
       ),
 
@@ -1553,6 +1587,7 @@ module.exports = grammar({
         $._kw_in,
         $._kw_contains,
         seq($._kw_contains, $._kw_key),
+        seq($._kw_contains, $._kw_any),
       ),
 
     alter_role_option_args: ($) =>
@@ -1670,7 +1705,8 @@ module.exports = grammar({
 
     bool_choice: ($) => choice("true", "false", "TRUE", "FALSE"),
 
-    numeric_constant: ($) => choice($.integer, $.float, "NaN", "Infinity"),
+    numeric_constant: ($) =>
+      choice($.integer, $.float, $._kw_nan, $._kw_infinity),
 
     integer: ($) => /-?\d+/,
 

@@ -808,6 +808,10 @@
           "named": true
         },
         {
+          "type": "func_definition",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1244,6 +1248,10 @@
     "named": false
   },
   {
+    "type": "ANY",
+    "named": false
+  },
+  {
     "type": "APPLY",
     "named": false
   },
@@ -1320,6 +1328,10 @@
     "named": false
   },
   {
+    "type": "CONSISTENCY",
+    "named": false
+  },
+  {
     "type": "CONTAINS",
     "named": false
   },
@@ -1381,6 +1393,10 @@
   },
   {
     "type": "DURABLE_WRITES",
+    "named": false
+  },
+  {
+    "type": "EACH_QUORUM",
     "named": false
   },
   {
@@ -1448,6 +1464,10 @@
     "named": false
   },
   {
+    "type": "HAVING",
+    "named": false
+  },
+  {
     "type": "ID",
     "named": false
   },
@@ -1465,6 +1485,10 @@
   },
   {
     "type": "INET",
+    "named": false
+  },
+  {
+    "type": "INFINITY",
     "named": false
   },
   {
@@ -1489,10 +1513,6 @@
   },
   {
     "type": "IS",
-    "named": false
-  },
-  {
-    "type": "Infinity",
     "named": false
   },
   {
@@ -1532,6 +1552,10 @@
     "named": false
   },
   {
+    "type": "LEVEL",
+    "named": false
+  },
+  {
     "type": "LIKE",
     "named": false
   },
@@ -1541,6 +1565,14 @@
   },
   {
     "type": "LIST",
+    "named": false
+  },
+  {
+    "type": "LOCAL_ONE",
+    "named": false
+  },
+  {
+    "type": "LOCAL_QUORUM",
     "named": false
   },
   {
@@ -1584,6 +1616,10 @@
     "named": false
   },
   {
+    "type": "NAN",
+    "named": false
+  },
+  {
     "type": "NORECURSIVE",
     "named": false
   },
@@ -1600,10 +1636,6 @@
     "named": false
   },
   {
-    "type": "NaN",
-    "named": false
-  },
-  {
     "type": "OF",
     "named": false
   },
@@ -1613,6 +1645,10 @@
   },
   {
     "type": "ON",
+    "named": false
+  },
+  {
+    "type": "ONE",
     "named": false
   },
   {
@@ -1657,6 +1693,10 @@
   },
   {
     "type": "PROXY",
+    "named": false
+  },
+  {
+    "type": "QUORUM",
     "named": false
   },
   {
@@ -1712,6 +1752,10 @@
     "named": false
   },
   {
+    "type": "STATIC",
+    "named": false
+  },
+  {
     "type": "STORAGE",
     "named": false
   },
@@ -1733,6 +1777,10 @@
   },
   {
     "type": "TEXT",
+    "named": false
+  },
+  {
+    "type": "THREE",
     "named": false
   },
   {
@@ -1773,6 +1821,10 @@
   },
   {
     "type": "TUPLE",
+    "named": false
+  },
+  {
+    "type": "TWO",
     "named": false
   },
   {
@@ -1884,6 +1936,10 @@
     "named": false
   },
   {
+    "type": "any",
+    "named": false
+  },
+  {
     "type": "apply",
     "named": false
   },
@@ -1968,6 +2024,10 @@
     "named": false
   },
   {
+    "type": "consistency",
+    "named": false
+  },
+  {
     "type": "contains",
     "named": false
   },
@@ -2029,6 +2089,10 @@
   },
   {
     "type": "durable_writes",
+    "named": false
+  },
+  {
+    "type": "each_quorum",
     "named": false
   },
   {
@@ -2104,6 +2168,10 @@
     "named": false
   },
   {
+    "type": "having",
+    "named": false
+  },
+  {
     "type": "id",
     "named": false
   },
@@ -2129,6 +2197,10 @@
   },
   {
     "type": "inet",
+    "named": false
+  },
+  {
+    "type": "infinity",
     "named": false
   },
   {
@@ -2192,6 +2264,10 @@
     "named": false
   },
   {
+    "type": "level",
+    "named": false
+  },
+  {
     "type": "like",
     "named": false
   },
@@ -2206,6 +2282,14 @@
   {
     "type": "list_identifier",
     "named": true
+  },
+  {
+    "type": "local_one",
+    "named": false
+  },
+  {
+    "type": "local_quorum",
+    "named": false
   },
   {
     "type": "logged",
@@ -2252,6 +2336,10 @@
     "named": false
   },
   {
+    "type": "nan",
+    "named": false
+  },
+  {
     "type": "norecursive",
     "named": false
   },
@@ -2277,6 +2365,10 @@
   },
   {
     "type": "on",
+    "named": false
+  },
+  {
+    "type": "one",
     "named": false
   },
   {
@@ -2321,6 +2413,10 @@
   },
   {
     "type": "proxy",
+    "named": false
+  },
+  {
+    "type": "quorum",
     "named": false
   },
   {
@@ -2384,6 +2480,10 @@
     "named": false
   },
   {
+    "type": "static",
+    "named": false
+  },
+  {
     "type": "storage",
     "named": false
   },
@@ -2413,6 +2513,10 @@
   },
   {
     "type": "text",
+    "named": false
+  },
+  {
+    "type": "three",
     "named": false
   },
   {
@@ -2453,6 +2557,10 @@
   },
   {
     "type": "tuple",
+    "named": false
+  },
+  {
+    "type": "two",
     "named": false
   },
   {
