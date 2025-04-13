@@ -1,4 +1,4 @@
-# Cql syntax highlighting for [Zed](https://zed.dev/)
+# Tree-Sitter grammar for CQL
 
 ### Reference docs [DataStax HCD](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html)
 
