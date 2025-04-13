@@ -241,3 +241,8 @@
 | UUID               | :white_check_mark: &nbsp; Implemented |
 | VARCHAR            | :white_check_mark: &nbsp; Implemented |
 | VARINT             | :white_check_mark: &nbsp; Implemented |
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
