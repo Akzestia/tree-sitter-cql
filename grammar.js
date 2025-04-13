@@ -11,6 +11,8 @@ module.exports = grammar({
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
+  inline: ($, original) => original.concat([$.cql_keyword]),
+
   rules: {
     source_file: ($) => repeat($._statement),
 
@@ -229,28 +231,178 @@ module.exports = grammar({
     _kw_ann: ($) => choice("ANN", "ann"),
     _kw_offset: ($) => choice("OFFSET", "offset"),
     _kw_list: ($) => choice("LIST", "list"),
-    // _kw_having: ($) => choice("HAVING", "having"), // X
-    // _kw_max: ($) => choice("MAX", "max"), // X
-    // _kw_min: ($) => choice("MIN", "min"), // X
-    // _kw_sum: ($) => choice("SUM", "sum"), // X
-    // _kw_avg: ($) => choice("AVG", "avg"), // X
-    // _kw_any: ($) => choice("ANY", "any"), // X
-    // _kw_columnfamily: ($) => choice("COLUMNFAMILY", "columnfamily"), // X
-    // _kw_consistency: ($) => choice("CONSISTENCY", "consistency"), // X
-    // _kw_each_quorum: ($) => choice("EACH_QUORUM", "each_quorum"), // X
-    // _kw_infinity: ($) => choice("INFINITY", "infinity"), // X
-    // _kw_level: ($) => choice("LEVEL", "level"), // X
-    // _kw_local_one: ($) => choice("LOCAL_ONE", "local_one"), // X
-    // _kw_local_quorum: ($) => choice("LOCAL_QUORUM", "local_quorum"), // X
-    // _kw_nan: ($) => choice("NAN", "nan"), // X
-    // _kw_one: ($) => choice("ONE", "one"), // X
-    // _kw_quorum: ($) => choice("QUORUM", "quorum"), // X
-    // _kw_schema: ($) => choice("SCHEMA", "schema"), // X
-    // _kw_static: ($) => choice("STATIC", "static"), // X
-    // _kw_three: ($) => choice("THREE", "three"), // X
-    // _kw_two: ($) => choice("TWO", "two"), // X
-    // _kw_token: ($) => choice("TOKEN", "token"), // X
-    // _kw_writetime: ($) => choice("WRITETIME", "writetime"), // X
+    _kw_having: ($) => choice("HAVING", "having"), // X
+    _kw_max: ($) => choice("MAX", "max"), // X
+    _kw_min: ($) => choice("MIN", "min"), // X
+    _kw_sum: ($) => choice("SUM", "sum"), // X
+    _kw_avg: ($) => choice("AVG", "avg"), // X
+    _kw_any: ($) => choice("ANY", "any"), // X
+    _kw_columnfamily: ($) => choice("COLUMNFAMILY", "columnfamily"), // X
+    _kw_consistency: ($) => choice("CONSISTENCY", "consistency"), // X
+    _kw_each_quorum: ($) => choice("EACH_QUORUM", "each_quorum"), // X
+    _kw_infinity: ($) => choice("INFINITY", "infinity"), // X
+    _kw_level: ($) => choice("LEVEL", "level"), // X
+    _kw_local_one: ($) => choice("LOCAL_ONE", "local_one"), // X
+    _kw_local_quorum: ($) => choice("LOCAL_QUORUM", "local_quorum"), // X
+    _kw_nan: ($) => choice("NAN", "nan"), // X
+    _kw_one: ($) => choice("ONE", "one"), // X
+    _kw_quorum: ($) => choice("QUORUM", "quorum"), // X
+    _kw_schema: ($) => choice("SCHEMA", "schema"), // X
+    _kw_static: ($) => choice("STATIC", "static"), // X
+    _kw_three: ($) => choice("THREE", "three"), // X
+    _kw_two: ($) => choice("TWO", "two"), // X
+    _kw_token: ($) => choice("TOKEN", "token"), // X
+    _kw_writetime: ($) => choice("WRITETIME", "writetime"), // X
+
+    cql_keyword: ($) =>
+      choice(
+        $._kw_use,
+        $._kw_alter,
+        $._kw_create,
+        $._kw_keyspace,
+        $._kw_table,
+        $._kw_with,
+        $._kw_where,
+        $._kw_if,
+        $._kw_and,
+        $._kw_set,
+        $._kw_in,
+        $._kw_to,
+        $._kw_from,
+        $._kw_using,
+        $._kw_timestamp,
+        $._kw_ttl,
+        $._kw_exists,
+        $._kw_not,
+        $._kw_type,
+        $._kw_view,
+        $._kw_materialized,
+        $._kw_replication,
+        $._kw_durable_writes,
+        $._kw_batch,
+        $._kw_apply,
+        $._kw_begin,
+        $._kw_unlogged,
+        $._kw_logged,
+        $._kw_counter,
+        $._kw_truncate,
+        $._kw_insert,
+        $._kw_into,
+        $._kw_values,
+        $._kw_update,
+        $._kw_delete,
+        $._kw_role,
+        $._kw_password,
+        $._kw_user,
+        $._kw_superuser,
+        $._kw_nosuperuser,
+        $._kw_add,
+        $._kw_drop,
+        $._kw_rename,
+        $._kw_compact,
+        $._kw_storage,
+        $._kw_contains,
+        $._kw_key,
+        $._kw_login,
+        $._kw_options,
+        $._kw_or,
+        $._kw_replace,
+        $._kw_sfunc,
+        $._kw_stype,
+        $._kw_final_func,
+        $._kw_init_cond,
+        $._kw_language,
+        $._kw_input,
+        $._kw_on,
+        $._kw_function,
+        $._kw_called,
+        $._kw_returns,
+        $._kw_filtering,
+        $._kw_distinct,
+        $._kw_as,
+        $._kw_keys,
+        $._kw_group,
+        $._kw_by,
+        $._kw_json,
+        $._kw_null,
+        $._kw_count,
+        $._kw_custom,
+        $._kw_aggregate,
+        $._kw_all,
+        $._kw_allow,
+        $._kw_asc,
+        $._kw_authorize,
+        $._kw_clustering,
+        $._kw_desc,
+        $._kw_describe,
+        $._kw_entries,
+        $._kw_full,
+        $._kw_grant,
+        $._kw_index,
+        $._kw_keyspaces,
+        $._kw_limit,
+        $._kw_modify,
+        $._kw_norecursive,
+        $._kw_of,
+        $._kw_order,
+        $._kw_partition,
+        $._kw_per,
+        $._kw_permission,
+        $._kw_permissions,
+        $._kw_primary,
+        $._kw_revoke,
+        $._kw_select,
+        $._kw_users,
+        $._kw_commit,
+        $._kw_search,
+        $._kw_roles,
+        $._kw_deterministic,
+        $._kw_monotonic,
+        $._kw_java,
+        $._kw_java_script,
+        $._kw_is,
+        $._kw_hashed,
+        $._kw_access,
+        $._kw_dcs,
+        $._kw_cidrs,
+        $._kw_columns,
+        $._kw_profiles,
+        $._kw_config,
+        $._kw_rows,
+        $._kw_functions,
+        $._kw_mbeans,
+        $._kw_mbean,
+        $._kw_pattern,
+        $._kw_execute,
+        $._kw_proxy,
+        $._kw_id,
+        $._kw_like,
+        $._kw_ann,
+        $._kw_offset,
+        $._kw_list,
+        $._kw_having,
+        $._kw_max,
+        $._kw_min,
+        $._kw_sum,
+        $._kw_avg,
+        $._kw_any,
+        $._kw_columnfamily,
+        $._kw_consistency,
+        $._kw_each_quorum,
+        $._kw_infinity,
+        $._kw_level,
+        $._kw_local_one,
+        $._kw_local_quorum,
+        $._kw_nan,
+        $._kw_one,
+        $._kw_quorum,
+        $._kw_schema,
+        $._kw_static,
+        $._kw_three,
+        $._kw_two,
+        $._kw_token,
+        $._kw_writetime,
+      ),
 
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
 
