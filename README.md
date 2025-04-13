@@ -14,9 +14,6 @@
 ### [Zed](https://zed.dev/)
 🔗 [zed-cql on GitHub](https://github.com/Akzestia/zed-cql)
 
-
-<br/>
-
 ### 📋 CQL Commands
 
 | Command                    | Status                                 |
