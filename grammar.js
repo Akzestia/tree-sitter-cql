@@ -7,11 +7,37 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [/\s/],
+  extras: ($) => [
+    /\s/,
+    $._kw_having,
+    $._kw_max,
+    $._kw_min,
+    $._kw_sum,
+    $._kw_avg,
+    $._kw_any,
+    $._kw_columnfamily,
+    $._kw_consistency,
+    $._kw_each_quorum,
+    $._kw_infinity,
+    $._kw_level,
+    $._kw_local_one,
+    $._kw_local_quorum,
+    $._kw_nan,
+    $._kw_one,
+    $._kw_quorum,
+    $._kw_schema,
+    $._kw_static,
+    $._kw_three,
+    $._kw_two,
+    $._kw_token,
+    $._kw_writetime,
+    $._kw_count,
+    $._kw_permission,
+  ],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
-  inline: ($) => [$.cql_keyword],
+  word: ($) => $.identifier,
 
   rules: {
     source_file: ($) => repeat($._statement),
@@ -175,7 +201,6 @@ module.exports = grammar({
     _kw_by: ($) => choice("BY", "by"),
     _kw_json: ($) => choice("JSON", "json"),
     _kw_null: ($) => choice("NULL", "null"),
-    _kw_count: ($) => choice("COUNT", "count"),
     _kw_custom: ($) => choice("CUSTOM", "custom"),
     _kw_aggregate: ($) => choice("AGGREGATE", "aggregate"),
     _kw_all: ($) => choice("ALL", "all"),
@@ -198,7 +223,6 @@ module.exports = grammar({
     _kw_order: ($) => choice("ORDER", "order"),
     _kw_partition: ($) => choice("PARTITION", "partition"),
     _kw_per: ($) => choice("PER", "per"),
-    _kw_permission: ($) => choice("PERMISSION", "permission"),
     _kw_permissions: ($) => choice("PERMISSIONS", "permissions"),
     _kw_primary: ($) => choice("PRIMARY", "primary"),
     _kw_revoke: ($) => choice("REVOKE", "revoke"),
@@ -231,28 +255,31 @@ module.exports = grammar({
     _kw_ann: ($) => choice("ANN", "ann"),
     _kw_offset: ($) => choice("OFFSET", "offset"),
     _kw_list: ($) => choice("LIST", "list"),
-    _kw_having: ($) => choice("HAVING", "having"), // X
-    _kw_max: ($) => choice("MAX", "max"), // X
-    _kw_min: ($) => choice("MIN", "min"), // X
-    _kw_sum: ($) => choice("SUM", "sum"), // X
-    _kw_avg: ($) => choice("AVG", "avg"), // X
-    _kw_any: ($) => choice("ANY", "any"), // X
-    _kw_columnfamily: ($) => choice("COLUMNFAMILY", "columnfamily"), // X
-    _kw_consistency: ($) => choice("CONSISTENCY", "consistency"), // X
-    _kw_each_quorum: ($) => choice("EACH_QUORUM", "each_quorum"), // X
-    _kw_infinity: ($) => choice("INFINITY", "infinity"), // X
-    _kw_level: ($) => choice("LEVEL", "level"), // X
-    _kw_local_one: ($) => choice("LOCAL_ONE", "local_one"), // X
-    _kw_local_quorum: ($) => choice("LOCAL_QUORUM", "local_quorum"), // X
-    _kw_nan: ($) => choice("NAN", "nan"), // X
-    _kw_one: ($) => choice("ONE", "one"), // X
-    _kw_quorum: ($) => choice("QUORUM", "quorum"), // X
-    _kw_schema: ($) => choice("SCHEMA", "schema"), // X
-    _kw_static: ($) => choice("STATIC", "static"), // X
-    _kw_three: ($) => choice("THREE", "three"), // X
-    _kw_two: ($) => choice("TWO", "two"), // X
-    _kw_token: ($) => choice("TOKEN", "token"), // X
-    _kw_writetime: ($) => choice("WRITETIME", "writetime"), // X
+    // ----------------------------------------------------------
+    _kw_having: ($) => token(choice("HAVING", "having")), // X
+    _kw_max: ($) => token(choice("MAX", "max")), // X
+    _kw_min: ($) => token(choice("MIN", "min")), // X
+    _kw_sum: ($) => token(choice("SUM", "sum")), // X
+    _kw_avg: ($) => token(choice("AVG", "avg")), // X
+    _kw_any: ($) => token(choice("ANY", "any")), // X
+    _kw_columnfamily: ($) => token(choice("COLUMNFAMILY", "columnfamily")), // X
+    _kw_consistency: ($) => token(choice("CONSISTENCY", "consistency")), // X
+    _kw_each_quorum: ($) => token(choice("EACH_QUORUM", "each_quorum")), // X
+    _kw_infinity: ($) => token(choice("INFINITY", "infinity")), // X
+    _kw_level: ($) => token(choice("LEVEL", "level")), // X
+    _kw_local_one: ($) => token(choice("LOCAL_ONE", "local_one")), // X
+    _kw_local_quorum: ($) => token(choice("LOCAL_QUORUM", "local_quorum")), // X
+    _kw_nan: ($) => token(choice("NAN", "nan")), // X
+    _kw_one: ($) => token(choice("ONE", "one")), // X
+    _kw_quorum: ($) => token(choice("QUORUM", "quorum")), // X
+    _kw_schema: ($) => token(choice("SCHEMA", "schema")), // X
+    _kw_static: ($) => token(choice("STATIC", "static")), // X
+    _kw_three: ($) => token(choice("THREE", "three")), // X
+    _kw_two: ($) => token(choice("TWO", "two")), // X
+    _kw_token: ($) => token(choice("TOKEN", "token")), // X
+    _kw_writetime: ($) => token(choice("WRITETIME", "writetime")), // X
+    _kw_count: ($) => token(choice("COUNT", "count")), // X
+    _kw_permission: ($) => token(choice("PERMISSION", "permission")), // X
 
     cql_keyword: ($) =>
       choice(
@@ -325,7 +352,6 @@ module.exports = grammar({
         $._kw_by,
         $._kw_json,
         $._kw_null,
-        $._kw_count,
         $._kw_custom,
         $._kw_aggregate,
         $._kw_all,
@@ -347,7 +373,6 @@ module.exports = grammar({
         $._kw_order,
         $._kw_partition,
         $._kw_per,
-        $._kw_permission,
         $._kw_permissions,
         $._kw_primary,
         $._kw_revoke,
@@ -380,6 +405,7 @@ module.exports = grammar({
         $._kw_ann,
         $._kw_offset,
         $._kw_list,
+        // -----------------------
         $._kw_having,
         $._kw_max,
         $._kw_min,
@@ -402,6 +428,8 @@ module.exports = grammar({
         $._kw_two,
         $._kw_token,
         $._kw_writetime,
+        $._kw_count,
+        $._kw_permission,
       ),
 
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
