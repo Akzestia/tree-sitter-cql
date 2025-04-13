@@ -7,16 +7,22 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [/\s/],
+  extras: ($) => [/\s|\\\r?\n/, $.comment],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) => repeat($._statement),
+    source_file: ($) => repeat(choice($._statement, $.comment)),
 
     _statement: ($) => choice($.cql_commands),
+
+    comment: ($) => choice($.line_comment, $.block_comment),
+
+    line_comment: ($) => token(seq(choice("--", "//"), /.*/)),
+
+    block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),
     _type_bigint: ($) => choice("BIGINT", "bigint"),
