@@ -3,6 +3,12 @@
 > [!TIP]
 > Reference docs [DataStax HCD](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html)
 
+## Features
+
+✅ &nbsp; Full CQL 3.4+ support  
+✅ &nbsp; Syntax highlighting  
+✅ &nbsp; Zed Editor integration  
+
 ## IDE Integration
 
 ### [Zed](https://zed.dev/)
