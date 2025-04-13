@@ -186,6 +186,10 @@
           "named": true
         },
         {
+          "type": "cql_keywords",
+          "named": true
+        },
+        {
           "type": "cql_types_union",
           "named": true
         },
@@ -283,6 +287,16 @@
         }
       ]
     }
+  },
+  {
+    "type": "cql_keyword",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "cql_keywords",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "cql_types",
@@ -1026,6 +1040,10 @@
     "named": false
   },
   {
+    "type": "$$$$$$",
+    "named": false
+  },
+  {
     "type": "%",
     "named": false
   },
@@ -1154,6 +1172,10 @@
     "named": false
   },
   {
+    "type": "ANY",
+    "named": false
+  },
+  {
     "type": "APPLY",
     "named": false
   },
@@ -1171,6 +1193,10 @@
   },
   {
     "type": "AUTHORIZE",
+    "named": false
+  },
+  {
+    "type": "AVG",
     "named": false
   },
   {
@@ -1210,6 +1236,10 @@
     "named": false
   },
   {
+    "type": "COLUMNFAMILY",
+    "named": false
+  },
+  {
     "type": "COLUMNS",
     "named": false
   },
@@ -1226,7 +1256,15 @@
     "named": false
   },
   {
+    "type": "CONSISTENCY",
+    "named": false
+  },
+  {
     "type": "CONTAINS",
+    "named": false
+  },
+  {
+    "type": "COUNT",
     "named": false
   },
   {
@@ -1283,6 +1321,10 @@
   },
   {
     "type": "DURABLE_WRITES",
+    "named": false
+  },
+  {
+    "type": "EACH_QUORUM",
     "named": false
   },
   {
@@ -1350,6 +1392,10 @@
     "named": false
   },
   {
+    "type": "HAVING",
+    "named": false
+  },
+  {
     "type": "ID",
     "named": false
   },
@@ -1367,6 +1413,10 @@
   },
   {
     "type": "INET",
+    "named": false
+  },
+  {
+    "type": "INFINITY",
     "named": false
   },
   {
@@ -1434,6 +1484,10 @@
     "named": false
   },
   {
+    "type": "LEVEL",
+    "named": false
+  },
+  {
     "type": "LIKE",
     "named": false
   },
@@ -1443,6 +1497,14 @@
   },
   {
     "type": "LIST",
+    "named": false
+  },
+  {
+    "type": "LOCAL_ONE",
+    "named": false
+  },
+  {
+    "type": "LOCAL_QUORUM",
     "named": false
   },
   {
@@ -1462,6 +1524,10 @@
     "named": false
   },
   {
+    "type": "MAX",
+    "named": false
+  },
+  {
     "type": "MBEAN",
     "named": false
   },
@@ -1470,11 +1536,19 @@
     "named": false
   },
   {
+    "type": "MIN",
+    "named": false
+  },
+  {
     "type": "MODIFY",
     "named": false
   },
   {
     "type": "MONOTONIC",
+    "named": false
+  },
+  {
+    "type": "NAN",
     "named": false
   },
   {
@@ -1510,6 +1584,10 @@
     "named": false
   },
   {
+    "type": "ONE",
+    "named": false
+  },
+  {
     "type": "OPTIONS",
     "named": false
   },
@@ -1538,6 +1616,10 @@
     "named": false
   },
   {
+    "type": "PERMISSION",
+    "named": false
+  },
+  {
     "type": "PERMISSIONS",
     "named": false
   },
@@ -1551,6 +1633,10 @@
   },
   {
     "type": "PROXY",
+    "named": false
+  },
+  {
+    "type": "QUORUM",
     "named": false
   },
   {
@@ -1586,6 +1672,10 @@
     "named": false
   },
   {
+    "type": "SCHEMA",
+    "named": false
+  },
+  {
     "type": "SEARCH",
     "named": false
   },
@@ -1606,11 +1696,19 @@
     "named": false
   },
   {
+    "type": "STATIC",
+    "named": false
+  },
+  {
     "type": "STORAGE",
     "named": false
   },
   {
     "type": "STYPE",
+    "named": false
+  },
+  {
+    "type": "SUM",
     "named": false
   },
   {
@@ -1623,6 +1721,10 @@
   },
   {
     "type": "TEXT",
+    "named": false
+  },
+  {
+    "type": "THREE",
     "named": false
   },
   {
@@ -1646,6 +1748,10 @@
     "named": false
   },
   {
+    "type": "TOKEN",
+    "named": false
+  },
+  {
     "type": "TRUE",
     "named": false
   },
@@ -1659,6 +1765,10 @@
   },
   {
     "type": "TUPLE",
+    "named": false
+  },
+  {
+    "type": "TWO",
     "named": false
   },
   {
@@ -1726,6 +1836,10 @@
     "named": false
   },
   {
+    "type": "WRITETIME",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -1766,6 +1880,10 @@
     "named": false
   },
   {
+    "type": "any",
+    "named": false
+  },
+  {
     "type": "apply",
     "named": false
   },
@@ -1786,6 +1904,10 @@
     "named": false
   },
   {
+    "type": "avg",
+    "named": false
+  },
+  {
     "type": "batch",
     "named": false
   },
@@ -1799,11 +1921,11 @@
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "boolean",
@@ -1830,6 +1952,10 @@
     "named": true
   },
   {
+    "type": "columnfamily",
+    "named": false
+  },
+  {
     "type": "columns",
     "named": false
   },
@@ -1846,7 +1972,15 @@
     "named": false
   },
   {
+    "type": "consistency",
+    "named": false
+  },
+  {
     "type": "contains",
+    "named": false
+  },
+  {
+    "type": "count",
     "named": false
   },
   {
@@ -1906,6 +2040,10 @@
     "named": false
   },
   {
+    "type": "each_quorum",
+    "named": false
+  },
+  {
     "type": "entries",
     "named": false
   },
@@ -1935,11 +2073,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "from",
@@ -1978,6 +2116,10 @@
     "named": false
   },
   {
+    "type": "having",
+    "named": false
+  },
+  {
     "type": "id",
     "named": false
   },
@@ -2003,6 +2145,10 @@
   },
   {
     "type": "inet",
+    "named": false
+  },
+  {
+    "type": "infinity",
     "named": false
   },
   {
@@ -2070,6 +2216,10 @@
     "named": false
   },
   {
+    "type": "level",
+    "named": false
+  },
+  {
     "type": "like",
     "named": false
   },
@@ -2084,6 +2234,14 @@
   {
     "type": "list_identifier",
     "named": true
+  },
+  {
+    "type": "local_one",
+    "named": false
+  },
+  {
+    "type": "local_quorum",
+    "named": false
   },
   {
     "type": "logged",
@@ -2106,6 +2264,10 @@
     "named": false
   },
   {
+    "type": "max",
+    "named": false
+  },
+  {
     "type": "mbean",
     "named": false
   },
@@ -2114,11 +2276,19 @@
     "named": false
   },
   {
+    "type": "min",
+    "named": false
+  },
+  {
     "type": "modify",
     "named": false
   },
   {
     "type": "monotonic",
+    "named": false
+  },
+  {
+    "type": "nan",
     "named": false
   },
   {
@@ -2150,6 +2320,10 @@
     "named": false
   },
   {
+    "type": "one",
+    "named": false
+  },
+  {
     "type": "options",
     "named": false
   },
@@ -2178,6 +2352,10 @@
     "named": false
   },
   {
+    "type": "permission",
+    "named": false
+  },
+  {
     "type": "permissions",
     "named": false
   },
@@ -2191,6 +2369,10 @@
   },
   {
     "type": "proxy",
+    "named": false
+  },
+  {
+    "type": "quorum",
     "named": false
   },
   {
@@ -2230,6 +2412,10 @@
     "named": false
   },
   {
+    "type": "schema",
+    "named": false
+  },
+  {
     "type": "searh",
     "named": false
   },
@@ -2254,6 +2440,10 @@
     "named": false
   },
   {
+    "type": "static",
+    "named": false
+  },
+  {
     "type": "storage",
     "named": false
   },
@@ -2263,6 +2453,10 @@
   },
   {
     "type": "stype",
+    "named": false
+  },
+  {
+    "type": "sum",
     "named": false
   },
   {
@@ -2279,6 +2473,10 @@
   },
   {
     "type": "text",
+    "named": false
+  },
+  {
+    "type": "three",
     "named": false
   },
   {
@@ -2302,6 +2500,10 @@
     "named": false
   },
   {
+    "type": "token",
+    "named": false
+  },
+  {
     "type": "true",
     "named": false
   },
@@ -2315,6 +2517,10 @@
   },
   {
     "type": "tuple",
+    "named": false
+  },
+  {
+    "type": "two",
     "named": false
   },
   {
@@ -2371,6 +2577,10 @@
   },
   {
     "type": "with",
+    "named": false
+  },
+  {
+    "type": "writetime",
     "named": false
   },
   {

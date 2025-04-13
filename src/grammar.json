@@ -2533,31 +2533,16 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_use"
-          },
-          "named": false,
-          "value": "cql_keyword"
+          "type": "SYMBOL",
+          "name": "_kw_use"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_alter"
-          },
-          "named": false,
-          "value": "cql_keyword"
+          "type": "SYMBOL",
+          "name": "_kw_alter"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_create"
-          },
-          "named": false,
-          "value": "cql_keyword"
+          "type": "SYMBOL",
+          "name": "_kw_create"
         },
         {
           "type": "ALIAS",
@@ -3839,12 +3824,21 @@
         }
       ]
     },
-    "cql_words_union": {
-      "type": "CHOICE",
+    "_use_cql_keywrods": {
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "cql_keywords"
+          "type": "STRING",
+          "value": "$$$$$$"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "cql_keywords"
+            }
+          ]
         }
       ]
     },
@@ -9735,6 +9729,10 @@
         {
           "type": "SYMBOL",
           "name": "_use"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_use_cql_keywrods"
         }
       ]
     },

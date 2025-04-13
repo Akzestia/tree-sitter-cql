@@ -254,9 +254,9 @@ module.exports = grammar({
 
     cql_keywords: ($) =>
       choice(
-        alias($._kw_use, "cql_keyword"),
-        alias($._kw_alter, "cql_keyword"),
-        alias($._kw_create, "cql_keyword"),
+        $._kw_use,
+        $._kw_alter,
+        $._kw_create,
         alias($._kw_keyspace, "cql_keyword"),
         alias($._kw_table, "cql_keyword"),
         alias($._kw_with, "cql_keyword"),
@@ -401,7 +401,7 @@ module.exports = grammar({
         alias($._kw_offset, "cql_keyword"),
       ),
 
-    cql_words_union: ($) => choice($.cql_keywords),
+    _use_cql_keywrods: ($) => seq("$$$$$$", choice($.cql_keywords)),
 
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
 
@@ -1430,6 +1430,7 @@ module.exports = grammar({
         $._truncate, // Working
         $._update, // Working
         $._use, // Working
+        $._use_cql_keywrods,
       ),
 
     _using_ttl_or_timestamp: ($) =>
