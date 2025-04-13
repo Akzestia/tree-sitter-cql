@@ -11,7 +11,7 @@ module.exports = grammar({
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
-  inline: ($, original) => original.concat([$.cql_keyword]),
+  inline: ($) => [$.cql_keyword],
 
   rules: {
     source_file: ($) => repeat($._statement),
