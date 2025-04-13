@@ -1502,19 +1502,6 @@
         }
       ]
     },
-    "_kw_having": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "HAVING"
-        },
-        {
-          "type": "STRING",
-          "value": "having"
-        }
-      ]
-    },
     "_kw_json": {
       "type": "CHOICE",
       "members": [
@@ -1580,58 +1567,6 @@
         }
       ]
     },
-    "_kw_max": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "MAX"
-        },
-        {
-          "type": "STRING",
-          "value": "max"
-        }
-      ]
-    },
-    "_kw_min": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "MIN"
-        },
-        {
-          "type": "STRING",
-          "value": "min"
-        }
-      ]
-    },
-    "_kw_sum": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "SUM"
-        },
-        {
-          "type": "STRING",
-          "value": "sum"
-        }
-      ]
-    },
-    "_kw_avg": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "AVG"
-        },
-        {
-          "type": "STRING",
-          "value": "avg"
-        }
-      ]
-    },
     "_kw_custom": {
       "type": "CHOICE",
       "members": [
@@ -1684,19 +1619,6 @@
         }
       ]
     },
-    "_kw_any": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "ANY"
-        },
-        {
-          "type": "STRING",
-          "value": "any"
-        }
-      ]
-    },
     "_kw_asc": {
       "type": "CHOICE",
       "members": [
@@ -1736,32 +1658,6 @@
         }
       ]
     },
-    "_kw_columnfamily": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "COLUMNFAMILY"
-        },
-        {
-          "type": "STRING",
-          "value": "columnfamily"
-        }
-      ]
-    },
-    "_kw_consistency": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "CONSISTENCY"
-        },
-        {
-          "type": "STRING",
-          "value": "consistency"
-        }
-      ]
-    },
     "_kw_desc": {
       "type": "CHOICE",
       "members": [
@@ -1785,19 +1681,6 @@
         {
           "type": "STRING",
           "value": "describe"
-        }
-      ]
-    },
-    "_kw_each_quorum": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "EACH_QUORUM"
-        },
-        {
-          "type": "STRING",
-          "value": "each_quorum"
         }
       ]
     },
@@ -1853,19 +1736,6 @@
         }
       ]
     },
-    "_kw_infinity": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "INFINITY"
-        },
-        {
-          "type": "STRING",
-          "value": "infinity"
-        }
-      ]
-    },
     "_kw_keyspaces": {
       "type": "CHOICE",
       "members": [
@@ -1876,19 +1746,6 @@
         {
           "type": "STRING",
           "value": "keyspaces"
-        }
-      ]
-    },
-    "_kw_level": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "LEVEL"
-        },
-        {
-          "type": "STRING",
-          "value": "level"
         }
       ]
     },
@@ -1905,32 +1762,6 @@
         }
       ]
     },
-    "_kw_local_one": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "LOCAL_ONE"
-        },
-        {
-          "type": "STRING",
-          "value": "local_one"
-        }
-      ]
-    },
-    "_kw_local_quorum": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "LOCAL_QUORUM"
-        },
-        {
-          "type": "STRING",
-          "value": "local_quorum"
-        }
-      ]
-    },
     "_kw_modify": {
       "type": "CHOICE",
       "members": [
@@ -1941,19 +1772,6 @@
         {
           "type": "STRING",
           "value": "modify"
-        }
-      ]
-    },
-    "_kw_nan": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "NAN"
-        },
-        {
-          "type": "STRING",
-          "value": "nan"
         }
       ]
     },
@@ -1980,19 +1798,6 @@
         {
           "type": "STRING",
           "value": "of"
-        }
-      ]
-    },
-    "_kw_one": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "ONE"
-        },
-        {
-          "type": "STRING",
-          "value": "one"
         }
       ]
     },
@@ -2074,19 +1879,6 @@
         }
       ]
     },
-    "_kw_quorum": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "QUORUM"
-        },
-        {
-          "type": "STRING",
-          "value": "quorum"
-        }
-      ]
-    },
     "_kw_revoke": {
       "type": "CHOICE",
       "members": [
@@ -2100,19 +1892,6 @@
         }
       ]
     },
-    "_kw_schema": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "SCHEMA"
-        },
-        {
-          "type": "STRING",
-          "value": "schema"
-        }
-      ]
-    },
     "_kw_select": {
       "type": "CHOICE",
       "members": [
@@ -2123,45 +1902,6 @@
         {
           "type": "STRING",
           "value": "select"
-        }
-      ]
-    },
-    "_kw_static": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "STATIC"
-        },
-        {
-          "type": "STRING",
-          "value": "static"
-        }
-      ]
-    },
-    "_kw_three": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "THREE"
-        },
-        {
-          "type": "STRING",
-          "value": "three"
-        }
-      ]
-    },
-    "_kw_two": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "TWO"
-        },
-        {
-          "type": "STRING",
-          "value": "two"
         }
       ]
     },
@@ -2545,1300 +2285,500 @@
           "name": "_kw_create"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_keyspace"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_table"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_with"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_where"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_if"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_and"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_set"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_in"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_to"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_from"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_using"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_timestamp"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_ttl"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_exists"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_not"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_type"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_view"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_materialized"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_replication"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_durable_writes"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_batch"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_apply"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_begin"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_unlogged"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_logged"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_counter"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_truncate"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_insert"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_into"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_values"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_update"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_delete"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_role"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_password"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_user"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_superuser"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_nosuperuser"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_add"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_drop"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_rename"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_compact"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_storage"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_contains"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_key"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_login"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_options"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_or"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_replace"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_sfunc"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_stype"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_final_func"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_init_cond"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_language"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_input"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_on"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_function"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_called"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_returns"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_filtering"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_distinct"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_as"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_keys"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_group"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_by"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_having"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_json"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_null"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_token"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_writetime"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_count"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_max"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_min"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_sum"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_avg"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_custom"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_aggregate"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_all"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_allow"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_any"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_asc"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_authorize"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_clustering"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_columnfamily"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_consistency"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_desc"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_describe"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_each_quorum"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_entries"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_full"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_grant"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_index"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_infinity"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_keyspaces"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_level"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_limit"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_local_one"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_local_quorum"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_modify"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_nan"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_norecursive"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_of"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_one"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_order"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_partition"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_per"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_permission"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_permissions"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_primary"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_quorum"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_revoke"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_schema"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_select"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_static"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_three"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_two"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_users"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_commit"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_search"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_roles"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_deterministic"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_monotonic"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_java"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_java_script"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_is"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_hashed"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_access"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_dcs"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_cidrs"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_columns"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_profiles"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_config"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_rows"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_functions"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_mbeans"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_mbean"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_pattern"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_execute"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_proxy"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_id"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_like"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_ann"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_kw_offset"
-          },
-          "named": false,
-          "value": "cql_keyword"
-        }
-      ]
-    },
-    "_use_cql_keywrods": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "$$$$$$"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "cql_keywords"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_kw_keyspace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_table"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_with"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_where"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_and"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_set"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_to"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_from"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_using"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_timestamp"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_ttl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_exists"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_not"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_view"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_materialized"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_replication"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_durable_writes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_batch"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_apply"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_begin"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_unlogged"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_logged"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_counter"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_truncate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_insert"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_into"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_values"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_update"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_delete"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_role"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_password"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_user"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_superuser"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_nosuperuser"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_add"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_drop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_rename"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_compact"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_storage"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_contains"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_key"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_login"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_options"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_or"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_replace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_sfunc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_stype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_final_func"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_init_cond"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_language"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_input"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_on"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_function"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_called"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_returns"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_filtering"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_distinct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_as"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_keys"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_group"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_by"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_json"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_null"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_token"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_writetime"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_count"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_custom"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_aggregate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_all"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_allow"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_asc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_authorize"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_by"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_clustering"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_desc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_describe"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_entries"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_full"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_grant"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_index"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_keyspaces"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_limit"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_modify"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_norecursive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_of"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_order"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_partition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_per"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_permission"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_permissions"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_primary"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_revoke"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_select"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_users"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_commit"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_search"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_roles"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_deterministic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_monotonic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_java"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_java_script"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_is"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_hashed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_access"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_dcs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_cidrs"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_columns"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_profiles"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_config"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_rows"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_functions"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_mbeans"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_mbean"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_pattern"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_execute"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_proxy"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_like"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_ann"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_offset"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_list"
         }
       ]
     },
@@ -9729,10 +8669,6 @@
         {
           "type": "SYMBOL",
           "name": "_use"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_use_cql_keywrods"
         }
       ]
     },
