@@ -229,12 +229,15 @@ module.exports = grammar({
     _kw_ann: ($) => choice("ANN", "ann"),
     _kw_offset: ($) => choice("OFFSET", "offset"),
     _kw_list: ($) => choice("LIST", "list"),
+    _kw_max: ($) => choice("MAX", "max"),
+    _kw_min: ($) => choice("MIN", "min"),
+    _kw_sum: ($) => choice("SUM", "sum"),
+    _kw_avg: ($) => choice("AVG", "avg"),
+    _kw_token: ($) => choice("TOKEN", "token"),
+    _kw_writetime: ($) => choice("WRITETIME", "writetime"),
+    _kw_count: ($) => choice("COUNT", "count"),
     // ----------------------------------------------------------
     _kw_having: ($) => choice("HAVING", "having"), // X
-    _kw_max: ($) => choice("MAX", "max"), // X
-    _kw_min: ($) => choice("MIN", "min"), // X
-    _kw_sum: ($) => choice("SUM", "sum"), // X
-    _kw_avg: ($) => choice("AVG", "avg"), // X
     _kw_any: ($) => choice("ANY", "any"), // X
     _kw_columnfamily: ($) => choice("COLUMNFAMILY", "columnfamily"), // X
     _kw_consistency: ($) => choice("CONSISTENCY", "consistency"), // X
@@ -250,9 +253,6 @@ module.exports = grammar({
     _kw_static: ($) => choice("STATIC", "static"), // X
     _kw_three: ($) => choice("THREE", "three"), // X
     _kw_two: ($) => choice("TWO", "two"), // X
-    _kw_token: ($) => choice("TOKEN", "token"), // X
-    _kw_writetime: ($) => choice("WRITETIME", "writetime"), // X
-    _kw_count: ($) => choice("COUNT", "count"), // X
     _kw_permission: ($) => choice("PERMISSION", "permission"), // X
 
     cql_keyword: ($) =>
@@ -379,12 +379,15 @@ module.exports = grammar({
         $._kw_ann,
         $._kw_offset,
         $._kw_list,
-        // -----------------------
-        $._kw_having,
+        $._kw_token,
+        $._kw_writetime,
+        $._kw_count,
         $._kw_max,
         $._kw_min,
         $._kw_sum,
         $._kw_avg,
+        // -----------------------
+        $._kw_having,
         $._kw_any,
         $._kw_columnfamily,
         $._kw_consistency,
@@ -400,9 +403,6 @@ module.exports = grammar({
         $._kw_static,
         $._kw_three,
         $._kw_two,
-        $._kw_token,
-        $._kw_writetime,
-        $._kw_count,
         $._kw_permission,
       ),
 

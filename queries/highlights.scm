@@ -122,6 +122,13 @@
     "ANN" "ann"
     "OFFSET" "offset"
     "LIST" "list"
+    "COUNT" "count"
+    "MAX" "max"
+    "MIN" "min"
+    "SUM" "sum"
+    "AVG" "avg"
+    "WRITETIME" "writetime"
+    "TOKEN" "token"
 ] @keyword
 
 [

@@ -2218,19 +2218,6 @@
         }
       ]
     },
-    "_kw_having": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "HAVING"
-        },
-        {
-          "type": "STRING",
-          "value": "having"
-        }
-      ]
-    },
     "_kw_max": {
       "type": "CHOICE",
       "members": [
@@ -2280,6 +2267,58 @@
         {
           "type": "STRING",
           "value": "avg"
+        }
+      ]
+    },
+    "_kw_token": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "TOKEN"
+        },
+        {
+          "type": "STRING",
+          "value": "token"
+        }
+      ]
+    },
+    "_kw_writetime": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "WRITETIME"
+        },
+        {
+          "type": "STRING",
+          "value": "writetime"
+        }
+      ]
+    },
+    "_kw_count": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "COUNT"
+        },
+        {
+          "type": "STRING",
+          "value": "count"
+        }
+      ]
+    },
+    "_kw_having": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "HAVING"
+        },
+        {
+          "type": "STRING",
+          "value": "having"
         }
       ]
     },
@@ -2475,45 +2514,6 @@
         {
           "type": "STRING",
           "value": "two"
-        }
-      ]
-    },
-    "_kw_token": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "TOKEN"
-        },
-        {
-          "type": "STRING",
-          "value": "token"
-        }
-      ]
-    },
-    "_kw_writetime": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "WRITETIME"
-        },
-        {
-          "type": "STRING",
-          "value": "writetime"
-        }
-      ]
-    },
-    "_kw_count": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "COUNT"
-        },
-        {
-          "type": "STRING",
-          "value": "count"
         }
       ]
     },
@@ -3023,7 +3023,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_kw_having"
+          "name": "_kw_token"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_writetime"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_count"
         },
         {
           "type": "SYMBOL",
@@ -3040,6 +3048,10 @@
         {
           "type": "SYMBOL",
           "name": "_kw_avg"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_kw_having"
         },
         {
           "type": "SYMBOL",
@@ -3100,18 +3112,6 @@
         {
           "type": "SYMBOL",
           "name": "_kw_two"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_token"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_writetime"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_kw_count"
         },
         {
           "type": "SYMBOL",
