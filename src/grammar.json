@@ -10565,8 +10565,41 @@
           "type": "FIELD",
           "name": "function_name",
           "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_kw_count"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_kw_max"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_kw_min"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_kw_sum"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_kw_avg"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_kw_writetime"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_kw_token"
+              }
+            ]
           }
         },
         {

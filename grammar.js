@@ -1711,7 +1711,19 @@ module.exports = grammar({
 
     func_definition: ($) =>
       seq(
-        field("function_name", $.identifier),
+        field(
+          "function_name",
+          choice(
+            $.identifier,
+            $._kw_count,
+            $._kw_max,
+            $._kw_min,
+            $._kw_sum,
+            $._kw_avg,
+            $._kw_writetime,
+            $._kw_token,
+          ),
+        ),
         "(",
         optional(
           seq(
