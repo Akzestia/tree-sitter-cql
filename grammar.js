@@ -1680,11 +1680,14 @@ module.exports = grammar({
 
     quoted_identifier: ($) => /"(?:[^"\\]|\\.)*"/,
 
-    // table."label"
-    table_label: ($) => /[a-zA-Z0-9_]+\.\"(?:[^"\\]|\\.)*\"/,
+    // table."label" /[a-zA-Z0-9_]+\.\"(?:[^"\\]|\\.)*\"/
 
-    // keysapce.table
-    key_space_name: ($) => /[a-zA-Z0-9_]+\.[a-zA-Z0-9_]+/,
+    table_label_part: ($) => /\"(?:[^"\\]|\\.)*\"/,
+
+    table_label: ($) => seq($.identifier, ".", $.table_label_part),
+
+    // keysapce.table /[a-zA-Z0-9_]+\.[a-zA-Z0-9_]+/,
+    key_space_name: ($) => seq($.identifier, ".", $.identifier),
 
     // name[N]
     indexed_name: ($) => /[a-zA-Z_][a-zA-Z0-9_]*\[\d+\]/,

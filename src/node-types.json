@@ -594,6 +594,21 @@
     }
   },
   {
+    "type": "key_space_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "list",
     "named": true,
     "fields": {},
@@ -891,6 +906,25 @@
         },
         {
           "type": "table_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table_label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "table_label_part",
           "named": true
         }
       ]
@@ -1799,11 +1833,11 @@
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "boolean",
@@ -1935,11 +1969,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "from",
@@ -2048,10 +2082,6 @@
   {
     "type": "key",
     "named": false
-  },
-  {
-    "type": "key_space_name",
-    "named": true
   },
   {
     "type": "keys",
@@ -2274,7 +2304,7 @@
     "named": false
   },
   {
-    "type": "table_label",
+    "type": "table_label_part",
     "named": true
   },
   {

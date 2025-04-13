@@ -10432,13 +10432,43 @@
       "type": "PATTERN",
       "value": "\"(?:[^\"\\\\]|\\\\.)*\""
     },
-    "table_label": {
+    "table_label_part": {
       "type": "PATTERN",
-      "value": "[a-zA-Z0-9_]+\\.\\\"(?:[^\"\\\\]|\\\\.)*\\\""
+      "value": "\\\"(?:[^\"\\\\]|\\\\.)*\\\""
+    },
+    "table_label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "table_label_part"
+        }
+      ]
     },
     "key_space_name": {
-      "type": "PATTERN",
-      "value": "[a-zA-Z0-9_]+\\.[a-zA-Z0-9_]+"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "indexed_name": {
       "type": "PATTERN",
