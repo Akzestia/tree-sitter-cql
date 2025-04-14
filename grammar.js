@@ -1688,6 +1688,7 @@ module.exports = grammar({
           $.identifier,
           $.quoted_identifier,
           $.integer,
+          $.float,
           $.string_literal,
           $.uuid,
           $.timeuuid,

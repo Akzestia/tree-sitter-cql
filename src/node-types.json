@@ -715,6 +715,10 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },

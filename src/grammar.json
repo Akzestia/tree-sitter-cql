@@ -10444,6 +10444,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "float"
+          },
+          {
+            "type": "SYMBOL",
             "name": "string_literal"
           },
           {
