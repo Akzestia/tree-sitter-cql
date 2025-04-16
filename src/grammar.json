@@ -10799,8 +10799,8 @@
                             "name": "identifier"
                           },
                           {
-                            "type": "STRING",
-                            "value": "AS"
+                            "type": "SYMBOL",
+                            "name": "_kw_as"
                           },
                           {
                             "type": "CHOICE",
@@ -10859,8 +10859,8 @@
                                   "name": "identifier"
                                 },
                                 {
-                                  "type": "STRING",
-                                  "value": "AS"
+                                  "type": "SYMBOL",
+                                  "name": "_kw_as"
                                 },
                                 {
                                   "type": "CHOICE",

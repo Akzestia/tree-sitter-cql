@@ -1771,7 +1771,7 @@ module.exports = grammar({
                 $.literal,
                 $.cql_types_union,
                 "*",
-                seq($.identifier, "AS", choice($.identifier, $.cql_types)),
+                seq($.identifier, $._kw_as, choice($.identifier, $.cql_types)),
               ),
             ),
             repeat(
@@ -1784,7 +1784,11 @@ module.exports = grammar({
                     $.literal,
                     $.cql_types_union,
                     "*",
-                    seq($.identifier, "AS", choice($.identifier, $.cql_types)),
+                    seq(
+                      $.identifier,
+                      $._kw_as,
+                      choice($.identifier, $.cql_types),
+                    ),
                   ),
                 ),
               ),

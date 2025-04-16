@@ -549,6 +549,10 @@
             "named": false
           },
           {
+            "type": "as",
+            "named": false
+          },
+          {
             "type": "cql_types",
             "named": true
           },
