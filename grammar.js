@@ -1737,18 +1737,23 @@ module.exports = grammar({
 
     selectors: ($) =>
       choice(
+        field("selector_normal", seq($.literal, optional($.comma_separated))),
         field(
-          "selector_normal",
-          seq(
-            $.literal,
-            optional(seq($._kw_as, $.literal)),
-            optional($.comma_separated),
-          ),
+          "selector_normal_as_modified",
+          seq($.literal, seq($._kw_as, $.literal), optional($.comma_separated)),
         ),
         field("selector_star", "*"),
         field(
           "selector_func",
           seq($.func_definition, optional($.comma_separated)),
+        ),
+        field(
+          "selector_func_as_modified",
+          seq(
+            $.func_definition,
+            seq($._kw_as, $.literal),
+            optional($.comma_separated),
+          ),
         ),
       ),
 

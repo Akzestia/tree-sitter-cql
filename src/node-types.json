@@ -984,7 +984,47 @@
           }
         ]
       },
+      "selector_func_as_modified": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "AS",
+            "named": false
+          },
+          {
+            "type": "as",
+            "named": false
+          },
+          {
+            "type": "comma_separated",
+            "named": true
+          },
+          {
+            "type": "func_definition",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          }
+        ]
+      },
       "selector_normal": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "comma_separated",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          }
+        ]
+      },
+      "selector_normal_as_modified": {
         "multiple": true,
         "required": false,
         "types": [

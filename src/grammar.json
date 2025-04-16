@@ -10660,20 +10660,37 @@
                 "type": "CHOICE",
                 "members": [
                   {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_kw_as"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "literal"
-                      }
-                    ]
+                    "type": "SYMBOL",
+                    "name": "comma_separated"
                   },
                   {
                     "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "selector_normal_as_modified",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "literal"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_kw_as"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "literal"
                   }
                 ]
               },
@@ -10709,6 +10726,44 @@
               {
                 "type": "SYMBOL",
                 "name": "func_definition"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "comma_separated"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "selector_func_as_modified",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "func_definition"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_kw_as"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "literal"
+                  }
+                ]
               },
               {
                 "type": "CHOICE",
