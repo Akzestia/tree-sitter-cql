@@ -295,6 +295,7 @@
 [
   ","
   "."
+  (semi_colon)
 ] @punctuation.delimiter
 
 [
@@ -366,3 +367,19 @@
     (integer) @number)
 (literal
     (float) @number)
+
+((identifier) @constant
+  (#match? @number "^[-]?[0-9]+(\\.[0-9]+([eE][+-]?[0-9]+)?)?$"))
+
+((literal) @constant
+  (#match? @number "^[-]?[0-9]+(\\.[0-9]+([eE][+-]?[0-9]+)?)?$"))
+
+((literal) @type
+  (#match? @type "^(ascii|bigint|blob|boolean|counter|date|decimal|double|duration|float|inet|int|smallint|text|time|timestamp|timeuuid|tinyint|uuid|varchar|varint)$"))
+
+(bool_choice) @variable.special
+
+(table_label_part) @string
+
+((string_literal) @string
+  (#match? @string "^'(Core|Classic)'$"))
