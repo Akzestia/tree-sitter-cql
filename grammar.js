@@ -1762,14 +1762,14 @@ module.exports = grammar({
         field(
           "function_name",
           choice(
-            field("func_name_custom", $.identifier),
-            field("func_count", $._kw_count),
-            field("func_max", $._kw_max),
-            field("func_minx", $._kw_min),
-            field("func_sum", $._kw_sum),
-            field("func_avg", $._kw_avg),
-            field("func_writetime", $._kw_writetime),
-            field("func_token", $._kw_token),
+            $.identifier,
+            $._kw_count,
+            $._kw_max,
+            $._kw_min,
+            $._kw_sum,
+            $._kw_avg,
+            $._kw_writetime,
+            $._kw_token,
           ),
         ),
         "(",
@@ -1778,13 +1778,10 @@ module.exports = grammar({
             field(
               "argument",
               choice(
-                field("normal_argument", $.literal),
-                field("type_argument", $.cql_types_union),
-                field("star_argument", "*"),
-                field(
-                  "AS_modified",
-                  seq($.literal, $._kw_as, choice($.identifier, $.cql_types)),
-                ),
+                $.literal,
+                $.cql_types_union,
+                "*",
+                seq($.literal, $._kw_as, choice($.identifier, $.cql_types)),
               ),
             ),
             repeat(
