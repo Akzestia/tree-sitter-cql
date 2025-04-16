@@ -1693,7 +1693,7 @@ module.exports = grammar({
       ),
 
     table_keyspace_name: ($) =>
-      choice($.key_space_name, $.table_label, $.identifier, "*"),
+      choice($.key_space_name, $.table_label, $.identifier, $.wild_card),
 
     string: ($) => choice($.string_literal, $.quoted_identifier),
 
@@ -1783,7 +1783,7 @@ module.exports = grammar({
               choice(
                 $.literal,
                 $.cql_types_union,
-                "*",
+                $.wild_card,
                 seq($.literal, $._kw_as, choice($.identifier, $.cql_types)),
               ),
             ),
@@ -1795,7 +1795,7 @@ module.exports = grammar({
                   choice(
                     $.literal,
                     $.cql_types_union,
-                    "*",
+                    $.wild_card,
 
                     seq($.literal, $._kw_as, choice($.identifier, $.cql_types)),
                   ),

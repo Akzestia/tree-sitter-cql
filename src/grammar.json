@@ -10480,8 +10480,8 @@
           "name": "identifier"
         },
         {
-          "type": "STRING",
-          "value": "*"
+          "type": "SYMBOL",
+          "name": "wild_card"
         }
       ]
     },
@@ -10851,8 +10851,8 @@
                         "name": "cql_types_union"
                       },
                       {
-                        "type": "STRING",
-                        "value": "*"
+                        "type": "SYMBOL",
+                        "name": "wild_card"
                       },
                       {
                         "type": "SEQ",
@@ -10907,8 +10907,8 @@
                               "name": "cql_types_union"
                             },
                             {
-                              "type": "STRING",
-                              "value": "*"
+                              "type": "SYMBOL",
+                              "name": "wild_card"
                             },
                             {
                               "type": "SEQ",

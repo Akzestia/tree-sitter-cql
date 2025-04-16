@@ -541,10 +541,6 @@
         "required": false,
         "types": [
           {
-            "type": "*",
-            "named": false
-          },
-          {
             "type": "AS",
             "named": false
           },
@@ -566,6 +562,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "wild_card",
             "named": true
           }
         ]
@@ -1054,7 +1054,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "identifier",
@@ -1066,6 +1066,10 @@
         },
         {
           "type": "table_label",
+          "named": true
+        },
+        {
+          "type": "wild_card",
           "named": true
         }
       ]
