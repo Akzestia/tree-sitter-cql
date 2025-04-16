@@ -526,6 +526,10 @@
           "named": true
         },
         {
+          "type": "operator_multiplication",
+          "named": true
+        },
+        {
           "type": "primary_expression",
           "named": true
         }
@@ -813,6 +817,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "operator_multiplication",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "primary_expression",

@@ -1552,7 +1552,11 @@ module.exports = grammar({
           ),
           prec.left(
             1,
-            seq($.expression, choice("*", "/", "%"), $.primary_expression),
+            seq(
+              $.expression,
+              choice($.operator_multiplication, "/", "%"),
+              $.primary_expression,
+            ),
           ),
         ),
       ),
@@ -1576,6 +1580,8 @@ module.exports = grammar({
         $.cql_types_constructor_map,
         $.uuid_construct,
       ),
+
+    operator_multiplication: ($) => "*",
 
     if_conditions: ($) =>
       choice(
