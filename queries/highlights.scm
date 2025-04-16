@@ -338,24 +338,21 @@
 ] @variable.special
 
 ; Types
-(cql_types_union) @type
+[
+    (cql_types_union)
+    (cql_types_constructor_list)
+    (cql_types_constructor_tuple)
+    (cql_types_constructor_map)
+    (cql_types_constructor_frozen)
+    (cql_types_constructor_set)
+] @type
 (uuid_construct) @constructor
-
-; Functions
-(func_definition) @function
-
-(func_definition
-  (identifier) @function)
-
-(func_definition
-  "*" @variable.special)
-
-(func_definition
-  (literal) @variable.special)
 
 ; Strings
 (string_literal) @string
 (quoted_identifier) @string
+
+(identifier) @variable
 
 ; Embeded code blocks
 [
@@ -372,7 +369,7 @@
     (float) @number)
 
 ; Integers inside identifier
-((identifier) @constant
+((identifier) @variable
   (#match? @number "^[-]?[0-9]+(\\.[0-9]+([eE][+-]?[0-9]+)?)?$"))
 
 ; Integers inside literal
@@ -394,3 +391,18 @@
 
 ; Embeded JS & JAVA code
 (code_block) @embedded
+
+; Functions
+
+(func_definition) @function
+
+(func_definition
+    function_name: (identifier) @function
+    argument: (literal (identifier) @property)
+)
+
+; Selectors
+(selectors
+  selector_normal:
+    (literal (identifier) @constant)
+)
