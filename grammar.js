@@ -1790,17 +1790,11 @@ module.exports = grammar({
                 field(
                   "argument",
                   choice(
-                    field("normal_argument", $.literal),
-                    field("type_argument", $.cql_types_union),
-                    field("star_argument", "*"),
-                    field(
-                      "AS_modified",
-                      seq(
-                        $.literal,
-                        $._kw_as,
-                        choice($.identifier, $.cql_types),
-                      ),
-                    ),
+                    $.literal,
+                    $.cql_types_union,
+                    "*",
+
+                    seq($.literal, $._kw_as, choice($.identifier, $.cql_types)),
                   ),
                 ),
               ),

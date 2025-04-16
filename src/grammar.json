@@ -10899,58 +10899,42 @@
                           "type": "CHOICE",
                           "members": [
                             {
-                              "type": "FIELD",
-                              "name": "normal_argument",
-                              "content": {
-                                "type": "SYMBOL",
-                                "name": "literal"
-                              }
+                              "type": "SYMBOL",
+                              "name": "literal"
                             },
                             {
-                              "type": "FIELD",
-                              "name": "type_argument",
-                              "content": {
-                                "type": "SYMBOL",
-                                "name": "cql_types_union"
-                              }
+                              "type": "SYMBOL",
+                              "name": "cql_types_union"
                             },
                             {
-                              "type": "FIELD",
-                              "name": "star_argument",
-                              "content": {
-                                "type": "STRING",
-                                "value": "*"
-                              }
+                              "type": "STRING",
+                              "value": "*"
                             },
                             {
-                              "type": "FIELD",
-                              "name": "AS_modified",
-                              "content": {
-                                "type": "SEQ",
-                                "members": [
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "literal"
-                                  },
-                                  {
-                                    "type": "SYMBOL",
-                                    "name": "_kw_as"
-                                  },
-                                  {
-                                    "type": "CHOICE",
-                                    "members": [
-                                      {
-                                        "type": "SYMBOL",
-                                        "name": "identifier"
-                                      },
-                                      {
-                                        "type": "SYMBOL",
-                                        "name": "cql_types"
-                                      }
-                                    ]
-                                  }
-                                ]
-                              }
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "literal"
+                                },
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "_kw_as"
+                                },
+                                {
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "identifier"
+                                    },
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "cql_types"
+                                    }
+                                  ]
+                                }
+                              ]
                             }
                           ]
                         }

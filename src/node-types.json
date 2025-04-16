@@ -536,32 +536,6 @@
     "type": "func_definition",
     "named": true,
     "fields": {
-      "AS_modified": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "AS",
-            "named": false
-          },
-          {
-            "type": "as",
-            "named": false
-          },
-          {
-            "type": "cql_types",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          }
-        ]
-      },
       "argument": {
         "multiple": true,
         "required": false,
@@ -659,36 +633,6 @@
           {
             "type": "writetime",
             "named": false
-          }
-        ]
-      },
-      "normal_argument": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "literal",
-            "named": true
-          }
-        ]
-      },
-      "star_argument": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "*",
-            "named": false
-          }
-        ]
-      },
-      "type_argument": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "cql_types_union",
-            "named": true
           }
         ]
       }
