@@ -436,6 +436,10 @@ module.exports = grammar({
         $._kw_having,
       ),
 
+    //-----------[HELPER TYPES]-----------------
+    _graph_engine: ($) => "graph_engine",
+    _graph_engine_type: ($) => choice("'Core'", "'Classic'"),
+
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
 
     _alter_keyspace: ($) =>
@@ -453,12 +457,7 @@ module.exports = grammar({
           seq($._kw_and, $._kw_durable_writes, $.equal_sign, $.bool_choice),
         ),
         optional(
-          seq(
-            $._kw_and,
-            "graph_engine",
-            $.equal_sign,
-            choice("'Core'", "'Classic'"),
-          ),
+          seq($._kw_and, $._graph_engine, $.equal_sign, $._graph_engine_type),
         ),
         $.semi_colon,
       ),
@@ -819,12 +818,7 @@ module.exports = grammar({
           seq($._kw_and, $._kw_durable_writes, $.equal_sign, $.bool_choice),
         ),
         optional(
-          seq(
-            $._kw_and,
-            "graph_engine",
-            $.equal_sign,
-            choice("'Core'", "'Classic'"),
-          ),
+          seq($._kw_and, $._graph_engine, $.equal_sign, $._graph_engine_type),
         ),
         $.semi_colon,
       ),
