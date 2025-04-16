@@ -10639,6 +10639,10 @@
       "type": "STRING",
       "value": "="
     },
+    "wild_card": {
+      "type": "STRING",
+      "value": "*"
+    },
     "selectors": {
       "type": "CHOICE",
       "members": [
@@ -10707,10 +10711,10 @@
         },
         {
           "type": "FIELD",
-          "name": "selector_star",
+          "name": "selector_wildcard",
           "content": {
-            "type": "STRING",
-            "value": "*"
+            "type": "SYMBOL",
+            "name": "wild_card"
           }
         },
         {

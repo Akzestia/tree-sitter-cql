@@ -982,13 +982,13 @@
           }
         ]
       },
-      "selector_star": {
+      "selector_wildcard": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "*",
-            "named": false
+            "type": "wild_card",
+            "named": true
           }
         ]
       }
@@ -1210,6 +1210,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "wild_card",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "!=",
@@ -2077,11 +2082,11 @@
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "block_comment",
@@ -2229,11 +2234,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "from",
