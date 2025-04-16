@@ -3226,6 +3226,23 @@
         }
       ]
     },
+    "_graph_engine": {
+      "type": "STRING",
+      "value": "graph_engine"
+    },
+    "_graph_engine_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'Core'"
+        },
+        {
+          "type": "STRING",
+          "value": "'Classic'"
+        }
+      ]
+    },
     "_use": {
       "type": "SEQ",
       "members": [
@@ -3334,25 +3351,16 @@
                   "name": "_kw_and"
                 },
                 {
-                  "type": "STRING",
-                  "value": "graph_engine"
+                  "type": "SYMBOL",
+                  "name": "_graph_engine"
                 },
                 {
                   "type": "SYMBOL",
                   "name": "equal_sign"
                 },
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "'Core'"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "'Classic'"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_graph_engine_type"
                 }
               ]
             },
@@ -5439,25 +5447,16 @@
                   "name": "_kw_and"
                 },
                 {
-                  "type": "STRING",
-                  "value": "graph_engine"
+                  "type": "SYMBOL",
+                  "name": "_graph_engine"
                 },
                 {
                   "type": "SYMBOL",
                   "name": "equal_sign"
                 },
                 {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "'Core'"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "'Classic'"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_graph_engine_type"
                 }
               ]
             },

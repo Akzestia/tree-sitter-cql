@@ -2004,11 +2004,11 @@
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "block_comment",
@@ -2156,11 +2156,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "from",
