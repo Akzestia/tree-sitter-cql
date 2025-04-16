@@ -536,14 +536,10 @@
     "type": "func_definition",
     "named": true,
     "fields": {
-      "argument": {
+      "AS_modified": {
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": "*",
-            "named": false
-          },
           {
             "type": "AS",
             "named": false
@@ -557,10 +553,6 @@
             "named": true
           },
           {
-            "type": "cql_types_union",
-            "named": true
-          },
-          {
             "type": "identifier",
             "named": true
           },
@@ -570,69 +562,141 @@
           }
         ]
       },
-      "function_name": {
+      "func_avg": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "AVG",
             "named": false
           },
           {
-            "type": "COUNT",
-            "named": false
-          },
-          {
-            "type": "MAX",
-            "named": false
-          },
-          {
-            "type": "MIN",
-            "named": false
-          },
-          {
-            "type": "SUM",
-            "named": false
-          },
-          {
-            "type": "TOKEN",
-            "named": false
-          },
-          {
-            "type": "WRITETIME",
-            "named": false
-          },
-          {
             "type": "avg",
+            "named": false
+          }
+        ]
+      },
+      "func_count": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "COUNT",
             "named": false
           },
           {
             "type": "count",
             "named": false
-          },
+          }
+        ]
+      },
+      "func_max": {
+        "multiple": false,
+        "required": false,
+        "types": [
           {
-            "type": "identifier",
-            "named": true
+            "type": "MAX",
+            "named": false
           },
           {
             "type": "max",
+            "named": false
+          }
+        ]
+      },
+      "func_minx": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "MIN",
             "named": false
           },
           {
             "type": "min",
             "named": false
+          }
+        ]
+      },
+      "func_name_custom": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "func_sum": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "SUM",
+            "named": false
           },
           {
             "type": "sum",
+            "named": false
+          }
+        ]
+      },
+      "func_token": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "TOKEN",
             "named": false
           },
           {
             "type": "token",
             "named": false
+          }
+        ]
+      },
+      "func_writetime": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "WRITETIME",
+            "named": false
           },
           {
             "type": "writetime",
             "named": false
+          }
+        ]
+      },
+      "normal_argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "literal",
+            "named": true
+          }
+        ]
+      },
+      "star_argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "*",
+            "named": false
+          }
+        ]
+      },
+      "type_argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "cql_types_union",
+            "named": true
           }
         ]
       }
@@ -905,24 +969,53 @@
   {
     "type": "selectors",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "comma_separated",
-          "named": true
-        },
-        {
-          "type": "func_definition",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        }
-      ]
+    "fields": {
+      "selector_func": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "comma_separated",
+            "named": true
+          },
+          {
+            "type": "func_definition",
+            "named": true
+          }
+        ]
+      },
+      "selector_normal": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "AS",
+            "named": false
+          },
+          {
+            "type": "as",
+            "named": false
+          },
+          {
+            "type": "comma_separated",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          }
+        ]
+      },
+      "selector_star": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "*",
+            "named": false
+          }
+        ]
+      }
     }
   },
   {

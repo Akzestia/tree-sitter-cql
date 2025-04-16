@@ -10647,71 +10647,83 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "literal"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_kw_as"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "literal"
-                    }
-                  ]
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "comma_separated"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
+          "type": "FIELD",
+          "name": "selector_normal",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "literal"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_kw_as"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "literal"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "comma_separated"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
-          "type": "STRING",
-          "value": "*"
+          "type": "FIELD",
+          "name": "selector_star",
+          "content": {
+            "type": "STRING",
+            "value": "*"
+          }
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "func_definition"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "comma_separated"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          ]
+          "type": "FIELD",
+          "name": "selector_func",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "func_definition"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "comma_separated"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
         }
       ]
     },
@@ -10725,36 +10737,68 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "identifier"
+                "type": "FIELD",
+                "name": "func_name_custom",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_kw_count"
+                "type": "FIELD",
+                "name": "func_count",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_kw_count"
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_kw_max"
+                "type": "FIELD",
+                "name": "func_max",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_kw_max"
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_kw_min"
+                "type": "FIELD",
+                "name": "func_minx",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_kw_min"
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_kw_sum"
+                "type": "FIELD",
+                "name": "func_sum",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_kw_sum"
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_kw_avg"
+                "type": "FIELD",
+                "name": "func_avg",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_kw_avg"
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_kw_writetime"
+                "type": "FIELD",
+                "name": "func_writetime",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_kw_writetime"
+                }
               },
               {
-                "type": "SYMBOL",
-                "name": "_kw_token"
+                "type": "FIELD",
+                "name": "func_token",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_kw_token"
+                }
               }
             ]
           }
@@ -10776,46 +10820,58 @@
                     "type": "CHOICE",
                     "members": [
                       {
-                        "type": "SYMBOL",
-                        "name": "identifier"
+                        "type": "FIELD",
+                        "name": "normal_argument",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "literal"
+                        }
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "literal"
+                        "type": "FIELD",
+                        "name": "type_argument",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "cql_types_union"
+                        }
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "cql_types_union"
+                        "type": "FIELD",
+                        "name": "star_argument",
+                        "content": {
+                          "type": "STRING",
+                          "value": "*"
+                        }
                       },
                       {
-                        "type": "STRING",
-                        "value": "*"
-                      },
-                      {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "SYMBOL",
-                            "name": "identifier"
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "_kw_as"
-                          },
-                          {
-                            "type": "CHOICE",
-                            "members": [
-                              {
-                                "type": "SYMBOL",
-                                "name": "identifier"
-                              },
-                              {
-                                "type": "SYMBOL",
-                                "name": "cql_types"
-                              }
-                            ]
-                          }
-                        ]
+                        "type": "FIELD",
+                        "name": "AS_modified",
+                        "content": {
+                          "type": "SEQ",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "literal"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "_kw_as"
+                            },
+                            {
+                              "type": "CHOICE",
+                              "members": [
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "identifier"
+                                },
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "cql_types"
+                                }
+                              ]
+                            }
+                          ]
+                        }
                       }
                     ]
                   }
@@ -10836,46 +10892,58 @@
                           "type": "CHOICE",
                           "members": [
                             {
-                              "type": "SYMBOL",
-                              "name": "identifier"
+                              "type": "FIELD",
+                              "name": "normal_argument",
+                              "content": {
+                                "type": "SYMBOL",
+                                "name": "literal"
+                              }
                             },
                             {
-                              "type": "SYMBOL",
-                              "name": "literal"
+                              "type": "FIELD",
+                              "name": "type_argument",
+                              "content": {
+                                "type": "SYMBOL",
+                                "name": "cql_types_union"
+                              }
                             },
                             {
-                              "type": "SYMBOL",
-                              "name": "cql_types_union"
+                              "type": "FIELD",
+                              "name": "star_argument",
+                              "content": {
+                                "type": "STRING",
+                                "value": "*"
+                              }
                             },
                             {
-                              "type": "STRING",
-                              "value": "*"
-                            },
-                            {
-                              "type": "SEQ",
-                              "members": [
-                                {
-                                  "type": "SYMBOL",
-                                  "name": "identifier"
-                                },
-                                {
-                                  "type": "SYMBOL",
-                                  "name": "_kw_as"
-                                },
-                                {
-                                  "type": "CHOICE",
-                                  "members": [
-                                    {
-                                      "type": "SYMBOL",
-                                      "name": "identifier"
-                                    },
-                                    {
-                                      "type": "SYMBOL",
-                                      "name": "cql_types"
-                                    }
-                                  ]
-                                }
-                              ]
+                              "type": "FIELD",
+                              "name": "AS_modified",
+                              "content": {
+                                "type": "SEQ",
+                                "members": [
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "literal"
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "_kw_as"
+                                  },
+                                  {
+                                    "type": "CHOICE",
+                                    "members": [
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "identifier"
+                                      },
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "cql_types"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
                             }
                           ]
                         }

@@ -1737,13 +1737,19 @@ module.exports = grammar({
 
     selectors: ($) =>
       choice(
-        seq(
-          $.literal,
-          optional(seq($._kw_as, $.literal)),
-          optional($.comma_separated),
+        field(
+          "selector_normal",
+          seq(
+            $.literal,
+            optional(seq($._kw_as, $.literal)),
+            optional($.comma_separated),
+          ),
         ),
-        "*",
-        seq($.func_definition, optional($.comma_separated)),
+        field("selector_star", "*"),
+        field(
+          "selector_func",
+          seq($.func_definition, optional($.comma_separated)),
+        ),
       ),
 
     func_definition: ($) =>
@@ -1751,14 +1757,14 @@ module.exports = grammar({
         field(
           "function_name",
           choice(
-            $.identifier,
-            $._kw_count,
-            $._kw_max,
-            $._kw_min,
-            $._kw_sum,
-            $._kw_avg,
-            $._kw_writetime,
-            $._kw_token,
+            field("func_name_custom", $.identifier),
+            field("func_count", $._kw_count),
+            field("func_max", $._kw_max),
+            field("func_minx", $._kw_min),
+            field("func_sum", $._kw_sum),
+            field("func_avg", $._kw_avg),
+            field("func_writetime", $._kw_writetime),
+            field("func_token", $._kw_token),
           ),
         ),
         "(",
@@ -1767,11 +1773,13 @@ module.exports = grammar({
             field(
               "argument",
               choice(
-                $.identifier,
-                $.literal,
-                $.cql_types_union,
-                "*",
-                seq($.identifier, $._kw_as, choice($.identifier, $.cql_types)),
+                field("normal_argument", $.literal),
+                field("type_argument", $.cql_types_union),
+                field("star_argument", "*"),
+                field(
+                  "AS_modified",
+                  seq($.literal, $._kw_as, choice($.identifier, $.cql_types)),
+                ),
               ),
             ),
             repeat(
@@ -1780,14 +1788,16 @@ module.exports = grammar({
                 field(
                   "argument",
                   choice(
-                    $.identifier,
-                    $.literal,
-                    $.cql_types_union,
-                    "*",
-                    seq(
-                      $.identifier,
-                      $._kw_as,
-                      choice($.identifier, $.cql_types),
+                    field("normal_argument", $.literal),
+                    field("type_argument", $.cql_types_union),
+                    field("star_argument", "*"),
+                    field(
+                      "AS_modified",
+                      seq(
+                        $.literal,
+                        $._kw_as,
+                        choice($.identifier, $.cql_types),
+                      ),
                     ),
                   ),
                 ),
