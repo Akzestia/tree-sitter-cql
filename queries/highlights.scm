@@ -357,29 +357,40 @@
 (string_literal) @string
 (quoted_identifier) @string
 
+; Embeded code blocks
 [
   "$$"
 ] @string.special
 
+; Comment
 (comment) @comment
 
+; $.float & $.integer in $.literal
 (literal
     (integer) @number)
 (literal
     (float) @number)
 
+; Integers inside identifier
 ((identifier) @constant
   (#match? @number "^[-]?[0-9]+(\\.[0-9]+([eE][+-]?[0-9]+)?)?$"))
 
+; Integers inside literal
 ((literal) @constant
   (#match? @number "^[-]?[0-9]+(\\.[0-9]+([eE][+-]?[0-9]+)?)?$"))
 
-((literal) @type
-  (#match? @type "^(ascii|bigint|blob|boolean|counter|date|decimal|double|duration|float|inet|int|smallint|text|time|timestamp|timeuuid|tinyint|uuid|varchar|varint)$"))
-
+; Bool Variables
 (bool_choice) @variable.special
 
+; Table Label
 (table_label_part) @string
 
-((string_literal) @string
-  (#match? @string "^'(Core|Classic)'$"))
+; Graph Engine Special Variables
+[
+    "graph_engine"
+    "'Core'"
+    "'Classic'"
+] @variable.special
+
+; Embeded JS & JAVA code
+(code_block) @embedded
