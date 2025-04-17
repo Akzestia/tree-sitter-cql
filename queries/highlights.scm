@@ -312,7 +312,7 @@
     "-"
     "/"
     "%"
-    "*"
+    (operator_multiplication)
     (equal_sign)
 ] @operator
 
@@ -398,11 +398,18 @@
 
 (func_definition
     function_name: (identifier) @function
-    argument: (literal (identifier) @property)
+    argument: [
+        (literal (identifier) @property)
+        (wild_card) @variable.special
+    ]
 )
+
+
 
 ; Selectors
 (selectors
-  selector_normal:
-    (literal (identifier) @constant)
+    selector_normal:[
+        (literal (identifier) @constant)
+        (wild_card) @variable.special
+    ]
 )
