@@ -8,12 +8,15 @@
 ✅ &nbsp; Full CQL 3.4+ support  
 ✅ &nbsp; Syntax highlighting  
 ✅ &nbsp; Zed Editor integration  
+✅ &nbsp; Neovim integration  
 
 ## IDE Integration
 
-## [Zed](https://zed.dev/)
-- 🔗 [zed-cql on GitHub](https://github.com/Akzestia/zed-cql)<br/>
-- 🔗 [zed-cql on zed.dev](https://zed.dev/extensions?query=CQL)
+- ### [Zed](https://zed.dev/)
+  - 🔗 [zed-cql on GitHub](https://github.com/Akzestia/zed-cql)<br/>
+  - 🔗 [zed-cql on zed.dev](https://zed.dev/extensions?query=CQL)
+- ### [Neovim](https://neovim.io/)
+  - 🔗 [nvim-cql on Github](https://github.com/Akzestia/nvim-cql)
 
 ### 📋 CQL Commands
 
