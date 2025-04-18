@@ -11,8 +11,9 @@
 
 ## IDE Integration
 
-### [Zed](https://zed.dev/)
-🔗 [zed-cql on GitHub](https://github.com/Akzestia/zed-cql)
+## [Zed](https://zed.dev/)
+- 🔗 [zed-cql on GitHub](https://github.com/Akzestia/zed-cql)<br/>
+- 🔗 [zed-cql on zed.dev](https://zed.dev/extensions?query=CQL)
 
 ### 📋 CQL Commands
 
