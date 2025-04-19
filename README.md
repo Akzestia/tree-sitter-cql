@@ -1,5 +1,9 @@
 # Tree-Sitter grammar for CQL
 
+[🇺🇸 English](README.md) | [🇯🇵 日本語](README_jap.md)
+
+-------------------------------------------------------
+
 > [!TIP]
 > Reference docs [DataStax HCD](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html)
 
