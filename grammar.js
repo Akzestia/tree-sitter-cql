@@ -889,8 +889,8 @@ module.exports = grammar({
       seq(
         $._kw_create,
         $._kw_user,
-        $.identifier,
         optional($._if_not_exists),
+        $.identifier,
         optional(choice($._with_password, $._with_hashed_password)),
         optional(choice($._kw_superuser, $._kw_nosuperuser)),
         $.semi_colon,
