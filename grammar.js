@@ -856,7 +856,7 @@ module.exports = grammar({
       seq(
         $._kw_create,
         $._kw_role,
-        $._if_not_exists,
+        optional($._if_not_exists),
         $.identifier,
         repeat($._o_create_role),
         $.semi_colon,
