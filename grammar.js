@@ -889,8 +889,7 @@ module.exports = grammar({
       seq(
         $._kw_create,
         $._kw_user,
-        optional($._if_not_exists),
-        $.identifier,
+        $._create_user_if_not_exist_choice,
         optional(choice($._with_password, $._with_hashed_password)),
         optional(choice($._kw_superuser, $._kw_nosuperuser)),
         $.semi_colon,
@@ -1041,6 +1040,14 @@ module.exports = grammar({
       ),
 
     // --END_COMMANDS--
+
+    // Create USER shenanigans
+
+    _create_user_if_not_exist_choice: ($) =>
+      choice(
+        seq(optional($._if_not_exists), $.identifier),
+        seq($.identifier, optional($._if_not_exists)),
+      ),
 
     // Select Conditions
 
