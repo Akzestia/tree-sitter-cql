@@ -1045,7 +1045,7 @@
       "required": true,
       "types": [
         {
-          "type": "cql_types_union",
+          "type": "cql_types_constructor_void",
           "named": true
         }
       ]

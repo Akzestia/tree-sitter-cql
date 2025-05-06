@@ -10705,7 +10705,7 @@
     },
     "selectors_type_extensions": {
       "type": "SYMBOL",
-      "name": "cql_types_union"
+      "name": "cql_types_constructor_void"
     },
     "selectors": {
       "type": "CHOICE",
