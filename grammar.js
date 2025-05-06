@@ -51,55 +51,65 @@ module.exports = grammar({
     _type_varint: ($) => choice("VARINT", "varint"),
 
     cql_types: ($) =>
-      choice(
-        $._type_ascii,
-        $._type_bigint,
-        $._type_blob,
-        $._type_boolean,
-        $._type_counter,
-        $._type_date,
-        $._type_decimal,
-        $._type_double,
-        $._type_float,
-        $._type_frozen,
-        $._type_inet,
-        $._type_int,
-        $._type_list,
-        $._type_map,
-        $._type_set,
-        $._type_smallint,
-        $._type_text,
-        $._type_time,
-        $._type_timestamp,
-        $._type_timeuuid,
-        $._type_tinyint,
-        $._type_tuple,
-        $._type_uuid,
-        $._type_varchar,
-        $._type_varint,
+      prec.left(
+        1,
+        choice(
+          $._type_ascii,
+          $._type_bigint,
+          $._type_blob,
+          $._type_boolean,
+          $._type_counter,
+          $._type_date,
+          $._type_decimal,
+          $._type_double,
+          $._type_float,
+          $._type_frozen,
+          $._type_inet,
+          $._type_int,
+          $._type_list,
+          $._type_map,
+          $._type_set,
+          $._type_smallint,
+          $._type_text,
+          $._type_time,
+          $._type_timestamp,
+          $._type_timeuuid,
+          $._type_tinyint,
+          $._type_tuple,
+          $._type_uuid,
+          $._type_varchar,
+          $._type_varint,
+        ),
       ),
 
-    cql_types_constructor_list: ($) => seq($._type_list, "<", $.cql_types, ">"),
-    cql_types_constructor_set: ($) => seq($._type_set, "<", $.cql_types, ">"),
+    cql_types_constructor_list: ($) =>
+      seq($._type_list, $.cql_types_constructor_void),
+    cql_types_constructor_set: ($) =>
+      seq($._type_set, $.cql_types_constructor_void),
     cql_types_constructor_tuple: ($) =>
       seq($._type_tuple, "<", $.cql_types, ",", $.cql_types, ">"),
     cql_types_constructor_map: ($) =>
       seq($._type_map, "<", $.cql_types, ",", $.cql_types, ">"),
     cql_types_constructor_frozen: ($) =>
-      seq(
-        $._type_frozen,
-        "<",
-        choice(
-          $.cql_types,
-          $.identifier,
-          $.string,
-          $.cql_types_constructor_list,
-          $.cql_types_constructor_set,
-          $.cql_types_constructor_tuple,
-          $.cql_types_constructor_map,
+      prec.left(
+        0,
+        seq(
+          $._type_frozen,
+          "<",
+          choice(
+            $.cql_types,
+            $.identifier,
+            $.string,
+            $.cql_types_constructor_list,
+            $.cql_types_constructor_set,
+            $.cql_types_constructor_tuple,
+            $.cql_types_constructor_map,
+          ),
+          ">",
         ),
-        ">",
       ),
+
+    cql_types_constructor_void: ($) => seq("<", $.cql_types, ">"),
 
     cql_types_union: ($) =>
       choice(
@@ -110,6 +120,7 @@ module.exports = grammar({
         $.cql_types_constructor_frozen,
         $.cql_types_constructor_set,
         $.string,
+        $.cql_types_constructor_void,
       ),
 
     _kw_use: ($) => choice("USE", "use"),
@@ -1751,6 +1762,8 @@ module.exports = grammar({
 
     wild_card: ($) => "*",
 
+    selectors_type_extensions: ($) => $.cql_types_union,
+
     selectors: ($) =>
       choice(
         field("selector_normal", seq($.literal, optional($.comma_separated))),
@@ -1770,6 +1783,10 @@ module.exports = grammar({
             seq($._kw_as, $.literal),
             optional($.comma_separated),
           ),
+        ),
+        field(
+          "selector_type_extensions",
+          seq($.selectors_type_extensions, optional($.comma_separated)),
         ),
       ),
 
