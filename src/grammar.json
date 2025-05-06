@@ -412,109 +412,113 @@
       ]
     },
     "cql_types": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_type_ascii"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_bigint"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_blob"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_boolean"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_counter"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_date"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_decimal"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_double"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_float"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_frozen"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_inet"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_int"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_list"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_map"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_set"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_smallint"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_text"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_time"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_timestamp"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_timeuuid"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_tinyint"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_tuple"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_uuid"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_varchar"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_varint"
-        }
-      ]
+      "type": "PREC_LEFT",
+      "value": 1,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_type_ascii"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_bigint"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_blob"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_boolean"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_counter"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_date"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_decimal"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_double"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_float"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_frozen"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_inet"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_int"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_list"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_map"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_set"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_smallint"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_text"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_time"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_timestamp"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_timeuuid"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_tinyint"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_tuple"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_uuid"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_varchar"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_varint"
+          }
+        ]
+      }
     },
     "cql_types_constructor_list": {
       "type": "SEQ",
@@ -524,16 +528,8 @@
           "name": "_type_list"
         },
         {
-          "type": "STRING",
-          "value": "<"
-        },
-        {
           "type": "SYMBOL",
-          "name": "cql_types"
-        },
-        {
-          "type": "STRING",
-          "value": ">"
+          "name": "cql_types_constructor_void"
         }
       ]
     },
@@ -545,16 +541,8 @@
           "name": "_type_set"
         },
         {
-          "type": "STRING",
-          "value": "<"
-        },
-        {
           "type": "SYMBOL",
-          "name": "cql_types"
-        },
-        {
-          "type": "STRING",
-          "value": ">"
+          "name": "cql_types_constructor_void"
         }
       ]
     },
@@ -617,48 +605,69 @@
       ]
     },
     "cql_types_constructor_frozen": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_type_frozen"
+          },
+          {
+            "type": "STRING",
+            "value": "<"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "cql_types"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "string"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "cql_types_constructor_list"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "cql_types_constructor_set"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "cql_types_constructor_tuple"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "cql_types_constructor_map"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": ">"
+          }
+        ]
+      }
+    },
+    "cql_types_constructor_void": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_type_frozen"
-        },
         {
           "type": "STRING",
           "value": "<"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "cql_types"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "identifier"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "string"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "cql_types_constructor_list"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "cql_types_constructor_set"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "cql_types_constructor_tuple"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "cql_types_constructor_map"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "cql_types"
         },
         {
           "type": "STRING",
@@ -696,6 +705,10 @@
         {
           "type": "SYMBOL",
           "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cql_types_constructor_void"
         }
       ]
     },
@@ -10690,6 +10703,10 @@
       "type": "STRING",
       "value": "*"
     },
+    "selectors_type_extensions": {
+      "type": "SYMBOL",
+      "name": "cql_types_union"
+    },
     "selectors": {
       "type": "CHOICE",
       "members": [
@@ -10811,6 +10828,31 @@
                     "name": "literal"
                   }
                 ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "comma_separated"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "selector_type_extensions",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "selectors_type_extensions"
               },
               {
                 "type": "CHOICE",

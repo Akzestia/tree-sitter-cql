@@ -356,7 +356,7 @@
       "required": true,
       "types": [
         {
-          "type": "cql_types",
+          "type": "cql_types_constructor_void",
           "named": true
         }
       ]
@@ -386,7 +386,7 @@
       "required": true,
       "types": [
         {
-          "type": "cql_types",
+          "type": "cql_types_constructor_void",
           "named": true
         }
       ]
@@ -398,6 +398,21 @@
     "fields": {},
     "children": {
       "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cql_types_constructor_void",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -437,6 +452,10 @@
         },
         {
           "type": "cql_types_constructor_tuple",
+          "named": true
+        },
+        {
+          "type": "cql_types_constructor_void",
           "named": true
         },
         {
@@ -991,6 +1010,20 @@
           }
         ]
       },
+      "selector_type_extensions": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "comma_separated",
+            "named": true
+          },
+          {
+            "type": "selectors_type_extensions",
+            "named": true
+          }
+        ]
+      },
       "selector_wildcard": {
         "multiple": false,
         "required": false,
@@ -1001,6 +1034,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "selectors_type_extensions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types_union",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2247,11 +2295,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "from",
