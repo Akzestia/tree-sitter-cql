@@ -1762,7 +1762,7 @@ module.exports = grammar({
 
     wild_card: ($) => "*",
 
-    selectors_type_extensions: ($) => $.cql_types_union,
+    selectors_type_extensions: ($) => $.cql_types_constructor_void,
 
     selectors: ($) =>
       choice(
