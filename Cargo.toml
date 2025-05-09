@@ -1,5 +1,5 @@
 [package]
-name = "tree-sitter-cql"
+name = "tttx-tree-sitter-cql"
 description = "Cql grammar for tree-sitter"
 version = "0.1.0"
 authors = ["アクゼスティア <akzestia@gmail.com>"]
