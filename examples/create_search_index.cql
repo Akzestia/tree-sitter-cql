@@ -9,8 +9,8 @@ AND OPTIONS { reindex : false };
 
 CREATE SEARCH INDEX IF NOT EXISTS
 ON wiki.solr
-WITH COLUMNS c1,c2 {docValues:true}
-AND PROFILES spaceSavingAll
+WITH COLUMNS c1, c2 {docValues:true}
+    AND PROFILES spaceSavingAll
 AND CONFIG {directoryFactory:'encrypted'};
 
 CREATE SEARCH INDEX

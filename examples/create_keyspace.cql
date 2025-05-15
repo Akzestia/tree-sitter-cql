@@ -1,17 +1,20 @@
 CREATE KEYSPACE IF NOT EXISTS cycling
 WITH REPLICATION = {
-  'class' : 'SimpleStrategy',
-  'replication_factor' : 1
+    'class' : 'SimpleStrategy',
+    'replication_factor' : 1
 };
 
 CREATE KEYSPACE food_cql
-  WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1}
-  AND graph_engine = 'Core';
+WITH REPLICATION = {
+    'class': 'SimpleStrategy',
+    'replication_factor': 1
+}
+AND graph_engine = 'Core';
 
 CREATE KEYSPACE cycling
 WITH REPLICATION = {
-  'class' : 'NetworkTopologyStrategy',
-  'dc1' : 1
+    'class' : 'NetworkTopologyStrategy',
+    'dc1' : 1
 };
 
 CREATE KEYSPACE IF NOT EXISTS cycling

@@ -5,5 +5,7 @@ WITH REPLICATION = {
 };
 
 ALTER KEYSPACE food_cql
-WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 }
-AND graph_engine = 'Core';
+WITH REPLICATION = {
+    'class': 'SimpleStrategy',
+    'replication_factor': 1
+} AND graph_engine = 'Core';
