@@ -10,6 +10,7 @@ categories = ["parser-implementations", "parsing", "text-editors"]
 repository = "https://github.com/akzestia/tree-sitter-cql"
 edition = "2021"
 autoexamples = false
+exclude = ["node_modules/**"]
 
 build = "bindings/rust/build.rs"
 include = [
