@@ -1174,8 +1174,12 @@ module.exports = grammar({
       ),
 
     _pk_partion_only: ($) => seq("(", $.identifier, ")"),
-    _pk_partion_and_clustering: ($) =>
+    _pk_partion_explicit: ($) =>
+      prec.left(2, seq("(", "(", $.identifier, ")", ")")),
+    _pk_partion_and_clustering_single: ($) =>
       seq("(", $.identifier, $.comma_separated, $.identifier, ")"),
+    _pk_partion_and_clustering: ($) =>
+      seq("(", "(", $.identifier, ")", $.comma_separated, $.identifier, ")"),
     _pk_partion_mult_and_clustering: ($) =>
       seq(
         "(",
@@ -1211,7 +1215,9 @@ module.exports = grammar({
     _pk_options: ($) =>
       choice(
         $._pk_partion_only,
+        $._pk_partion_explicit,
         $._pk_partion_and_clustering,
+        $._pk_partion_and_clustering_single,
         $._pk_partion_mult_and_clustering,
         $._pk_partion_and_clustering_mult,
         $._pk_partion_mult_and_clustering_mult,
