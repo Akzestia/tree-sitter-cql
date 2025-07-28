@@ -1,9 +1,8 @@
 /*
-This is the first line of
-of a comment that spans multiple
-lines
-*/;
-
+    This is the first line of
+    of a comment that spans multiple
+    lines
+*/
 CREATE ROLE IF NOT EXISTS coach -- End of line comment
 WITH LOGIN = true
 AND PASSWORD = 'All4One2day!';

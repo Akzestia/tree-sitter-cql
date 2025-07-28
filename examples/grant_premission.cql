@@ -7,6 +7,7 @@ GRANT EXECUTE ON FUNCTION cycling.fLog(double) TO team_manager;
 GRANT ALL PERMISSIONS ON KEYSPACE cycling TO cycling_admin;
 
 GRANT SELECT ON KEYSPACE cycling TO coach;
+
 GRANT MODIFY ON KEYSPACE cycling TO coach;
 
 GRANT AUTHORIZE ON ALL KEYSPACES TO sys_admin;

@@ -1,8 +1,8 @@
-CREATE MATERIALIZED VIEW IF NOT EXISTS cycling.cyclist_by_age AS;
-
+CREATE MATERIALIZED VIEW IF NOT EXISTS cycling.cyclist_by_age AS
 SELECT age, cid, birthday, country, name
 FROM cycling.cyclist_base
 WHERE age IS NOT NULL AND cid IS NOT NULL
+
 PRIMARY KEY (age, cid)
 WITH CLUSTERING ORDER BY (cid ASC)
 AND caching = {
@@ -15,8 +15,9 @@ CREATE MATERIALIZED VIEW IF NOT EXISTS cycling.cyclist_by_birthday
 AS SELECT age, cid, birthday, name, country
 FROM cycling.cyclist_base
 WHERE birthday IS NOT NULL AND cid IS NOT NULL
-PRIMARY KEY (birthday, cid);
 
+PRIMARY KEY (birthday, cid);
+    
 CREATE MATERIALIZED VIEW IF NOT EXISTS cycling.cyclist_by_country
 AS SELECT age, cid, birthday, name, country
 FROM cycling.cyclist_base

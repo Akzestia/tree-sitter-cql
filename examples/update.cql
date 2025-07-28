@@ -24,7 +24,7 @@ SET
 firstname = 'Anna',
 lastname = 'VAN DER BREGGEN'
 WHERE id = e7cd5752-bc0d-4157-a80f-7523add8dbcd;
-
+    
 INSERT INTO cycling.upcoming_calendar (year, month, events)
 VALUES (2015, 06, [ 'Criterium du Dauphine', 'Tour de Suisse' ]);
     
@@ -42,12 +42,12 @@ WHERE year = 2015 AND month = 06;
 
 UPDATE cycling.upcoming_calendar SET events = events - [ 'Tour de France' ]
 WHERE year = 2015 AND month = 06;
-
-UPDATE cycling.cyclist_career_teams
+    
+    UPDATE cycling.cyclist_career_teams
 SET teams = teams + {'Team DSB - Ballast Nedam'}
 WHERE id = 5b6962dd-3f90-4c93-8f61-eabfa4a803e2;
-
-UPDATE cycling.cyclist_career_teams
+    
+    UPDATE cycling.cyclist_career_teams
 SET teams = teams - {'DSB Bank Nederland bloeit'}
 WHERE id = 5b6962dd-3f90-4c93-8f61-eabfa4a803e2;
     
