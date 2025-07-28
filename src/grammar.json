@@ -7374,7 +7374,36 @@
         }
       ]
     },
-    "_pk_partion_and_clustering": {
+    "_pk_partion_explicit": {
+      "type": "PREC_LEFT",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
+    "_pk_partion_and_clustering_single": {
       "type": "SEQ",
       "members": [
         {
@@ -7384,6 +7413,39 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comma_separated"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "_pk_partion_and_clustering": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         },
         {
           "type": "SYMBOL",
@@ -7595,7 +7657,15 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_pk_partion_explicit"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_pk_partion_and_clustering"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_pk_partion_and_clustering_single"
         },
         {
           "type": "SYMBOL",
