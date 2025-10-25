@@ -7,22 +7,27 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [/\s|\\\r?\n/, $.comment],
+  extras: ($) => [/\s|\\\r?\n/, $.line_comment, $.block_comment],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) => repeat(choice($._statement, $.comment)),
+    source_file: ($) =>
+      repeat(choice($._statement, $.line_comment, $.block_comment)),
 
     _statement: ($) => choice($.cql_commands),
 
-    comment: ($) => choice($.line_comment, $.block_comment),
+    line_comment: ($) =>
+      seq(choice("--", "//"), optional($.outline_identifier), /.*/),
 
-    line_comment: ($) => token(seq(choice("--", "//"), /.*/)),
-
-    block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
+    block_comment: ($) =>
+      seq(
+        "/*",
+        seq(optional($.outline_identifier), /[^*]*\*+([^/*][^*]*\*+)*/),
+        "/",
+      ),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),
     _type_bigint: ($) => choice("BIGINT", "bigint"),
@@ -450,6 +455,9 @@ module.exports = grammar({
     //-----------[HELPER TYPES]-----------------
     _graph_engine: ($) => "graph_engine",
     _graph_engine_type: ($) => choice("'Core'", "'Classic'"),
+
+    //-----------[OUTLINE IDENTIFIRES]----------
+    outline_identifier: ($) => /@[a-zA-Z_][a-zA-Z0-9_]*/,
 
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
 
