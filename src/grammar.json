@@ -14,7 +14,11 @@
           },
           {
             "type": "SYMBOL",
-            "name": "comment"
+            "name": "line_comment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "block_comment"
           }
         ]
       }
@@ -28,63 +32,73 @@
         }
       ]
     },
-    "comment": {
-      "type": "CHOICE",
+    "line_comment": {
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "line_comment"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "--"
+            },
+            {
+              "type": "STRING",
+              "value": "//"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "block_comment"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "outline_identifier"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
         }
       ]
     },
-    "line_comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "--"
-              },
-              {
-                "type": "STRING",
-                "value": "//"
-              }
-            ]
-          },
-          {
-            "type": "PATTERN",
-            "value": ".*"
-          }
-        ]
-      }
-    },
     "block_comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "/*"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
-          },
-          {
-            "type": "STRING",
-            "value": "/"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "/*"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "outline_identifier"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        }
+      ]
     },
     "_type_ascii": {
       "type": "CHOICE",
@@ -3255,6 +3269,10 @@
           "value": "'Classic'"
         }
       ]
+    },
+    "outline_identifier": {
+      "type": "PATTERN",
+      "value": "@[a-zA-Z_][a-zA-Z0-9_]*"
     },
     "_use": {
       "type": "SEQ",
@@ -11309,7 +11327,11 @@
     },
     {
       "type": "SYMBOL",
-      "name": "comment"
+      "name": "line_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "block_comment"
     }
   ],
   "conflicts": [
