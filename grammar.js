@@ -26,7 +26,10 @@ module.exports = grammar({
 
     _statement: ($) => choice($.cql_commands),
 
-    outline_identifier: ($) => token(prec(2, /@[A-Za-z_][\w-]*/)),
+    outline_identifier: ($) =>
+      token(
+        prec(2, seq("@", field("name", token.immediate(/[A-Za-z_][\w-]*/)))),
+      ),
 
     line_comment_text: ($) => token(prec(0, /[^\n]*/)),
 
