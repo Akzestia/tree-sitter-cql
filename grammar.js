@@ -7,7 +7,7 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [/\s|\\\r?\n/, $.line_comment, $.block_comment],
+  extras: ($) => [/\s|\\\r?\n/, $.line_comment_plain, $.block_comment],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
@@ -15,29 +15,43 @@ module.exports = grammar({
 
   rules: {
     source_file: ($) =>
-      repeat(choice($._statement, $.line_comment, $.block_comment)),
+      repeat(
+        choice(
+          $._statement,
+          $.line_comment_plain,
+          $.line_comment_with_outline,
+          $.block_comment,
+        ),
+      ),
 
     _statement: ($) => choice($.cql_commands),
 
-    outline_identifier: ($) => token(prec(1, /@[A-Za-z_][\w-]*/)),
+    outline_identifier: ($) => token(prec(2, /@[A-Za-z_][\w-]*/)),
 
-    line_comment_text: ($) => token.immediate(prec(0, /[^\n]*/)),
+    line_comment_text: ($) => token(prec(0, /[^\n]*/)),
 
-    line_comment: ($) =>
-      seq(
-        choice("--", "//"),
-        optional(seq(/[ \t]*/, $.outline_identifier)),
-        $.line_comment_text,
+    line_comment_with_outline: ($) =>
+      prec.left(
+        1,
+        seq(
+          choice("--", "//"),
+          optional(/\s+/),
+          $.outline_identifier,
+          optional($.line_comment_text),
+        ),
       ),
 
-    block_comment_text: ($) => token(prec(0, /[^*]*\*+([^/*][^*]*\*+)*/)),
+    line_comment_plain: ($) =>
+      prec.left(0, seq(choice("--", "//"), $.line_comment_text)),
+
+    block_comment_chunk: ($) => token(prec(0, /[^*]+|\*+[^*/]/)),
 
     block_comment: ($) =>
       seq(
         "/*",
-        optional(seq(/\s*/, $.outline_identifier)),
-        $.block_comment_text,
-        "/",
+        optional(seq(/\s+/, $.outline_identifier)),
+        repeat($.block_comment_chunk),
+        token.immediate("*/"),
       ),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),

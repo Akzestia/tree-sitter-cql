@@ -14,7 +14,11 @@
           },
           {
             "type": "SYMBOL",
-            "name": "line_comment"
+            "name": "line_comment_plain"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "line_comment_with_outline"
           },
           {
             "type": "SYMBOL",
@@ -36,7 +40,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PREC",
-        "value": 1,
+        "value": 2,
         "content": {
           "type": "PATTERN",
           "value": "@[A-Za-z_][\\w-]*"
@@ -44,7 +48,7 @@
       }
     },
     "line_comment_text": {
-      "type": "IMMEDIATE_TOKEN",
+      "type": "TOKEN",
       "content": {
         "type": "PREC",
         "value": 0,
@@ -54,57 +58,90 @@
         }
       }
     },
-    "line_comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "--"
-            },
-            {
-              "type": "STRING",
-              "value": "//"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[ \\t]*"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "outline_identifier"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "line_comment_text"
-        }
-      ]
+    "line_comment_with_outline": {
+      "type": "PREC_LEFT",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "--"
+              },
+              {
+                "type": "STRING",
+                "value": "//"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "\\s+"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "outline_identifier"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "line_comment_text"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
-    "block_comment_text": {
+    "line_comment_plain": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "--"
+              },
+              {
+                "type": "STRING",
+                "value": "//"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "line_comment_text"
+          }
+        ]
+      }
+    },
+    "block_comment_chunk": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
         "value": 0,
         "content": {
           "type": "PATTERN",
-          "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+          "value": "[^*]+|\\*+[^*/]"
         }
       }
     },
@@ -123,7 +160,7 @@
               "members": [
                 {
                   "type": "PATTERN",
-                  "value": "\\s*"
+                  "value": "\\s+"
                 },
                 {
                   "type": "SYMBOL",
@@ -137,12 +174,18 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "block_comment_text"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block_comment_chunk"
+          }
         },
         {
-          "type": "STRING",
-          "value": "/"
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "*/"
+          }
         }
       ]
     },
@@ -11369,7 +11412,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "line_comment"
+      "name": "line_comment_plain"
     },
     {
       "type": "SYMBOL",
