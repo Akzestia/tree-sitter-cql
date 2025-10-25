@@ -19,13 +19,24 @@ module.exports = grammar({
 
     _statement: ($) => choice($.cql_commands),
 
+    outline_identifier: ($) => token(prec(1, /@[A-Za-z_][\w-]*/)),
+
+    line_comment_text: ($) => token.immediate(prec(0, /[^\n]*/)),
+
     line_comment: ($) =>
-      seq(choice("--", "//"), optional($.outline_identifier), /.*/),
+      seq(
+        choice("--", "//"),
+        optional(seq(/[ \t]*/, $.outline_identifier)),
+        $.line_comment_text,
+      ),
+
+    block_comment_text: ($) => token(prec(0, /[^*]*\*+([^/*][^*]*\*+)*/)),
 
     block_comment: ($) =>
       seq(
         "/*",
-        seq(optional($.outline_identifier), /[^*]*\*+([^/*][^*]*\*+)*/),
+        optional(seq(/\s*/, $.outline_identifier)),
+        $.block_comment_text,
         "/",
       ),
 
@@ -457,7 +468,7 @@ module.exports = grammar({
     _graph_engine_type: ($) => choice("'Core'", "'Classic'"),
 
     //-----------[OUTLINE IDENTIFIRES]----------
-    outline_identifier: ($) => /@[a-zA-Z_][a-zA-Z0-9_]*/,
+    // outline_identifier: ($) => /@[a-zA-Z_][a-zA-Z0-9_]*/,
 
     _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
 

@@ -91,9 +91,13 @@
     "extra": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "block_comment_text",
+          "named": true
+        },
         {
           "type": "outline_identifier",
           "named": true
@@ -713,9 +717,13 @@
     "extra": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "line_comment_text",
+          "named": true
+        },
         {
           "type": "outline_identifier",
           "named": true
@@ -2179,6 +2187,10 @@
     "named": false
   },
   {
+    "type": "block_comment_text",
+    "named": true
+  },
+  {
     "type": "boolean",
     "named": false
   },
@@ -2320,11 +2332,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "from",
@@ -2469,6 +2481,10 @@
   {
     "type": "limit",
     "named": false
+  },
+  {
+    "type": "line_comment_text",
+    "named": true
   },
   {
     "type": "list",
