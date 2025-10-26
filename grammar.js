@@ -43,14 +43,12 @@ module.exports = grammar({
     line_comment_plain: ($) =>
       prec.left(0, seq(choice("--", "//"), $.line_comment_text)),
 
-    block_comment_chunk: ($) => token(prec(0, /[^*]+|\*+[^*/]/)),
-
     block_comment: ($) =>
       seq(
         "/*",
-        optional(seq(/\s+/, $.outline_identifier)),
-        repeat($.block_comment_chunk),
-        token.immediate("*/"),
+        optional(seq(token.immediate(/[ \t]+/), $.outline_identifier)),
+        token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/)))),
+        "*/",
       ),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),

@@ -91,13 +91,9 @@
     "extra": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "types": [
-        {
-          "type": "block_comment_chunk",
-          "named": true
-        },
         {
           "type": "outline_identifier",
           "named": true
@@ -2208,10 +2204,6 @@
   {
     "type": "blob",
     "named": false
-  },
-  {
-    "type": "block_comment_chunk",
-    "named": true
   },
   {
     "type": "boolean",
