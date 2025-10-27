@@ -8,10 +8,14 @@
 > [!TIP]
 > 参考ドキュメント [DataStax HCD](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html)
 
+> [!IMPORTANT]
+> tree-sitter 文法に関して問題や提案がある場合は、言語サーバーの [リポジトリ](https://github.com/Akzestia/cql-lsp/issues) で問題を開いてください。
+
 ## 特徴
 
 ✅ &nbsp; CQL 3.4+ 完全サポート  
 ✅ &nbsp; シンタックスハイライト  
+✅ &nbsp; [アウトライン機能](https://github.com/Akzestia/cql-lsp/issues/27)  
 ✅ &nbsp; Zed Editor統合  
 ✅ &nbsp; Neovim統合  
 
