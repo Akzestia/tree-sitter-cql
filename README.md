@@ -16,6 +16,7 @@
 
 ✅ &nbsp; Full CQL 3.4+ support  
 ✅ &nbsp; Syntax highlighting  
+✅ &nbsp; [Outline support](https://github.com/Akzestia/cql-lsp/issues/27)  
 ✅ &nbsp; Zed Editor integration  
 ✅ &nbsp; Neovim integration  
 
