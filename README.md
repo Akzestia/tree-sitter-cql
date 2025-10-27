@@ -9,6 +9,9 @@
 > [!TIP]
 > Reference docs [DataStax HCD](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html)
 
+> [!IMPORTANT]
+> If you have any issues, suggestions regarding the tree-sitter grammar, feel free to open issue in language server [repo](https://github.com/Akzestia/cql-lsp)
+
 ## Features
 
 ✅ &nbsp; Full CQL 3.4+ support  
