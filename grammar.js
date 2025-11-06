@@ -7,13 +7,7 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [
-    /\s|\\\r?\n/,
-    $.line_comment_plain,
-    $.block_comment,
-    $.line_comment_with_outline,
-    $.block_comment_with_outline,
-  ],
+  extras: ($) => [/\s|\\\r?\n/, $.line_comment_plain, $.block_comment],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
@@ -24,40 +18,37 @@ module.exports = grammar({
 
     statement: ($) => choice($.cql_commands),
 
-    comment: ($) =>
-      choice(
-        $.line_comment_plain,
-        $.line_comment_with_outline,
-        $.block_comment,
-        $.block_comment_with_outline,
-      ),
+    comment: ($) => choice($.line_comment, $.block_comment),
 
+    // Outline identifier - the @tag
     outline_identifier: ($) => token(seq("@", /[A-Za-z_][\w-]*/)),
 
-    line_comment_with_outline: ($) =>
+    // Line comments - handles both with and without outline
+    line_comment: ($) =>
       seq(
         choice("--", "//"),
-        /[ \t]*/,
-        field("outline", $.outline_identifier),
+        optional(seq(/[ \t]*/, field("outline", $.outline_identifier))),
         optional(field("content", $.comment_text)),
       ),
 
-    line_comment_plain: ($) =>
-      seq(choice("--", "//"), field("content", $.comment_text)),
-
     comment_text: ($) => token(prec(-1, /[^\n]*/)),
 
-    block_comment_with_outline: ($) =>
+    // Block comments - handles both with and without outline
+    block_comment: ($) =>
       seq(
         "/*",
-        /[ \t]*/,
-        field("outline", $.outline_identifier),
-        optional(field("content", $.block_comment_content)),
+        optional(
+          choice(
+            seq(
+              token.immediate(/[ \t]+/),
+              field("outline", $.outline_identifier),
+              optional(field("content", $.block_comment_content)),
+            ),
+            field("content", $.block_comment_content),
+          ),
+        ),
         "*/",
       ),
-
-    block_comment: ($) =>
-      seq("/*", field("content", $.block_comment_content), "*/"),
 
     block_comment_content: ($) =>
       token(prec(-1, repeat1(choice(/[^*]+/, /\*[^/]/)))),
