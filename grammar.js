@@ -20,38 +20,14 @@ module.exports = grammar({
 
     comment: ($) => choice($.line_comment, $.block_comment),
 
-    // Outline identifier - the @tag
-    outline_identifier: ($) => token(seq("@", /[A-Za-z_][\w-]*/)),
+    outline_identifier: ($) => /\@[A-Za-z_][\w-]*/,
 
-    // Line comments - handles both with and without outline
-    line_comment: ($) =>
-      seq(
-        choice("--", "//"),
-        optional(seq(/[ \t]*/, field("outline", $.outline_identifier))),
-        optional(field("content", $.comment_text)),
-      ),
-
-    comment_text: ($) => token(prec(-1, /[^\n]*/)),
+    // Line comments must be tokens with explicit endings for extras
+    line_comment: ($) => token(seq(choice("--", "//"), /[^\n]*/, /\n/)),
 
     // Block comments - handles both with and without outline
     block_comment: ($) =>
-      seq(
-        "/*",
-        optional(
-          choice(
-            seq(
-              token.immediate(/[ \t]+/),
-              field("outline", $.outline_identifier),
-              optional(field("content", $.block_comment_content)),
-            ),
-            field("content", $.block_comment_content),
-          ),
-        ),
-        "*/",
-      ),
-
-    block_comment_content: ($) =>
-      token(prec(-1, repeat1(choice(/[^*]+/, /\*[^/]/)))),
+      token(seq("/*", repeat(choice(/[^*]/, /\*[^/]/)), "*/")),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),
     _type_bigint: ($) => choice("BIGINT", "bigint"),
