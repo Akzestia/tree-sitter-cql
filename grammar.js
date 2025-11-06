@@ -46,7 +46,7 @@ module.exports = grammar({
     block_comment: ($) =>
       seq(
         "/*",
-        optional(seq(token.immediate(/[ \t]+/), $.outline_identifier)),
+        optional(seq(optional(token.immediate(/[ \t]+/)), $.outline_identifier)),
         token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/)))),
         "*/",
       ),
