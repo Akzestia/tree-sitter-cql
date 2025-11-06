@@ -102,8 +102,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "line_comment_text"
+                "type": "PATTERN",
+                "value": "\\s+"
               },
               {
                 "type": "BLANK"
