@@ -14,18 +14,9 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) =>
-      repeat(
-        choice(
-          $._statement,
-          $.line_comment_plain,
-          $.line_comment_with_outline,
-          $.block_comment,
-          $.block_comment_line,
-        ),
-      ),
+    source_file: ($) => repeat(choice($.statement, $.comment)),
 
-    _statement: ($) => choice($.cql_commands),
+    statement: ($) => choice($.cql_commands),
 
     comment: ($) =>
       choice(
