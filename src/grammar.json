@@ -23,6 +23,10 @@
           {
             "type": "SYMBOL",
             "name": "block_comment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "outline_identifier"
           }
         ]
       }
@@ -145,38 +149,6 @@
         {
           "type": "STRING",
           "value": "/*"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "IMMEDIATE_TOKEN",
-                      "content": {
-                        "type": "PATTERN",
-                        "value": "[ \\t]+"
-                      }
-                    },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "outline_identifier"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         },
         {
           "type": "TOKEN",

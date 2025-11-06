@@ -89,17 +89,7 @@
     "type": "block_comment",
     "named": true,
     "extra": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "outline_identifier",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "bool_choice",
@@ -1121,6 +1111,10 @@
         },
         {
           "type": "line_comment_with_outline",
+          "named": true
+        },
+        {
+          "type": "outline_identifier",
           "named": true
         }
       ]
