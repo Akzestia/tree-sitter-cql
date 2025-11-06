@@ -27,37 +27,43 @@ module.exports = grammar({
 
     _statement: ($) => choice($.cql_commands),
 
+    comment: ($) =>
+      choice(
+        $.line_comment_plain,
+        $.line_comment_with_outline,
+        $.block_comment,
+        $.block_comment_with_outline,
+      ),
+
     outline_identifier: ($) => token(seq("@", /[A-Za-z_][\w-]*/)),
-    line_comment_text: ($) => token(prec(0, /[^\n]*/)),
 
     line_comment_with_outline: ($) =>
-      prec.left(
-        1,
-        seq(
-          choice("--", "//"),
-          optional(/\s+/),
-          $.outline_identifier,
-          optional($.line_comment_text),
-        ),
+      seq(
+        choice("--", "//"),
+        /[ \t]*/,
+        field("outline", $.outline_identifier),
+        optional(field("content", $.comment_text)),
       ),
 
     line_comment_plain: ($) =>
-      prec.left(0, seq(choice("--", "//"), $.line_comment_text)),
+      seq(choice("--", "//"), field("content", $.comment_text)),
 
-    block_comment: ($) =>
+    comment_text: ($) => token(prec(-1, /[^\n]*/)),
+
+    block_comment_with_outline: ($) =>
       seq(
         "/*",
-
-        optional(
-          seq(optional(token.immediate(/[ \t]+/)), $.outline_identifier),
-        ),
-
-        token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/, /[^\n|\/\*|\*\/]*/)))),
-
+        /[ \t]*/,
+        field("outline", $.outline_identifier),
+        optional(field("content", $.block_comment_content)),
         "*/",
       ),
 
-    block_comment_line: ($) => seq("/*", token(prec(0, /[^\n]*/)), "*/"),
+    block_comment: ($) =>
+      seq("/*", field("content", $.block_comment_content), "*/"),
+
+    block_comment_content: ($) =>
+      token(prec(-1, repeat1(choice(/[^*]+/, /\*[^/]/)))),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),
     _type_bigint: ($) => choice("BIGINT", "bigint"),
