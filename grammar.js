@@ -9,7 +9,7 @@ module.exports = grammar({
 
   extras: ($) => [/\s|\\\r?\n/, $.comment],
 
-  conflicts: ($) => [[$._conditions_select, $.if_conditions]],
+  conflicts: ($) => [[$.conditionsselect, $.if_conditions]],
 
   word: ($) => $.identifier,
 
@@ -26,77 +26,77 @@ module.exports = grammar({
 
     block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
 
-    _type_ascii: ($) => choice("ASCII", "ascii"),
-    _type_bigint: ($) => choice("BIGINT", "bigint"),
-    _type_blob: ($) => choice("BLOB", "blob"),
-    _type_boolean: ($) => choice("BOOLEAN", "boolean"),
-    _type_counter: ($) => choice("COUNTER", "counter"),
-    _type_date: ($) => choice("DATE", "date"),
-    _type_decimal: ($) => choice("DECIMAL", "decimal"),
-    _type_double: ($) => choice("DOUBLE", "double"),
-    _type_float: ($) => choice("FLOAT", "float"),
-    _type_frozen: ($) => choice("FROZEN", "frozen"),
-    _type_inet: ($) => choice("INET", "inet"),
-    _type_int: ($) => choice("INT", "int"),
-    _type_list: ($) => choice("LIST", "list"),
-    _type_map: ($) => choice("MAP", "map"),
-    _type_set: ($) => choice("SET", "set"),
-    _type_smallint: ($) => choice("SMALLINT", "smallint"),
-    _type_text: ($) => choice("TEXT", "text"),
-    _type_time: ($) => choice("TIME", "time"),
-    _type_timestamp: ($) => choice("TIMESTAMP", "timestamp"),
-    _type_timeuuid: ($) => choice("TIMEUUID", "timeuuid"),
-    _type_tinyint: ($) => choice("TINYINT", "tinyint"),
-    _type_tuple: ($) => choice("TUPLE", "tuple"),
-    _type_uuid: ($) => choice("UUID", "uuid"),
-    _type_varchar: ($) => choice("VARCHAR", "varchar"),
-    _type_varint: ($) => choice("VARINT", "varint"),
+    type_ascii: ($) => choice("ASCII", "ascii"),
+    type_bigint: ($) => choice("BIGINT", "bigint"),
+    type_blob: ($) => choice("BLOB", "blob"),
+    type_boolean: ($) => choice("BOOLEAN", "boolean"),
+    type_counter: ($) => choice("COUNTER", "counter"),
+    type_date: ($) => choice("DATE", "date"),
+    type_decimal: ($) => choice("DECIMAL", "decimal"),
+    type_double: ($) => choice("DOUBLE", "double"),
+    type_float: ($) => choice("FLOAT", "float"),
+    type_frozen: ($) => choice("FROZEN", "frozen"),
+    type_inet: ($) => choice("INET", "inet"),
+    type_int: ($) => choice("INT", "int"),
+    type_list: ($) => choice("LIST", "list"),
+    type_map: ($) => choice("MAP", "map"),
+    type_set: ($) => choice("SET", "set"),
+    type_smallint: ($) => choice("SMALLINT", "smallint"),
+    type_text: ($) => choice("TEXT", "text"),
+    type_time: ($) => choice("TIME", "time"),
+    type_timestamp: ($) => choice("TIMESTAMP", "timestamp"),
+    type_timeuuid: ($) => choice("TIMEUUID", "timeuuid"),
+    type_tinyint: ($) => choice("TINYINT", "tinyint"),
+    type_tuple: ($) => choice("TUPLE", "tuple"),
+    type_uuid: ($) => choice("UUID", "uuid"),
+    type_varchar: ($) => choice("VARCHAR", "varchar"),
+    type_varint: ($) => choice("VARINT", "varint"),
 
     cql_types: ($) =>
       prec.left(
         1,
         choice(
-          $._type_ascii,
-          $._type_bigint,
-          $._type_blob,
-          $._type_boolean,
-          $._type_counter,
-          $._type_date,
-          $._type_decimal,
-          $._type_double,
-          $._type_float,
-          $._type_frozen,
-          $._type_inet,
-          $._type_int,
-          $._type_list,
-          $._type_map,
-          $._type_set,
-          $._type_smallint,
-          $._type_text,
-          $._type_time,
-          $._type_timestamp,
-          $._type_timeuuid,
-          $._type_tinyint,
-          $._type_tuple,
-          $._type_uuid,
-          $._type_varchar,
-          $._type_varint,
+          $.type_ascii,
+          $.type_bigint,
+          $.type_blob,
+          $.type_boolean,
+          $.type_counter,
+          $.type_date,
+          $.type_decimal,
+          $.type_double,
+          $.type_float,
+          $.type_frozen,
+          $.type_inet,
+          $.type_int,
+          $.type_list,
+          $.type_map,
+          $.type_set,
+          $.type_smallint,
+          $.type_text,
+          $.type_time,
+          $.type_timestamp,
+          $.type_timeuuid,
+          $.type_tinyint,
+          $.type_tuple,
+          $.type_uuid,
+          $.type_varchar,
+          $.type_varint,
         ),
       ),
 
     cql_types_constructor_list: ($) =>
-      seq($._type_list, $.cql_types_constructor_void),
+      seq($.type_list, $.cql_types_constructor_void),
     cql_types_constructor_set: ($) =>
-      seq($._type_set, $.cql_types_constructor_void),
+      seq($.type_set, $.cql_types_constructor_void),
     cql_types_constructor_tuple: ($) =>
-      seq($._type_tuple, "<", $.cql_types, ",", $.cql_types, ">"),
+      seq($.type_tuple, "<", $.cql_types, ",", $.cql_types, ">"),
     cql_types_constructor_map: ($) =>
-      seq($._type_map, "<", $.cql_types, ",", $.cql_types, ">"),
+      seq($.type_map, "<", $.cql_types, ",", $.cql_types, ">"),
     cql_types_constructor_frozen: ($) =>
       prec.left(
         0,
         seq(
-          $._type_frozen,
+          $.type_frozen,
           "<",
           choice(
             $.cql_types,
@@ -128,7 +128,7 @@ module.exports = grammar({
     kw_use: ($) => choice("USE", "use"),
     kw_alter: ($) => token(choice("ALTER", "alter")),
     kw_create: ($) => choice("CREATE", "create"),
-    kwkweyspace: ($) => choice("KEYSPACE", "keyspace"),
+    kw_keyspace: ($) => choice("KEYSPACE", "keyspace"),
     kw_table: ($) => choice("TABLE", "table"),
     kw_with: ($) => choice("WITH", "with"),
     kw_where: ($) => choice("WHERE", "where"),
@@ -171,7 +171,7 @@ module.exports = grammar({
     kw_compact: ($) => choice("COMPACT", "compact"),
     kw_storage: ($) => choice("STORAGE", "storage"),
     kw_contains: ($) => choice("CONTAINS", "contains"),
-    kwkwey: ($) => choice("KEY", "key"),
+    kw_key: ($) => choice("KEY", "key"),
     kw_login: ($) => choice("LOGIN", "login"),
     kw_options: ($) => choice("OPTIONS", "options"),
     kw_or: ($) => choice("OR", "or"),
@@ -189,7 +189,7 @@ module.exports = grammar({
     kw_filtering: ($) => choice("FILTERING", "filtering"),
     kw_distinct: ($) => choice("DISTINCT", "distinct"),
     kw_as: ($) => choice("AS", "as"),
-    kwkweys: ($) => choice("KEYS", "keys"),
+    kw_keys: ($) => choice("KEYS", "keys"),
     kw_group: ($) => choice("GROUP", "group"),
     kw_by: ($) => choice("BY", "by"),
     kw_json: ($) => choice("JSON", "json"),
@@ -208,7 +208,7 @@ module.exports = grammar({
     kw_full: ($) => choice("FULL", "full"),
     kw_grant: ($) => choice("GRANT", "grant"),
     kw_index: ($) => choice("INDEX", "index"),
-    kwkweyspaces: ($) => choice("KEYSPACES", "keyspaces"),
+    kw_keyspaces: ($) => choice("KEYSPACES", "keyspaces"),
     kw_limit: ($) => choice("LIMIT", "limit"),
     kw_modify: ($) => choice("MODIFY", "modify"),
     kw_norecursive: ($) => choice("NORECURSIVE", "norecursive"),
@@ -219,7 +219,7 @@ module.exports = grammar({
     kw_permissions: ($) => choice("PERMISSIONS", "permissions"),
     kw_primary: ($) => choice("PRIMARY", "primary"),
     kw_revoke: ($) => choice("REVOKE", "revoke"),
-    kw_select: ($) => choice("SELECT", "select"),
+    kwselect: ($) => choice("SELECT", "select"),
     kw_users: ($) => choice("USERS", "users"),
     kw_commit: ($) => choice("COMMIT", "commit"),
     kw_search: ($) => choice("SEARCH", "search"),
@@ -275,7 +275,7 @@ module.exports = grammar({
     // kw_schema: ($) => choice("SCHEMA", "schema"), // Not supported
     // kw_columnfamily: ($) => choice("COLUMNFAMILY", "columnfamily"), // Not supported
 
-    _consistency_lvls: ($) =>
+    consistency_lvls: ($) =>
       choice(
         $.kw_one,
         $.kw_two,
@@ -286,19 +286,19 @@ module.exports = grammar({
         $.kw_each_quorum,
       ),
 
-    _using_consistency_level: ($) =>
+    usingconsistency_level: ($) =>
       seq(
         $.kw_using,
         $.kw_consistency,
         optional($.kw_level),
-        $._consistency_lvls,
+        $.consistency_lvls,
       ),
 
-    _consistency_level: ($) =>
+    consistency_level: ($) =>
       seq(
         $.kw_consistency,
         optional($.kw_level),
-        $._consistency_lvls,
+        $.consistency_lvls,
         $.semi_colon,
       ),
 
@@ -307,7 +307,7 @@ module.exports = grammar({
         $.kw_use,
         $.kw_alter,
         $.kw_create,
-        $.kwkweyspace,
+        $.kw_keyspace,
         $.kw_table,
         $.kw_with,
         $.kw_where,
@@ -350,7 +350,7 @@ module.exports = grammar({
         $.kw_compact,
         $.kw_storage,
         $.kw_contains,
-        $.kwkwey,
+        $.kw_key,
         $.kw_login,
         $.kw_options,
         $.kw_or,
@@ -368,7 +368,7 @@ module.exports = grammar({
         $.kw_filtering,
         $.kw_distinct,
         $.kw_as,
-        $.kwkweys,
+        $.kw_keys,
         $.kw_group,
         $.kw_by,
         $.kw_json,
@@ -386,7 +386,7 @@ module.exports = grammar({
         $.kw_full,
         $.kw_grant,
         $.kw_index,
-        $.kwkweyspaces,
+        $.kw_keyspaces,
         $.kw_limit,
         $.kw_modify,
         $.kw_norecursive,
@@ -397,7 +397,7 @@ module.exports = grammar({
         $.kw_permissions,
         $.kw_primary,
         $.kw_revoke,
-        $.kw_select,
+        $.kwselect,
         $.kw_users,
         $.kw_commit,
         $.kw_search,
@@ -450,8 +450,8 @@ module.exports = grammar({
       ),
 
     //-----------[HELPER TYPES]-----------------
-    _graph_engine: ($) => "graph_engine",
-    _graph_engine_type: ($) => choice("'Core'", "'Classic'"),
+    graph_engine: ($) => "graph_engine",
+    graph_engine_type: ($) => choice("'Core'", "'Classic'"),
 
     //-----------[OUTLINE IDENTIFIRES]----------
     // outline_identifier: ($) => /@[a-zA-Z_][a-zA-Z0-9_]*/,
@@ -463,17 +463,17 @@ module.exports = grammar({
       field("name
     */
 
-    _use: ($) =>
+    use: ($) =>
       seq(
         field("command_family", $.kw_use),
         field("name", $.literal),
         $.semi_colon,
       ),
 
-    _alterkweyspace: ($) =>
+    alter_keyspace: ($) =>
       seq(
         field("command_family", $.kw_alter),
-        field("command_type", $.kwkweyspace),
+        field("command_type", $.kw_keyspace),
         field("name", $.identifier),
         $.kw_with,
         $.kw_replication,
@@ -485,11 +485,11 @@ module.exports = grammar({
           seq($.kw_and, $.kw_durable_writes, $.equal_sign, $.bool_choice),
         ),
         optional(
-          seq($.kw_and, $._graph_engine, $.equal_sign, $._graph_engine_type),
+          seq($.kw_and, $.graph_engine, $.equal_sign, $.graph_engine_type),
         ),
         $.semi_colon,
       ),
-    _alter_materialized_view: ($) =>
+    alter_materialized_view: ($) =>
       seq(
         field("command_family", $.kw_alter),
         field("command_type_modifier", $.kw_materialized),
@@ -509,7 +509,7 @@ module.exports = grammar({
         ),
         $.semi_colon,
       ),
-    _alter_role: ($) =>
+    alter_role: ($) =>
       seq(
         field("command_family", $.kw_alter),
         field("command_type", $.kw_role),
@@ -517,7 +517,7 @@ module.exports = grammar({
         optional(seq($.kw_with, repeat($.alter_role_option_args))),
         $.semi_colon,
       ),
-    _alter_table: ($) =>
+    alter_table: ($) =>
       prec.left(
         1,
         seq(
@@ -528,7 +528,7 @@ module.exports = grammar({
           $.semi_colon,
         ),
       ),
-    _alter_type: ($) =>
+    alter_type: ($) =>
       prec.left(
         1,
         seq(
@@ -539,7 +539,7 @@ module.exports = grammar({
           $.semi_colon,
         ),
       ),
-    _alter_user: ($) =>
+    alter_user: ($) =>
       seq(
         $.kw_alter,
         $.kw_user,
@@ -553,7 +553,7 @@ module.exports = grammar({
         optional(choice($.kw_superuser, $.kw_nosuperuser)),
         $.semi_colon,
       ),
-    _batch: ($) =>
+    batch: ($) =>
       prec.left(
         1,
         seq(
@@ -564,18 +564,18 @@ module.exports = grammar({
           repeat(seq($.dml_statement)),
           $.kw_apply,
           $.kw_batch,
-          optional($._using_consistency_level),
+          optional($.usingconsistency_level),
           $.semi_colon,
         ),
       ),
-    _truncate: ($) =>
+    truncate: ($) =>
       seq(
         $.kw_truncate,
         optional($.kw_table),
         $.tablekweyspace_name,
         $.semi_colon,
       ),
-    _update: ($) =>
+    update: ($) =>
       seq(
         $.kw_update,
         $.tablekweyspace_name,
@@ -599,7 +599,7 @@ module.exports = grammar({
         repeat(
           seq(
             choice($.literal, $.collection, $.indexed_name, $.key_space_name),
-            $._assignment_operators,
+            $.assignment_operators,
             $.expression,
             optional($.comma_separated),
           ),
@@ -609,7 +609,7 @@ module.exports = grammar({
           choice(
             seq(
               choice($.literal, $.collection),
-              $._assignment_operators,
+              $.assignment_operators,
               choice($.literal, $.collection),
             ),
             seq(
@@ -632,7 +632,7 @@ module.exports = grammar({
             choice(
               seq(
                 choice($.literal, $.collection),
-                $._assignment_operators,
+                $.assignment_operators,
                 $.expression,
               ),
               seq(
@@ -647,7 +647,7 @@ module.exports = grammar({
         ),
         optional(
           choice(
-            $._if_exists,
+            $.if_exists,
             seq(
               $.kw_if,
               choice($.literal, $.collection),
@@ -664,10 +664,10 @@ module.exports = grammar({
             ),
           ),
         ),
-        optional($._using_consistency_level),
+        optional($.usingconsistency_level),
         $.semi_colon,
       ),
-    _insert: ($) =>
+    insert: ($) =>
       seq(
         $.kw_insert,
         optional("JSON"),
@@ -682,12 +682,12 @@ module.exports = grammar({
           seq(choice($.literal, $.collection), optional($.comma_separated)),
         ),
         ")",
-        optional($._if_not_exists),
-        optional($._using_ttl_or_timestamp),
-        optional($._using_consistency_level),
+        optional($.if_not_exists),
+        optional($.using_ttl_or_timestamp),
+        optional($.usingconsistency_level),
         $.semi_colon,
       ),
-    _delete: ($) =>
+    delete: ($) =>
       seq(
         $.kw_delete,
         repeat(
@@ -716,7 +716,7 @@ module.exports = grammar({
         ),
         optional(
           choice(
-            $._if_exists,
+            $.if_exists,
             seq(
               $.kw_if,
               choice($.literal, $.collection),
@@ -733,15 +733,15 @@ module.exports = grammar({
             ),
           ),
         ),
-        optional($._using_consistency_level),
+        optional($.usingconsistency_level),
         $.semi_colon,
       ),
-    _create_aggregate: ($) =>
+    create_aggregate: ($) =>
       seq(
         $.kw_create,
         optional(seq($.kw_or, $.kw_replace)),
         $.kw_aggregate,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         $.tablekweyspace_name,
         "(",
         $.cql_types_union,
@@ -758,17 +758,17 @@ module.exports = grammar({
         optional(")"),
         $.semi_colon,
       ),
-    _create_index: ($) =>
+    create_index: ($) =>
       seq(
         $.kw_create,
         optional($.kw_custom),
         $.kw_index,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         optional($.identifier),
         $.kw_on,
         $.tablekweyspace_name,
         optional("("),
-        optional($._create_index_on_options),
+        optional($.create_index_on_options),
         "(",
         $.identifier,
         ")",
@@ -776,13 +776,13 @@ module.exports = grammar({
         optional(
           seq(
             $.kw_using,
-            $._index_type,
+            $.index_type,
             optional(seq($.kw_with, $.kw_options, $.equal_sign, $.collection)),
           ),
         ),
         $.semi_colon,
       ),
-    _commit_search_index: ($) =>
+    commit_search_index: ($) =>
       seq(
         $.kw_commit,
         $.kw_search,
@@ -791,7 +791,7 @@ module.exports = grammar({
         $.tablekweyspace_name,
         $.semi_colon,
       ),
-    _list_roles: ($) =>
+    list_roles: ($) =>
       seq(
         $.kw_list,
         $.kw_roles,
@@ -799,15 +799,15 @@ module.exports = grammar({
         optional($.kw_norecursive),
         $.semi_colon,
       ),
-    _list_users: ($) => seq($.kw_list, $.kw_users, $.semi_colon),
-    _revoke_role: ($) =>
+    list_users: ($) => seq($.kw_list, $.kw_users, $.semi_colon),
+    revoke_role: ($) =>
       seq($.kw_revoke, $.identifier, $.kw_from, $.identifier, $.semi_colon),
-    _create_function: ($) =>
+    create_function: ($) =>
       seq(
         $.kw_create,
         optional(seq($.kw_or, $.kw_replace)),
         $.kw_function,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         $.key_space_name,
         "(",
         repeat(
@@ -830,11 +830,11 @@ module.exports = grammar({
         "$$",
         $.semi_colon,
       ),
-    _createkweyspace: ($) =>
+    createkweyspace: ($) =>
       seq(
         $.kw_create,
-        $.kwkweyspace,
-        optional($._if_not_exists),
+        $.kw_keyspace,
+        optional($.if_not_exists),
         $.identifier,
         $.kw_with,
         $.kw_replication,
@@ -844,65 +844,65 @@ module.exports = grammar({
           seq($.kw_and, $.kw_durable_writes, $.equal_sign, $.bool_choice),
         ),
         optional(
-          seq($.kw_and, $._graph_engine, $.equal_sign, $._graph_engine_type),
+          seq($.kw_and, $.graph_engine, $.equal_sign, $.graph_engine_type),
         ),
         $.semi_colon,
       ),
-    _create_materialized_view: ($) =>
+    create_materialized_view: ($) =>
       seq(
         $.kw_create,
         $.kw_materialized,
         $.kw_view,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         $.tablekweyspace_name,
         $.kw_as,
-        $.kw_select,
+        $.kwselect,
         optional(choice($.kw_json, $.kw_distinct)),
         repeat1($.selectors),
         $.kw_from,
         $.tablekweyspace_name,
-        repeat($._mv_relation),
+        repeat($.mv_relation),
         $.kw_primary,
-        $.kwkwey,
+        $.kw_key,
         "(",
         repeat(seq($.identifier, optional($.comma_separated))),
         ")",
         optional(
           choice(
-            seq($.kw_with, $._o_with_table_option),
-            $._with_clustering_order_by,
+            seq($.kw_with, $.o_with_table_option),
+            $.with_clustering_order_by,
           ),
         ),
-        optional($._and_clustering_order_by),
+        optional($.and_clustering_order_by),
         repeat(choice(seq($.kw_and, $.table_option))),
         $.semi_colon,
       ),
 
-    _create_role: ($) =>
+    create_role: ($) =>
       seq(
         $.kw_create,
         $.kw_role,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         $.identifier,
-        repeat($._o_create_role),
+        repeat($.o_create_role),
         $.semi_colon,
       ),
-    _create_search_index: ($) =>
+    create_search_index: ($) =>
       seq(
         $.kw_create,
         $.kw_search,
         $.kw_index,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         $.kw_on,
         $.tablekweyspace_name,
-        repeat($._o_create_search_index),
+        repeat($.o_create_search_index),
         $.semi_colon,
       ),
-    _create_type: ($) =>
+    create_type: ($) =>
       seq(
         $.kw_create,
         $.kw_type,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         $.tablekweyspace_name,
         optional("("),
         repeat(
@@ -911,65 +911,65 @@ module.exports = grammar({
         optional(")"),
         $.semi_colon,
       ),
-    _create_user: ($) =>
+    create_user: ($) =>
       seq(
         $.kw_create,
         $.kw_user,
-        $._create_user_if_not_exist_choice,
-        optional(choice($._with_password, $._with_hashed_password)),
+        $.create_user_if_not_exist_choice,
+        optional(choice($.with_password, $.with_hashed_password)),
         optional(choice($.kw_superuser, $.kw_nosuperuser)),
         $.semi_colon,
       ),
-    _drop_aggregate: ($) =>
+    drop_aggregate: ($) =>
       seq(
         $.kw_drop,
         $.kw_aggregate,
-        optional($._if_exists),
+        optional($.if_exists),
         repeat(seq($.tablekweyspace_name, optional($.comma_separated))),
         $.semi_colon,
       ),
-    _drop_function: ($) =>
+    drop_function: ($) =>
       seq(
         $.kw_drop,
         $.kw_function,
-        optional($._if_exists),
+        optional($.if_exists),
         repeat(seq($.tablekweyspace_name, optional($.comma_separated))),
         $.semi_colon,
       ),
-    _drop_index: ($) =>
+    drop_index: ($) =>
       seq(
         $.kw_drop,
         $.kw_index,
-        optional($._if_exists),
+        optional($.if_exists),
         $.tablekweyspace_name,
         $.semi_colon,
       ),
-    _dropkweyspace: ($) =>
+    dropkweyspace: ($) =>
       seq(
         $.kw_drop,
-        $.kwkweyspace,
-        optional($._if_exists),
+        $.kw_keyspace,
+        optional($.if_exists),
         $.tablekweyspace_name,
         $.semi_colon,
       ),
-    _drop_materialized_view: ($) =>
+    drop_materialized_view: ($) =>
       seq(
         $.kw_drop,
         $.kw_materialized,
         $.kw_view,
-        optional($._if_exists),
+        optional($.if_exists),
         $.tablekweyspace_name,
         $.semi_colon,
       ),
-    _drop_role: ($) =>
+    drop_role: ($) =>
       seq(
         $.kw_drop,
         $.kw_role,
-        optional($._if_exists),
+        optional($.if_exists),
         $.identifier,
         $.semi_colon,
       ),
-    _drop_search_index: ($) =>
+    drop_search_index: ($) =>
       seq(
         $.kw_drop,
         $.kw_search,
@@ -985,83 +985,83 @@ module.exports = grammar({
         ),
         $.semi_colon,
       ),
-    _drop_table: ($) =>
+    drop_table: ($) =>
       seq(
         $.kw_drop,
         $.kw_table,
-        optional($._if_exists),
+        optional($.if_exists),
         $.tablekweyspace_name,
         $.semi_colon,
       ),
-    _drop_type: ($) =>
+    drop_type: ($) =>
       seq(
         $.kw_drop,
         $.kw_type,
-        optional($._if_exists),
+        optional($.if_exists),
         $.tablekweyspace_name,
         $.semi_colon,
       ),
-    _drop_user: ($) =>
+    drop_user: ($) =>
       seq(
         $.kw_drop,
         $.kw_user,
-        optional($._if_exists),
+        optional($.if_exists),
         $.identifier,
         $.semi_colon,
       ),
-    _grant_role: ($) =>
+    grant_role: ($) =>
       seq($.kw_grant, $.identifier, $.kw_to, $.identifier, $.semi_colon),
-    _grant_permission: ($) =>
+    grant_permission: ($) =>
       seq(
         $.kw_grant,
-        $._priviliges,
+        $.priviliges,
         $.kw_on,
-        $._resources,
+        $.resources,
         $.kw_to,
         $.identifier,
         $.semi_colon,
       ),
-    _list_permissions: ($) =>
+    list_permissions: ($) =>
       seq(
         $.kw_list,
-        $._priviliges,
+        $.priviliges,
         optional(seq($.kw_on, $.tablekweyspace_name)),
         optional(seq($.kw_of, $.tablekweyspace_name)),
         optional($.kw_norecursive),
         $.semi_colon,
       ),
-    _revoke_permission: ($) =>
+    revoke_permission: ($) =>
       seq(
         $.kw_revoke,
-        $._priviliges,
+        $.priviliges,
         $.kw_on,
-        $._resources,
+        $.resources,
         choice($.kw_to, $.kw_from),
         $.identifier,
         $.semi_colon,
       ),
-    _create_table: ($) =>
+    create_table: ($) =>
       seq(
         $.kw_create,
         $.kw_table,
-        optional($._if_not_exists),
+        optional($.if_not_exists),
         $.tablekweyspace_name,
         "(",
-        optional(repeat($._column_definition)),
-        optional(choice($._pk_main, $.kw_static)),
+        optional(repeat($.column_definition)),
+        optional(choice($.pk_main, $.kw_static)),
         ")",
-        repeat($._create_table_and_options),
+        repeat($.create_tableand_options),
         $.semi_colon,
       ),
-    _select: ($) =>
+    select: ($) =>
       seq(
-        $.kw_select,
+        $.kwselect,
         optional(choice($.kw_json, $.kw_distinct)),
         repeat1($.selectors),
         $.kw_from,
         $.tablekweyspace_name,
-        repeat($._conditions_select),
-        optional($._using_consistency_level),
+        repeat($.conditionsselect),
+        optional($.usingconsistency_level),
         $.semi_colon,
       ),
 
@@ -1069,15 +1069,15 @@ module.exports = grammar({
 
     // Create USER shenanigans
 
-    _create_user_if_not_exist_choice: ($) =>
+    create_user_if_not_exist_choice: ($) =>
       choice(
-        seq(optional($._if_not_exists), $.identifier),
-        seq($.identifier, optional($._if_not_exists)),
+        seq(optional($.if_not_exists), $.identifier),
+        seq($.identifier, optional($.if_not_exists)),
       ),
 
     // Select Conditions
 
-    _conditions_select: ($) =>
+    conditionsselect: ($) =>
       choice(
         seq($.kw_where, $.selector_conditions, $.if_conditions, $.expression),
         seq($.kw_and, $.selector_conditions, $.if_conditions, $.expression),
@@ -1139,51 +1139,46 @@ module.exports = grammar({
 
     // Table AND options
 
-    _o_with_compact_storage: ($) => seq($.kw_with, $.kw_compact, $.kw_storage),
-    _o_and_compact_storage: ($) => seq($.kw_and, $.kw_compact, $.kw_storage),
+    o_with_compact_storage: ($) => seq($.kw_with, $.kw_compact, $.kw_storage),
+    o_and_compact_storage: ($) => seq($.kw_and, $.kw_compact, $.kw_storage),
 
-    _o_compact_storage: ($) =>
-      choice($._o_with_compact_storage, $._o_and_compact_storage),
+    o_compact_storage: ($) =>
+      choice($.o_with_compact_storage, $.o_and_compact_storage),
 
-    _o_with_id: ($) => seq($.kw_with, $.kw_id, $.equal_sign, $.string),
-    _o_and_id: ($) => seq($.kw_and, $.kw_id, $.equal_sign, $.string),
-    _o_id: ($) => choice($._o_with_id, $._o_and_id),
+    o_with_id: ($) => seq($.kw_with, $.kw_id, $.equal_sign, $.string),
+    o_and_id: ($) => seq($.kw_and, $.kw_id, $.equal_sign, $.string),
+    o_id: ($) => choice($.o_with_id, $.o_and_id),
 
-    _create_table_and_options: ($) =>
-      choice(
-        $.table_option,
-        $._o_clustering_order,
-        $._o_compact_storage,
-        $._o_id,
-      ),
+    create_tableand_options: ($) =>
+      choice($.table_option, $.o_clustering_order, $.o_compact_storage, $.o_id),
 
     // Table Column definition
 
-    _pk_main: ($) =>
+    pk_main: ($) =>
       prec.right(
         1,
-        seq(optional($.comma_separated), $.kw_primary, $.kwkwey, $._pk_options),
+        seq(optional($.comma_separated), $.kw_primary, $.kw_key, $.pk_options),
       ),
 
-    _column_definition: ($) =>
+    column_definition: ($) =>
       prec.right(
         2,
         seq(
           $.identifier,
           $.cql_types_union,
-          optional(seq($.kw_primary, $.kwkwey)),
+          optional(seq($.kw_primary, $.kw_key)),
           optional($.comma_separated),
         ),
       ),
 
-    _pk_partion_only: ($) => seq("(", $.identifier, ")"),
-    _pk_partion_explicit: ($) =>
+    pk_partion_only: ($) => seq("(", $.identifier, ")"),
+    pk_partion_explicit: ($) =>
       prec.left(2, seq("(", "(", $.identifier, ")", ")")),
-    _pk_partion_and_clustering_single: ($) =>
+    pk_partion_and_clustering_single: ($) =>
       seq("(", $.identifier, $.comma_separated, $.identifier, ")"),
-    _pk_partion_and_clustering: ($) =>
+    pk_partion_and_clustering: ($) =>
       seq("(", "(", $.identifier, ")", $.comma_separated, $.identifier, ")"),
-    _pk_partion_mult_and_clustering: ($) =>
+    pk_partion_mult_and_clustering: ($) =>
       seq(
         "(",
         "(",
@@ -1193,7 +1188,7 @@ module.exports = grammar({
         $.identifier,
         ")",
       ),
-    _pk_partion_and_clustering_mult: ($) =>
+    pk_partion_and_clustering_mult: ($) =>
       seq(
         "(",
         $.identifier,
@@ -1203,7 +1198,7 @@ module.exports = grammar({
         ")",
         ")",
       ),
-    _pk_partion_mult_and_clustering_mult: ($) =>
+    pk_partion_mult_and_clustering_mult: ($) =>
       seq(
         "(",
         "(",
@@ -1215,24 +1210,24 @@ module.exports = grammar({
         ")",
         ")",
       ),
-    _pk_options: ($) =>
+    pk_options: ($) =>
       choice(
-        $._pk_partion_only,
-        $._pk_partion_explicit,
-        $._pk_partion_and_clustering,
-        $._pk_partion_and_clustering_single,
-        $._pk_partion_mult_and_clustering,
-        $._pk_partion_and_clustering_mult,
-        $._pk_partion_mult_and_clustering_mult,
+        $.pk_partion_only,
+        $.pk_partion_explicit,
+        $.pk_partion_and_clustering,
+        $.pk_partion_and_clustering_single,
+        $.pk_partion_mult_and_clustering,
+        $.pk_partion_and_clustering_mult,
+        $.pk_partion_mult_and_clustering_mult,
       ),
 
     // Resource types | Premissions
 
-    _resources: ($) =>
+    resources: ($) =>
       choice(
         $.tablekweyspace_name,
-        seq($.kw_all, $.kwkweyspaces),
-        seq($.kwkweyspace, $.tablekweyspace_name),
+        seq($.kw_all, $.kw_keyspaces),
+        seq($.kw_keyspace, $.tablekweyspace_name),
         seq($.kw_table, $.tablekweyspace_name),
         seq($.collection, $.kw_rows, $.kw_in, $.tablekweyspace_name),
         seq($.kw_all, $.kw_functions),
@@ -1240,7 +1235,7 @@ module.exports = grammar({
           $.kw_all,
           $.kw_functions,
           $.kw_in,
-          $.kwkweyspace,
+          $.kw_keyspace,
           $.tablekweyspace_name,
         ),
         seq(
@@ -1256,14 +1251,14 @@ module.exports = grammar({
         seq($.kw_all, $.kw_roles),
         seq($.kw_role, $.tablekweyspace_name),
       ),
-    _priviliges: ($) =>
+    priviliges: ($) =>
       choice(
         seq($.kw_all, $.kw_permissions),
         $.kw_alter,
         $.kw_create,
         $.kw_drop,
         $.kw_modify,
-        $.kw_select,
+        $.kwselect,
         $.kw_execute,
         $.kw_describe,
         $.tablekweyspace_name,
@@ -1273,7 +1268,7 @@ module.exports = grammar({
       ),
 
     // Options
-    _o_with_columns: ($) =>
+    o_with_columns: ($) =>
       seq(
         $.kw_with,
         $.kw_columns,
@@ -1285,7 +1280,7 @@ module.exports = grammar({
           ),
         ),
       ),
-    _o_and_columns: ($) =>
+    o_and_columns: ($) =>
       seq(
         $.kw_and,
         $.kw_columns,
@@ -1297,56 +1292,56 @@ module.exports = grammar({
           ),
         ),
       ),
-    _o_with_profiles: ($) =>
+    o_with_profiles: ($) =>
       seq(
         $.kw_with,
         $.kw_profiles,
         repeat(seq($.tablekweyspace_name, optional($.comma_separated))),
       ),
-    _o_and_profiles: ($) =>
+    o_and_profiles: ($) =>
       seq(
         $.kw_and,
         $.kw_profiles,
         repeat(seq($.tablekweyspace_name, optional($.comma_separated))),
       ),
-    _o_with_config: ($) =>
+    o_with_config: ($) =>
       seq(
         $.kw_with,
         $.kw_config,
         repeat(seq($.collection, optional($.comma_separated))),
       ),
-    _o_and_config: ($) =>
+    o_and_config: ($) =>
       seq(
         $.kw_and,
         $.kw_config,
         repeat(seq($.collection, optional($.comma_separated))),
       ),
-    _o_with_options: ($) =>
+    owith_options: ($) =>
       seq(
         $.kw_with,
         $.kw_options,
         repeat(seq($.collection, optional($.comma_separated))),
       ),
-    _o_and_options: ($) =>
+    oand_options: ($) =>
       seq(
         $.kw_and,
         $.kw_options,
         repeat(seq($.collection, optional($.comma_separated))),
       ),
-    _o_create_search_index: ($) =>
+    o_create_search_index: ($) =>
       choice(
-        $._o_with_columns,
-        $._o_and_columns,
-        $._o_with_profiles,
-        $._o_and_profiles,
-        $._o_with_config,
-        $._o_and_config,
-        $._o_with_options,
-        $._o_and_options,
+        $.o_with_columns,
+        $.o_and_columns,
+        $.o_with_profiles,
+        $.o_and_profiles,
+        $.o_with_config,
+        $.o_and_config,
+        $.owith_options,
+        $.oand_options,
       ),
-    _o_clustering_order: ($) =>
-      choice($._with_clustering_order_by, $._and_clustering_order_by),
-    _with_clustering_order_by: ($) =>
+    o_clustering_order: ($) =>
+      choice($.with_clustering_order_by, $.and_clustering_order_by),
+    with_clustering_order_by: ($) =>
       seq(
         $.kw_with,
         $.kw_clustering,
@@ -1358,7 +1353,7 @@ module.exports = grammar({
         optional(")"),
       ),
 
-    _and_clustering_order_by: ($) =>
+    and_clustering_order_by: ($) =>
       seq(
         $.kw_and,
         $.kw_clustering,
@@ -1370,9 +1365,9 @@ module.exports = grammar({
         optional(")"),
       ),
 
-    _with_password: ($) =>
+    with_password: ($) =>
       seq($.kw_with, $.kw_password, optional($.equal_sign), $.string),
-    _with_hashed_password: ($) =>
+    with_hashed_password: ($) =>
       seq(
         $.kw_with,
         $.kw_hashed,
@@ -1380,9 +1375,9 @@ module.exports = grammar({
         optional($.equal_sign),
         $.string,
       ),
-    _and_password: ($) =>
+    and_password: ($) =>
       seq($.kw_and, $.kw_password, optional($.equal_sign), $.string),
-    _and_hashed_password: ($) =>
+    and_hashed_password: ($) =>
       seq(
         $.kw_and,
         $.kw_hashed,
@@ -1390,122 +1385,121 @@ module.exports = grammar({
         optional($.equal_sign),
         $.string,
       ),
-    _with_superuser: ($) =>
+    with_superuser: ($) =>
       seq($.kw_with, $.kw_superuser, $.equal_sign, $.bool_choice),
-    _and_superuser: ($) =>
+    and_superuser: ($) =>
       seq($.kw_and, $.kw_superuser, $.equal_sign, $.bool_choice),
-    _with_login: ($) => seq($.kw_with, $.kw_login, $.equal_sign, $.bool_choice),
-    _and_login: ($) => seq($.kw_and, $.kw_login, $.equal_sign, $.bool_choice),
-    _with_access_to_dc: ($) =>
+    with_login: ($) => seq($.kw_with, $.kw_login, $.equal_sign, $.bool_choice),
+    and_login: ($) => seq($.kw_and, $.kw_login, $.equal_sign, $.bool_choice),
+    with_access_to_dc: ($) =>
       seq($.kw_with, $.kw_access, $.kw_to, $.kw_dcs, $.collection),
-    _with_access_all_dc: ($) =>
+    with_access_all_dc: ($) =>
       seq($.kw_with, $.kw_access, $.kw_to, $.kw_all, $.kw_dcs),
-    _and_access_to_dc: ($) =>
+    and_access_to_dc: ($) =>
       seq($.kw_and, $.kw_access, $.kw_to, $.kw_dcs, $.collection),
-    _and_access_all_dc: ($) =>
+    and_access_all_dc: ($) =>
       seq($.kw_and, $.kw_access, $.kw_to, $.kw_all, $.kw_dcs),
-    _with_access_from_cidrs: ($) =>
+    with_access_from_cidrs: ($) =>
       seq($.kw_with, $.kw_access, $.kw_from, $.kw_cidrs, $.collection),
-    _with_access_from_all_cidrs: ($) =>
+    with_access_from_all_cidrs: ($) =>
       seq($.kw_with, $.kw_access, $.kw_from, $.kw_all, $.kw_cidrs),
-    _and_access_from_cidrs: ($) =>
+    and_access_from_cidrs: ($) =>
       seq($.kw_and, $.kw_access, $.kw_from, $.kw_cidrs, $.collection),
-    _and_access_from_all_cidrs: ($) =>
+    and_access_from_all_cidrs: ($) =>
       seq($.kw_and, $.kw_access, $.kw_from, $.kw_all, $.kw_cidrs),
-    _with_options: ($) =>
+    with_options: ($) =>
       seq($.kw_with, $.kw_options, $.equal_sign, $.collection),
-    _and_options: ($) =>
-      seq($.kw_and, $.kw_options, $.equal_sign, $.collection),
+    and_options: ($) => seq($.kw_and, $.kw_options, $.equal_sign, $.collection),
 
-    _o_create_role: ($) =>
+    o_create_role: ($) =>
       choice(
-        $._with_password,
-        $._and_password,
-        $._with_hashed_password,
-        $._and_hashed_password,
-        $._with_superuser,
-        $._and_superuser,
-        $._with_login,
-        $._and_login,
-        $._with_access_to_dc,
-        $._and_access_to_dc,
-        $._with_access_all_dc,
-        $._and_access_all_dc,
-        $._with_access_from_cidrs,
-        $._and_access_from_cidrs,
-        $._with_access_from_all_cidrs,
-        $._and_access_from_all_cidrs,
-        $._with_options,
-        $._and_options,
+        $.with_password,
+        $.and_password,
+        $.with_hashed_password,
+        $.and_hashed_password,
+        $.with_superuser,
+        $.and_superuser,
+        $.with_login,
+        $.and_login,
+        $.with_access_to_dc,
+        $.and_access_to_dc,
+        $.with_access_all_dc,
+        $.and_access_all_dc,
+        $.with_access_from_cidrs,
+        $.and_access_from_cidrs,
+        $.with_access_from_all_cidrs,
+        $.and_access_from_all_cidrs,
+        $.with_options,
+        $.and_options,
       ),
-    _mv_relation: ($) =>
+    mv_relation: ($) =>
       choice(
         seq($.kw_where, $.identifier, $.kw_is, $.kw_not, $.kw_null),
         seq($.kw_and, $.identifier, $.kw_is, $.kw_not, $.kw_null),
         seq($.kw_and, $.identifier, $.if_conditions, $.expression),
       ),
-    _assignment_operators: ($) => choice($.equal_sign, "+=", "-=", "*=", "/="),
-    _create_index_on_options: ($) =>
-      choice($.kwkweys, $.kw_values, $.kw_entries, $.kw_full),
-    _index_type: ($) => choice("'SAI'", "'sai'", "'SASI'", "'sasi'"),
+    assignment_operators: ($) => choice($.equal_sign, "+=", "-=", "*=", "/="),
+    create_index_on_options: ($) =>
+      choice($.kw_keys, $.kw_values, $.kw_entries, $.kw_full),
+    index_type: ($) => choice("'SAI'", "'sai'", "'SASI'", "'sasi'"),
 
     cql_commands: ($) =>
       choice(
-        field("alter_role", $._alter_role),
-        field("alter_table", $._alter_table),
-        field("alter_type", $._alter_type),
-        field("alter_user", $._alter_user),
-        field("alter_materialized_view", $._alter_materialized_view),
-        field("alterkweyspace", $._alterkweyspace),
+        field("alter_role", $.alter_role),
+        field("alter_table", $.alter_table),
+        field("alter_type", $.alter_type),
+        field("alter_user", $.alter_user),
+        field("alter_materialized_view", $.alter_materialized_view),
+        field("alterkweyspace", $.alter_keyspace),
 
-        field("batch", $._batch),
-        field("commit_search_index", $._commit_search_index),
+        field("batch", $.batch),
+        field("commit_search_index", $.commit_search_index),
 
-        field("create_aggregate", $._create_aggregate),
-        field("create_function", $._create_function),
-        field("create_index", $._create_index),
-        field("createkweyspace", $._createkweyspace),
-        field("create_materialized_view", $._create_materialized_view),
-        field("create_role", $._create_role),
-        field("create_search_index", $._create_search_index), // fixed typo
-        field("create_table", $._create_table),
-        field("create_type", $._create_type),
-        field("create_user", $._create_user),
+        field("create_aggregate", $.create_aggregate),
+        field("create_function", $.create_function),
+        field("create_index", $.create_index),
+        field("createkweyspace", $.createkweyspace),
+        field("create_materialized_view", $.create_materialized_view),
+        field("create_role", $.create_role),
+        field("create_search_index", $.create_search_index), // fixed typo
+        field("create_table", $.create_table),
+        field("create_type", $.create_type),
+        field("create_user", $.create_user),
 
-        field("delete", $._delete),
+        field("delete", $.delete),
 
-        field("drop_aggregate", $._drop_aggregate),
-        field("drop_function", $._drop_function),
-        field("drop_index", $._drop_index),
-        field("dropkweyspace", $._dropkweyspace),
-        field("drop_materialized_view", $._drop_materialized_view),
-        field("drop_role", $._drop_role),
-        field("drop_search_index", $._drop_search_index),
-        field("drop_table", $._drop_table),
-        field("drop_type", $._drop_type),
-        field("drop_user", $._drop_user),
+        field("drop_aggregate", $.drop_aggregate),
+        field("drop_function", $.drop_function),
+        field("drop_index", $.drop_index),
+        field("dropkweyspace", $.dropkweyspace),
+        field("drop_materialized_view", $.drop_materialized_view),
+        field("drop_role", $.drop_role),
+        field("drop_search_index", $.drop_search_index),
+        field("drop_table", $.drop_table),
+        field("drop_type", $.drop_type),
+        field("drop_user", $.drop_user),
 
-        field("grant_role", $._grant_role),
-        field("grant_permission", $._grant_permission), // fixed spelling
+        field("grant_role", $.grant_role),
+        field("grant_permission", $.grant_permission), // fixed spelling
 
-        field("insert", $._insert),
+        field("insert", $.insert),
 
-        field("list_permissions", $._list_permissions), // fixed spelling
-        field("list_roles", $._list_roles),
-        field("list_users", $._list_users),
+        field("list_permissions", $.list_permissions), // fixed spelling
+        field("list_roles", $.list_roles),
+        field("list_users", $.list_users),
 
-        field("revoke_role", $._revoke_role),
-        field("revoke_permission", $._revoke_permission), // fixed spelling
+        field("revoke_role", $.revoke_role),
+        field("revoke_permission", $.revoke_permission), // fixed spelling
 
-        field("select", $._select),
-        field("truncate", $._truncate),
-        field("update", $._update),
-        field("use", $._use),
+        field("select", $.select),
+        field("truncate", $.truncate),
+        field("update", $.update),
+        field("use", $.use),
 
-        field("consistency_level", $._consistency_level),
+        field("consistency_level", $.consistency_level),
       ),
 
-    _using_ttl_or_timestamp: ($) =>
+    using_ttl_or_timestamp: ($) =>
       choice(
         seq(
           $.kw_using,
@@ -1521,8 +1515,8 @@ module.exports = grammar({
         ),
       ),
 
-    _if_not_exists: ($) => seq($.kw_if, $.kw_not, $.kw_exists),
-    _if_exists: ($) => seq($.kw_if, $.kw_exists),
+    if_not_exists: ($) => seq($.kw_if, $.kw_not, $.kw_exists),
+    if_exists: ($) => seq($.kw_if, $.kw_exists),
 
     replication_statement: ($) =>
       seq($.string_literal, ":", $.string_literal, optional(choice(",", "|"))),
@@ -1564,11 +1558,11 @@ module.exports = grammar({
         optional($.comma_separated),
       ),
 
-    _dml_insert: ($) => prec.left(2, $._insert),
-    _dml_update: ($) => prec.left(2, $._update),
-    _dml_delete: ($) => prec.left(2, $._delete),
+    dml_insert: ($) => prec.left(2, $.insert),
+    dml_update: ($) => prec.left(2, $.update),
+    dml_delete: ($) => prec.left(2, $.delete),
 
-    dml_statement: ($) => choice($._dml_insert, $._dml_update, $._dml_delete),
+    dml_statement: ($) => choice($.dml_insert, $.dml_update, $.dml_delete),
 
     iconditions_blocks: ($) =>
       choice(
@@ -1607,7 +1601,7 @@ module.exports = grammar({
         seq("(", $.expression, ")"),
       ),
 
-    uuid_construct: ($) => seq($._type_uuid, "(", optional($.uuid), ")"),
+    uuid_construct: ($) => seq($.type_uuid, "(", optional($.uuid), ")"),
 
     construct_types: ($) =>
       choice(
@@ -1629,7 +1623,7 @@ module.exports = grammar({
         "!=",
         $.kw_in,
         $.kw_contains,
-        seq($.kw_contains, $.kwkwey),
+        seq($.kw_contains, $.kw_key),
         seq($.kw_contains, $.kw_any),
       ),
 
@@ -1641,16 +1635,16 @@ module.exports = grammar({
         seq($.kw_options, $.equal_sign, $.string_literal),
       ),
 
-    _o_alter_type: ($) =>
+    o_alter_type: ($) =>
       prec.left(2, seq($.kw_alter, $.identifier, $.kw_type, $.cql_types_union)),
-    _o_add: ($) =>
+    o_add: ($) =>
       seq(
         $.kw_add,
         repeat(
           seq($.identifier, $.cql_types_union, optional($.comma_separated)),
         ),
       ),
-    _o_drop: ($) =>
+    o_drop: ($) =>
       seq(
         $.kw_drop,
         choice(
@@ -1658,28 +1652,28 @@ module.exports = grammar({
           seq($.kw_compact, $.kw_storage),
         ),
       ),
-    _o_rename: ($) =>
+    o_rename: ($) =>
       choice(
         seq($.kw_rename, $.identifier, $.kw_to, $.identifier),
         seq($.kw_rename, choice("VERTEX", "EDGE"), "LABEL", $.kw_to, $.string),
       ),
 
-    _o_with_table_option: ($) => $.table_option,
-    _o_and_table_option: ($) => seq($.kw_and, $.table_option),
+    o_with_table_option: ($) => $.table_option,
+    o_and_table_option: ($) => seq($.kw_and, $.table_option),
 
-    _o_with: ($) =>
-      seq($.kw_with, $._o_with_table_option, repeat($._o_and_table_option)),
+    o_with: ($) =>
+      seq($.kw_with, $.o_with_table_option, repeat($.o_and_table_option)),
 
-    _o_without: ($) => seq("WITHOUT", $.table_option_label),
+    o_without: ($) => seq("WITHOUT", $.table_option_label),
 
     alter_table_options: ($) =>
       choice(
-        $._o_alter_type,
-        $._o_add,
-        $._o_drop,
-        $._o_rename,
-        $._o_with,
-        $._o_without,
+        $.o_alter_type,
+        $.o_add,
+        $.o_drop,
+        $.o_rename,
+        $.o_with,
+        $.o_without,
       ),
 
     alter_type_options: ($) =>

@@ -1,5 +1,221 @@
 [
   {
+    "type": "alter_keyspace",
+    "named": true,
+    "fields": {
+      "command_family": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_alter",
+            "named": true
+          }
+        ]
+      },
+      "command_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_keyspace",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_choice",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "graph_engine",
+          "named": true
+        },
+        {
+          "type": "graph_engine_type",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_durable_writes",
+          "named": true
+        },
+        {
+          "type": "kw_replication",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "replication_statement",
+          "named": true
+        },
+        {
+          "type": "replication_statement_dc",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "alter_materialized_view",
+    "named": true,
+    "fields": {
+      "command_family": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_alter",
+            "named": true
+          }
+        ]
+      },
+      "command_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_view",
+            "named": true
+          }
+        ]
+      },
+      "command_type_modifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_materialized",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "key_space_name",
+            "named": true
+          },
+          {
+            "type": "table_label",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "table_option_multi",
+          "named": true
+        },
+        {
+          "type": "table_option_single",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "alter_role",
+    "named": true,
+    "fields": {
+      "command_family": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_alter",
+            "named": true
+          }
+        ]
+      },
+      "command_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_role",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alter_role_option_args",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "alter_role_option_args",
     "named": true,
     "fields": {},
@@ -39,75 +255,129 @@
     }
   },
   {
-    "type": "alter_table_options",
+    "type": "alter_table",
     "named": true,
-    "fields": {},
+    "fields": {
+      "command_family": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_alter",
+            "named": true
+          }
+        ]
+      },
+      "command_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_table",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "tablekweyspace_name",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "comma_separated",
+          "type": "alter_table_options",
           "named": true
         },
         {
-          "type": "cql_types_union",
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "alter_table_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "o_add",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "o_alter_type",
           "named": true
         },
         {
-          "type": "kw_add",
+          "type": "o_drop",
           "named": true
         },
         {
-          "type": "kw_alter",
+          "type": "o_rename",
           "named": true
         },
         {
-          "type": "kw_and",
+          "type": "o_with",
           "named": true
         },
         {
-          "type": "kw_compact",
+          "type": "o_without",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "alter_type",
+    "named": true,
+    "fields": {
+      "command_family": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_alter",
+            "named": true
+          }
+        ]
+      },
+      "command_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alter_type_options",
           "named": true
         },
         {
-          "type": "kw_drop",
+          "type": "semi_colon",
           "named": true
         },
         {
-          "type": "kw_rename",
-          "named": true
-        },
-        {
-          "type": "kw_storage",
-          "named": true
-        },
-        {
-          "type": "kw_to",
-          "named": true
-        },
-        {
-          "type": "kw_type",
-          "named": true
-        },
-        {
-          "type": "kw_with",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "table_option",
-          "named": true
-        },
-        {
-          "type": "table_option_label",
+          "type": "tablekweyspace_name",
           "named": true
         }
       ]
@@ -161,6 +431,433 @@
     }
   },
   {
+    "type": "alter_user",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_alter",
+          "named": true
+        },
+        {
+          "type": "kw_hashed",
+          "named": true
+        },
+        {
+          "type": "kw_nosuperuser",
+          "named": true
+        },
+        {
+          "type": "kw_password",
+          "named": true
+        },
+        {
+          "type": "kw_superuser",
+          "named": true
+        },
+        {
+          "type": "kw_user",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_access_all_dc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_all",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_dcs",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_access_from_all_cidrs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_all",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_cidrs",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_access_from_cidrs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_cidrs",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_access_to_dc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_dcs",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_clustering_order_by",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_asc",
+          "named": true
+        },
+        {
+          "type": "kw_by",
+          "named": true
+        },
+        {
+          "type": "kw_clustering",
+          "named": true
+        },
+        {
+          "type": "kw_desc",
+          "named": true
+        },
+        {
+          "type": "kw_order",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_hashed_password",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_hashed",
+          "named": true
+        },
+        {
+          "type": "kw_password",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_login",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_choice",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_login",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_password",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_password",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "and_superuser",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_choice",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_superuser",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "assignment_operators",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "batch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dml_statement",
+          "named": true
+        },
+        {
+          "type": "kw_apply",
+          "named": true
+        },
+        {
+          "type": "kw_batch",
+          "named": true
+        },
+        {
+          "type": "kw_begin",
+          "named": true
+        },
+        {
+          "type": "kw_counter",
+          "named": true
+        },
+        {
+          "type": "kw_logged",
+          "named": true
+        },
+        {
+          "type": "kw_timestamp",
+          "named": true
+        },
+        {
+          "type": "kw_unlogged",
+          "named": true
+        },
+        {
+          "type": "kw_using",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "usingconsistency_level",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "batch_delete_terms",
     "named": true,
     "fields": {}
@@ -194,6 +891,37 @@
     }
   },
   {
+    "type": "column_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "cql_types_union",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_key",
+          "named": true
+        },
+        {
+          "type": "kw_primary",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comma_separated",
     "named": true,
     "fields": {}
@@ -213,6 +941,218 @@
         },
         {
           "type": "line_comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "commit_search_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_commit",
+          "named": true
+        },
+        {
+          "type": "kw_index",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "kw_search",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "conditionsselect",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "iconditions_blocks",
+          "named": true
+        },
+        {
+          "type": "if_conditions",
+          "named": true
+        },
+        {
+          "type": "kw_allow",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_ann",
+          "named": true
+        },
+        {
+          "type": "kw_asc",
+          "named": true
+        },
+        {
+          "type": "kw_by",
+          "named": true
+        },
+        {
+          "type": "kw_desc",
+          "named": true
+        },
+        {
+          "type": "kw_filtering",
+          "named": true
+        },
+        {
+          "type": "kw_group",
+          "named": true
+        },
+        {
+          "type": "kw_having",
+          "named": true
+        },
+        {
+          "type": "kw_in",
+          "named": true
+        },
+        {
+          "type": "kw_like",
+          "named": true
+        },
+        {
+          "type": "kw_limit",
+          "named": true
+        },
+        {
+          "type": "kw_of",
+          "named": true
+        },
+        {
+          "type": "kw_offset",
+          "named": true
+        },
+        {
+          "type": "kw_order",
+          "named": true
+        },
+        {
+          "type": "kw_partition",
+          "named": true
+        },
+        {
+          "type": "kw_per",
+          "named": true
+        },
+        {
+          "type": "kw_where",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "selector_conditions",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "consistency_level",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "consistency_lvls",
+          "named": true
+        },
+        {
+          "type": "kw_consistency",
+          "named": true
+        },
+        {
+          "type": "kw_level",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "consistency_lvls",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_each_quorum",
+          "named": true
+        },
+        {
+          "type": "kw_local_one",
+          "named": true
+        },
+        {
+          "type": "kw_local_quorum",
+          "named": true
+        },
+        {
+          "type": "kw_one",
+          "named": true
+        },
+        {
+          "type": "kw_quorum",
+          "named": true
+        },
+        {
+          "type": "kw_three",
+          "named": true
+        },
+        {
+          "type": "kw_two",
           "named": true
         }
       ]
@@ -250,2813 +1190,421 @@
     "named": true,
     "fields": {
       "alter_materialized_view": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "key_space_name",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_materialized",
-            "named": true
-          },
-          {
-            "type": "kw_view",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "table_label",
-            "named": true
-          },
-          {
-            "type": "table_option_multi",
-            "named": true
-          },
-          {
-            "type": "table_option_single",
+            "type": "alter_materialized_view",
             "named": true
           }
         ]
       },
       "alter_role": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "alter_role_option_args",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_role",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "alter_role",
             "named": true
           }
         ]
       },
       "alter_table": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "alter_table_options",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_table",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "alter_table",
             "named": true
           }
         ]
       },
       "alter_type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "alter_type_options",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_type",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "alter_type",
             "named": true
           }
         ]
       },
       "alter_user": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_hashed",
-            "named": true
-          },
-          {
-            "type": "kw_nosuperuser",
-            "named": true
-          },
-          {
-            "type": "kw_password",
-            "named": true
-          },
-          {
-            "type": "kw_superuser",
-            "named": true
-          },
-          {
-            "type": "kw_user",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "string_literal",
+            "type": "alter_user",
             "named": true
           }
         ]
       },
       "alterkweyspace": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "'Classic'",
-            "named": false
-          },
-          {
-            "type": "'Core'",
-            "named": false
-          },
-          {
-            "type": "bool_choice",
+            "type": "alter_keyspace",
             "named": true
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "graph_engine",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_durable_writes",
-            "named": true
-          },
-          {
-            "type": "kw_replication",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "kwkweyspace",
-            "named": true
-          },
-          {
-            "type": "replication_statement",
-            "named": true
-          },
-          {
-            "type": "replication_statement_dc",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
           }
         ]
       },
       "batch": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "dml_statement",
-            "named": true
-          },
-          {
-            "type": "kw_apply",
-            "named": true
-          },
-          {
-            "type": "kw_batch",
-            "named": true
-          },
-          {
-            "type": "kw_begin",
-            "named": true
-          },
-          {
-            "type": "kw_consistency",
-            "named": true
-          },
-          {
-            "type": "kw_counter",
-            "named": true
-          },
-          {
-            "type": "kw_each_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_level",
-            "named": true
-          },
-          {
-            "type": "kw_local_one",
-            "named": true
-          },
-          {
-            "type": "kw_local_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_logged",
-            "named": true
-          },
-          {
-            "type": "kw_one",
-            "named": true
-          },
-          {
-            "type": "kw_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_three",
-            "named": true
-          },
-          {
-            "type": "kw_timestamp",
-            "named": true
-          },
-          {
-            "type": "kw_two",
-            "named": true
-          },
-          {
-            "type": "kw_unlogged",
-            "named": true
-          },
-          {
-            "type": "kw_using",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          }
-        ]
-      },
-      "command_family": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_use",
-            "named": true
-          }
-        ]
-      },
-      "command_type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "kw_role",
-            "named": true
-          },
-          {
-            "type": "kw_table",
-            "named": true
-          },
-          {
-            "type": "kw_type",
-            "named": true
-          },
-          {
-            "type": "kw_view",
-            "named": true
-          },
-          {
-            "type": "kwkweyspace",
-            "named": true
-          }
-        ]
-      },
-      "command_type_modifier": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "kw_materialized",
+            "type": "batch",
             "named": true
           }
         ]
       },
       "commit_search_index": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_commit",
-            "named": true
-          },
-          {
-            "type": "kw_index",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_search",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "commit_search_index",
             "named": true
           }
         ]
       },
       "consistency_level": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_consistency",
-            "named": true
-          },
-          {
-            "type": "kw_each_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_level",
-            "named": true
-          },
-          {
-            "type": "kw_local_one",
-            "named": true
-          },
-          {
-            "type": "kw_local_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_one",
-            "named": true
-          },
-          {
-            "type": "kw_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_three",
-            "named": true
-          },
-          {
-            "type": "kw_two",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "consistency_level",
             "named": true
           }
         ]
       },
       "create_aggregate": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "cql_types_union",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_aggregate",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_final_func",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_init_cond",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_or",
-            "named": true
-          },
-          {
-            "type": "kw_replace",
-            "named": true
-          },
-          {
-            "type": "kw_sfunc",
-            "named": true
-          },
-          {
-            "type": "kw_stype",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "create_aggregate",
             "named": true
           }
         ]
       },
       "create_function": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "$$",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "code_block",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "cql_types_union",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "key_space_name",
-            "named": true
-          },
-          {
-            "type": "kw_as",
-            "named": true
-          },
-          {
-            "type": "kw_called",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_deterministic",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_function",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_input",
-            "named": true
-          },
-          {
-            "type": "kw_java",
-            "named": true
-          },
-          {
-            "type": "kw_java_script",
-            "named": true
-          },
-          {
-            "type": "kw_language",
-            "named": true
-          },
-          {
-            "type": "kw_monotonic",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_null",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_or",
-            "named": true
-          },
-          {
-            "type": "kw_replace",
-            "named": true
-          },
-          {
-            "type": "kw_returns",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "create_function",
             "named": true
           }
         ]
       },
       "create_index": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "'SAI'",
-            "named": false
-          },
-          {
-            "type": "'SASI'",
-            "named": false
-          },
-          {
-            "type": "'sai'",
-            "named": false
-          },
-          {
-            "type": "'sasi'",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_custom",
-            "named": true
-          },
-          {
-            "type": "kw_entries",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_full",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_index",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_options",
-            "named": true
-          },
-          {
-            "type": "kw_using",
-            "named": true
-          },
-          {
-            "type": "kw_values",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "kwkweys",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "create_index",
             "named": true
           }
         ]
       },
       "create_materialized_view": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_conditions",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_as",
-            "named": true
-          },
-          {
-            "type": "kw_asc",
-            "named": true
-          },
-          {
-            "type": "kw_by",
-            "named": true
-          },
-          {
-            "type": "kw_clustering",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_desc",
-            "named": true
-          },
-          {
-            "type": "kw_distinct",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_from",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_is",
-            "named": true
-          },
-          {
-            "type": "kw_json",
-            "named": true
-          },
-          {
-            "type": "kw_materialized",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_null",
-            "named": true
-          },
-          {
-            "type": "kw_order",
-            "named": true
-          },
-          {
-            "type": "kw_primary",
-            "named": true
-          },
-          {
-            "type": "kw_select",
-            "named": true
-          },
-          {
-            "type": "kw_view",
-            "named": true
-          },
-          {
-            "type": "kw_where",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "kwkwey",
-            "named": true
-          },
-          {
-            "type": "selectors",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "table_option",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "create_materialized_view",
             "named": true
           }
         ]
       },
       "create_role": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "bool_choice",
-            "named": true
-          },
-          {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_access",
-            "named": true
-          },
-          {
-            "type": "kw_all",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_cidrs",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_dcs",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_from",
-            "named": true
-          },
-          {
-            "type": "kw_hashed",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_login",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_options",
-            "named": true
-          },
-          {
-            "type": "kw_password",
-            "named": true
-          },
-          {
-            "type": "kw_role",
-            "named": true
-          },
-          {
-            "type": "kw_superuser",
-            "named": true
-          },
-          {
-            "type": "kw_to",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "string",
+            "type": "create_role",
             "named": true
           }
         ]
       },
       "create_search_index": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_columns",
-            "named": true
-          },
-          {
-            "type": "kw_config",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_index",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_options",
-            "named": true
-          },
-          {
-            "type": "kw_profiles",
-            "named": true
-          },
-          {
-            "type": "kw_search",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "create_search_index",
             "named": true
           }
         ]
       },
       "create_table": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "cql_types_union",
-            "named": true
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_asc",
-            "named": true
-          },
-          {
-            "type": "kw_by",
-            "named": true
-          },
-          {
-            "type": "kw_clustering",
-            "named": true
-          },
-          {
-            "type": "kw_compact",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_desc",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_id",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_order",
-            "named": true
-          },
-          {
-            "type": "kw_primary",
-            "named": true
-          },
-          {
-            "type": "kw_static",
-            "named": true
-          },
-          {
-            "type": "kw_storage",
-            "named": true
-          },
-          {
-            "type": "kw_table",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "kwkwey",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "table_option",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "create_table",
             "named": true
           }
         ]
       },
       "create_type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "cql_types_union",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_type",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "create_type",
             "named": true
           }
         ]
       },
       "create_user": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_hashed",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_nosuperuser",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_password",
-            "named": true
-          },
-          {
-            "type": "kw_superuser",
-            "named": true
-          },
-          {
-            "type": "kw_user",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "string",
+            "type": "create_user",
             "named": true
           }
         ]
       },
       "createkweyspace": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "'Classic'",
-            "named": false
-          },
-          {
-            "type": "'Core'",
-            "named": false
-          },
-          {
-            "type": "bool_choice",
-            "named": true
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "graph_engine",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_durable_writes",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_replication",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "kwkweyspace",
-            "named": true
-          },
-          {
-            "type": "map",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "createkweyspace",
             "named": true
           }
         ]
       },
       "delete": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "batch_delete_terms",
-            "named": true
-          },
-          {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "iconditions_blocks",
-            "named": true
-          },
-          {
-            "type": "if_conditions",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_consistency",
-            "named": true
-          },
-          {
-            "type": "kw_delete",
-            "named": true
-          },
-          {
-            "type": "kw_each_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_from",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_level",
-            "named": true
-          },
-          {
-            "type": "kw_local_one",
-            "named": true
-          },
-          {
-            "type": "kw_local_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_one",
-            "named": true
-          },
-          {
-            "type": "kw_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_three",
-            "named": true
-          },
-          {
-            "type": "kw_timestamp",
-            "named": true
-          },
-          {
-            "type": "kw_two",
-            "named": true
-          },
-          {
-            "type": "kw_using",
-            "named": true
-          },
-          {
-            "type": "kw_where",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "delete",
             "named": true
           }
         ]
       },
       "drop_aggregate": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "kw_aggregate",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "drop_aggregate",
             "named": true
           }
         ]
       },
       "drop_function": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_function",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "drop_function",
             "named": true
           }
         ]
       },
       "drop_index": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_index",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "drop_index",
             "named": true
           }
         ]
       },
       "drop_materialized_view": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_materialized",
-            "named": true
-          },
-          {
-            "type": "kw_view",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "drop_materialized_view",
             "named": true
           }
         ]
       },
       "drop_role": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_role",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "drop_role",
             "named": true
           }
         ]
       },
       "drop_search_index": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_index",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_options",
-            "named": true
-          },
-          {
-            "type": "kw_search",
-            "named": true
-          },
-          {
-            "type": "kw_with",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "drop_search_index",
             "named": true
           }
         ]
       },
       "drop_table": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_table",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "drop_table",
             "named": true
           }
         ]
       },
       "drop_type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_type",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "drop_type",
             "named": true
           }
         ]
       },
       "drop_user": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_user",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "drop_user",
             "named": true
           }
         ]
       },
       "dropkweyspace": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kwkweyspace",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "dropkweyspace",
             "named": true
           }
         ]
       },
       "grant_permission": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "cql_types_union",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_all",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_authorize",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_describe",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_execute",
-            "named": true
-          },
-          {
-            "type": "kw_function",
-            "named": true
-          },
-          {
-            "type": "kw_functions",
-            "named": true
-          },
-          {
-            "type": "kw_grant",
-            "named": true
-          },
-          {
-            "type": "kw_in",
-            "named": true
-          },
-          {
-            "type": "kw_login",
-            "named": true
-          },
-          {
-            "type": "kw_mbean",
-            "named": true
-          },
-          {
-            "type": "kw_mbeans",
-            "named": true
-          },
-          {
-            "type": "kw_modify",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_pattern",
-            "named": true
-          },
-          {
-            "type": "kw_permissions",
-            "named": true
-          },
-          {
-            "type": "kw_proxy",
-            "named": true
-          },
-          {
-            "type": "kw_role",
-            "named": true
-          },
-          {
-            "type": "kw_roles",
-            "named": true
-          },
-          {
-            "type": "kw_rows",
-            "named": true
-          },
-          {
-            "type": "kw_select",
-            "named": true
-          },
-          {
-            "type": "kw_table",
-            "named": true
-          },
-          {
-            "type": "kw_to",
-            "named": true
-          },
-          {
-            "type": "kwkweyspace",
-            "named": true
-          },
-          {
-            "type": "kwkweyspaces",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "grant_permission",
             "named": true
           }
         ]
       },
       "grant_role": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_grant",
-            "named": true
-          },
-          {
-            "type": "kw_to",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "grant_role",
             "named": true
           }
         ]
       },
       "insert": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "JSON",
-            "named": false
-          },
-          {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_consistency",
-            "named": true
-          },
-          {
-            "type": "kw_each_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_insert",
-            "named": true
-          },
-          {
-            "type": "kw_into",
-            "named": true
-          },
-          {
-            "type": "kw_level",
-            "named": true
-          },
-          {
-            "type": "kw_local_one",
-            "named": true
-          },
-          {
-            "type": "kw_local_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_not",
-            "named": true
-          },
-          {
-            "type": "kw_one",
-            "named": true
-          },
-          {
-            "type": "kw_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_three",
-            "named": true
-          },
-          {
-            "type": "kw_timestamp",
-            "named": true
-          },
-          {
-            "type": "kw_ttl",
-            "named": true
-          },
-          {
-            "type": "kw_two",
-            "named": true
-          },
-          {
-            "type": "kw_using",
-            "named": true
-          },
-          {
-            "type": "kw_values",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "insert",
             "named": true
           }
         ]
       },
       "list_permissions": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "kw_all",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_authorize",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_describe",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_execute",
-            "named": true
-          },
-          {
-            "type": "kw_list",
-            "named": true
-          },
-          {
-            "type": "kw_login",
-            "named": true
-          },
-          {
-            "type": "kw_modify",
-            "named": true
-          },
-          {
-            "type": "kw_norecursive",
-            "named": true
-          },
-          {
-            "type": "kw_of",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_permissions",
-            "named": true
-          },
-          {
-            "type": "kw_proxy",
-            "named": true
-          },
-          {
-            "type": "kw_select",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "list_permissions",
             "named": true
           }
         ]
       },
       "list_roles": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_list",
-            "named": true
-          },
-          {
-            "type": "kw_norecursive",
-            "named": true
-          },
-          {
-            "type": "kw_of",
-            "named": true
-          },
-          {
-            "type": "kw_roles",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "list_roles",
             "named": true
           }
         ]
       },
       "list_users": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "kw_list",
-            "named": true
-          },
-          {
-            "type": "kw_users",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          }
-        ]
-      },
-      "name": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "key_space_name",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "table_label",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "list_users",
             "named": true
           }
         ]
       },
       "revoke_permission": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "cql_types_union",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_all",
-            "named": true
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "kw_authorize",
-            "named": true
-          },
-          {
-            "type": "kw_create",
-            "named": true
-          },
-          {
-            "type": "kw_describe",
-            "named": true
-          },
-          {
-            "type": "kw_drop",
-            "named": true
-          },
-          {
-            "type": "kw_execute",
-            "named": true
-          },
-          {
-            "type": "kw_from",
-            "named": true
-          },
-          {
-            "type": "kw_function",
-            "named": true
-          },
-          {
-            "type": "kw_functions",
-            "named": true
-          },
-          {
-            "type": "kw_in",
-            "named": true
-          },
-          {
-            "type": "kw_login",
-            "named": true
-          },
-          {
-            "type": "kw_mbean",
-            "named": true
-          },
-          {
-            "type": "kw_mbeans",
-            "named": true
-          },
-          {
-            "type": "kw_modify",
-            "named": true
-          },
-          {
-            "type": "kw_on",
-            "named": true
-          },
-          {
-            "type": "kw_pattern",
-            "named": true
-          },
-          {
-            "type": "kw_permissions",
-            "named": true
-          },
-          {
-            "type": "kw_proxy",
-            "named": true
-          },
-          {
-            "type": "kw_revoke",
-            "named": true
-          },
-          {
-            "type": "kw_role",
-            "named": true
-          },
-          {
-            "type": "kw_roles",
-            "named": true
-          },
-          {
-            "type": "kw_rows",
-            "named": true
-          },
-          {
-            "type": "kw_select",
-            "named": true
-          },
-          {
-            "type": "kw_table",
-            "named": true
-          },
-          {
-            "type": "kw_to",
-            "named": true
-          },
-          {
-            "type": "kwkweyspace",
-            "named": true
-          },
-          {
-            "type": "kwkweyspaces",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "revoke_permission",
             "named": true
           }
         ]
       },
       "revoke_role": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "kw_from",
-            "named": true
-          },
-          {
-            "type": "kw_revoke",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "revoke_role",
             "named": true
           }
         ]
       },
       "select": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "[",
-            "named": false
-          },
-          {
-            "type": "]",
-            "named": false
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "iconditions_blocks",
-            "named": true
-          },
-          {
-            "type": "if_conditions",
-            "named": true
-          },
-          {
-            "type": "kw_allow",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_ann",
-            "named": true
-          },
-          {
-            "type": "kw_asc",
-            "named": true
-          },
-          {
-            "type": "kw_by",
-            "named": true
-          },
-          {
-            "type": "kw_consistency",
-            "named": true
-          },
-          {
-            "type": "kw_desc",
-            "named": true
-          },
-          {
-            "type": "kw_distinct",
-            "named": true
-          },
-          {
-            "type": "kw_each_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_filtering",
-            "named": true
-          },
-          {
-            "type": "kw_from",
-            "named": true
-          },
-          {
-            "type": "kw_group",
-            "named": true
-          },
-          {
-            "type": "kw_having",
-            "named": true
-          },
-          {
-            "type": "kw_in",
-            "named": true
-          },
-          {
-            "type": "kw_json",
-            "named": true
-          },
-          {
-            "type": "kw_level",
-            "named": true
-          },
-          {
-            "type": "kw_like",
-            "named": true
-          },
-          {
-            "type": "kw_limit",
-            "named": true
-          },
-          {
-            "type": "kw_local_one",
-            "named": true
-          },
-          {
-            "type": "kw_local_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_of",
-            "named": true
-          },
-          {
-            "type": "kw_offset",
-            "named": true
-          },
-          {
-            "type": "kw_one",
-            "named": true
-          },
-          {
-            "type": "kw_order",
-            "named": true
-          },
-          {
-            "type": "kw_partition",
-            "named": true
-          },
-          {
-            "type": "kw_per",
-            "named": true
-          },
-          {
-            "type": "kw_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_select",
-            "named": true
-          },
-          {
-            "type": "kw_three",
-            "named": true
-          },
-          {
-            "type": "kw_two",
-            "named": true
-          },
-          {
-            "type": "kw_using",
-            "named": true
-          },
-          {
-            "type": "kw_where",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "selector_conditions",
-            "named": true
-          },
-          {
-            "type": "selectors",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "select",
             "named": true
           }
         ]
       },
       "truncate": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_table",
-            "named": true
-          },
-          {
-            "type": "kw_truncate",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "truncate",
             "named": true
           }
         ]
       },
       "update": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "*=",
-            "named": false
-          },
-          {
-            "type": "+=",
-            "named": false
-          },
-          {
-            "type": "-=",
-            "named": false
-          },
-          {
-            "type": "/=",
-            "named": false
-          },
-          {
-            "type": "collection",
-            "named": true
-          },
-          {
-            "type": "comma_separated",
-            "named": true
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "expression",
-            "named": true
-          },
-          {
-            "type": "iconditions_blocks",
-            "named": true
-          },
-          {
-            "type": "if_conditions",
-            "named": true
-          },
-          {
-            "type": "indexed_name",
-            "named": true
-          },
-          {
-            "type": "key_space_name",
-            "named": true
-          },
-          {
-            "type": "kw_and",
-            "named": true
-          },
-          {
-            "type": "kw_consistency",
-            "named": true
-          },
-          {
-            "type": "kw_each_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_exists",
-            "named": true
-          },
-          {
-            "type": "kw_if",
-            "named": true
-          },
-          {
-            "type": "kw_in",
-            "named": true
-          },
-          {
-            "type": "kw_level",
-            "named": true
-          },
-          {
-            "type": "kw_local_one",
-            "named": true
-          },
-          {
-            "type": "kw_local_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_one",
-            "named": true
-          },
-          {
-            "type": "kw_quorum",
-            "named": true
-          },
-          {
-            "type": "kw_set",
-            "named": true
-          },
-          {
-            "type": "kw_three",
-            "named": true
-          },
-          {
-            "type": "kw_timestamp",
-            "named": true
-          },
-          {
-            "type": "kw_ttl",
-            "named": true
-          },
-          {
-            "type": "kw_two",
-            "named": true
-          },
-          {
-            "type": "kw_update",
-            "named": true
-          },
-          {
-            "type": "kw_using",
-            "named": true
-          },
-          {
-            "type": "kw_where",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "tablekweyspace_name",
+            "type": "update",
             "named": true
           }
         ]
       },
       "use": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "kw_use",
-            "named": true
-          },
-          {
-            "type": "literal",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
+            "type": "use",
             "named": true
           }
         ]
@@ -3066,14 +1614,120 @@
   {
     "type": "cql_types",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_ascii",
+          "named": true
+        },
+        {
+          "type": "type_bigint",
+          "named": true
+        },
+        {
+          "type": "type_blob",
+          "named": true
+        },
+        {
+          "type": "type_boolean",
+          "named": true
+        },
+        {
+          "type": "type_counter",
+          "named": true
+        },
+        {
+          "type": "type_date",
+          "named": true
+        },
+        {
+          "type": "type_decimal",
+          "named": true
+        },
+        {
+          "type": "type_double",
+          "named": true
+        },
+        {
+          "type": "type_float",
+          "named": true
+        },
+        {
+          "type": "type_frozen",
+          "named": true
+        },
+        {
+          "type": "type_inet",
+          "named": true
+        },
+        {
+          "type": "type_int",
+          "named": true
+        },
+        {
+          "type": "type_list",
+          "named": true
+        },
+        {
+          "type": "type_map",
+          "named": true
+        },
+        {
+          "type": "type_set",
+          "named": true
+        },
+        {
+          "type": "type_smallint",
+          "named": true
+        },
+        {
+          "type": "type_text",
+          "named": true
+        },
+        {
+          "type": "type_time",
+          "named": true
+        },
+        {
+          "type": "type_timestamp",
+          "named": true
+        },
+        {
+          "type": "type_timeuuid",
+          "named": true
+        },
+        {
+          "type": "type_tinyint",
+          "named": true
+        },
+        {
+          "type": "type_tuple",
+          "named": true
+        },
+        {
+          "type": "type_uuid",
+          "named": true
+        },
+        {
+          "type": "type_varchar",
+          "named": true
+        },
+        {
+          "type": "type_varint",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "cql_types_constructor_frozen",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -3103,6 +1757,10 @@
         {
           "type": "string",
           "named": true
+        },
+        {
+          "type": "type_frozen",
+          "named": true
         }
       ]
     }
@@ -3112,11 +1770,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "cql_types_constructor_void",
+          "named": true
+        },
+        {
+          "type": "type_list",
           "named": true
         }
       ]
@@ -3133,6 +1795,10 @@
         {
           "type": "cql_types",
           "named": true
+        },
+        {
+          "type": "type_map",
+          "named": true
         }
       ]
     }
@@ -3142,11 +1808,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "cql_types_constructor_void",
+          "named": true
+        },
+        {
+          "type": "type_set",
           "named": true
         }
       ]
@@ -3162,6 +1832,10 @@
       "types": [
         {
           "type": "cql_types",
+          "named": true
+        },
+        {
+          "type": "type_tuple",
           "named": true
         }
       ]
@@ -3226,7 +1900,698 @@
     }
   },
   {
-    "type": "dml_statement",
+    "type": "create_aggregate",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "cql_types_union",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_aggregate",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_final_func",
+          "named": true
+        },
+        {
+          "type": "kw_init_cond",
+          "named": true
+        },
+        {
+          "type": "kw_or",
+          "named": true
+        },
+        {
+          "type": "kw_replace",
+          "named": true
+        },
+        {
+          "type": "kw_sfunc",
+          "named": true
+        },
+        {
+          "type": "kw_stype",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_function",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "code_block",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "cql_types_union",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "key_space_name",
+          "named": true
+        },
+        {
+          "type": "kw_as",
+          "named": true
+        },
+        {
+          "type": "kw_called",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_deterministic",
+          "named": true
+        },
+        {
+          "type": "kw_function",
+          "named": true
+        },
+        {
+          "type": "kw_input",
+          "named": true
+        },
+        {
+          "type": "kw_java",
+          "named": true
+        },
+        {
+          "type": "kw_java_script",
+          "named": true
+        },
+        {
+          "type": "kw_language",
+          "named": true
+        },
+        {
+          "type": "kw_monotonic",
+          "named": true
+        },
+        {
+          "type": "kw_null",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "kw_or",
+          "named": true
+        },
+        {
+          "type": "kw_replace",
+          "named": true
+        },
+        {
+          "type": "kw_returns",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "create_index_on_options",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "index_type",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_custom",
+          "named": true
+        },
+        {
+          "type": "kw_index",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "kw_options",
+          "named": true
+        },
+        {
+          "type": "kw_using",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_index_on_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_entries",
+          "named": true
+        },
+        {
+          "type": "kw_full",
+          "named": true
+        },
+        {
+          "type": "kw_keys",
+          "named": true
+        },
+        {
+          "type": "kw_values",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_materialized_view",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_clustering_order_by",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_as",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_distinct",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_json",
+          "named": true
+        },
+        {
+          "type": "kw_key",
+          "named": true
+        },
+        {
+          "type": "kw_materialized",
+          "named": true
+        },
+        {
+          "type": "kw_primary",
+          "named": true
+        },
+        {
+          "type": "kw_view",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "kwselect",
+          "named": true
+        },
+        {
+          "type": "mv_relation",
+          "named": true
+        },
+        {
+          "type": "o_with_table_option",
+          "named": true
+        },
+        {
+          "type": "selectors",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "table_option",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        },
+        {
+          "type": "with_clustering_order_by",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_role",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_role",
+          "named": true
+        },
+        {
+          "type": "o_create_role",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_search_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_index",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "kw_search",
+          "named": true
+        },
+        {
+          "type": "o_create_search_index",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "column_definition",
+          "named": true
+        },
+        {
+          "type": "create_tableand_options",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_static",
+          "named": true
+        },
+        {
+          "type": "kw_table",
+          "named": true
+        },
+        {
+          "type": "pk_main",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_tableand_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "o_clustering_order",
+          "named": true
+        },
+        {
+          "type": "o_compact_storage",
+          "named": true
+        },
+        {
+          "type": "o_id",
+          "named": true
+        },
+        {
+          "type": "table_option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "cql_types_union",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_type",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_user",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "create_user_if_not_exist_choice",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_nosuperuser",
+          "named": true
+        },
+        {
+          "type": "kw_superuser",
+          "named": true
+        },
+        {
+          "type": "kw_user",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "with_hashed_password",
+          "named": true
+        },
+        {
+          "type": "with_password",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_user_if_not_exist_choice",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "createkweyspace",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_choice",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "graph_engine",
+          "named": true
+        },
+        {
+          "type": "graph_engine_type",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_durable_writes",
+          "named": true
+        },
+        {
+          "type": "kw_keyspace",
+          "named": true
+        },
+        {
+          "type": "kw_replication",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
     "named": true,
     "fields": {},
     "children": {
@@ -3246,19 +2611,7 @@
           "named": true
         },
         {
-          "type": "equal_sign",
-          "named": true
-        },
-        {
-          "type": "expression",
-          "named": true
-        },
-        {
           "type": "iconditions_blocks",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -3266,11 +2619,7 @@
           "named": true
         },
         {
-          "type": "indexed_name",
-          "named": true
-        },
-        {
-          "type": "key_space_name",
+          "type": "if_exists",
           "named": true
         },
         {
@@ -3278,19 +2627,7 @@
           "named": true
         },
         {
-          "type": "kw_consistency",
-          "named": true
-        },
-        {
           "type": "kw_delete",
-          "named": true
-        },
-        {
-          "type": "kw_each_quorum",
-          "named": true
-        },
-        {
-          "type": "kw_exists",
           "named": true
         },
         {
@@ -3302,71 +2639,11 @@
           "named": true
         },
         {
-          "type": "kw_in",
-          "named": true
-        },
-        {
-          "type": "kw_insert",
-          "named": true
-        },
-        {
-          "type": "kw_into",
-          "named": true
-        },
-        {
-          "type": "kw_level",
-          "named": true
-        },
-        {
-          "type": "kw_local_one",
-          "named": true
-        },
-        {
-          "type": "kw_local_quorum",
-          "named": true
-        },
-        {
-          "type": "kw_not",
-          "named": true
-        },
-        {
-          "type": "kw_one",
-          "named": true
-        },
-        {
-          "type": "kw_quorum",
-          "named": true
-        },
-        {
-          "type": "kw_set",
-          "named": true
-        },
-        {
-          "type": "kw_three",
-          "named": true
-        },
-        {
           "type": "kw_timestamp",
           "named": true
         },
         {
-          "type": "kw_ttl",
-          "named": true
-        },
-        {
-          "type": "kw_two",
-          "named": true
-        },
-        {
-          "type": "kw_update",
-          "named": true
-        },
-        {
           "type": "kw_using",
-          "named": true
-        },
-        {
-          "type": "kw_values",
           "named": true
         },
         {
@@ -3379,6 +2656,420 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        },
+        {
+          "type": "usingconsistency_level",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_delete",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "delete",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_insert",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "insert",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dml_delete",
+          "named": true
+        },
+        {
+          "type": "dml_insert",
+          "named": true
+        },
+        {
+          "type": "dml_update",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dml_update",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "update",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_aggregate",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_aggregate",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_function",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_function",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_index",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_materialized_view",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_materialized",
+          "named": true
+        },
+        {
+          "type": "kw_view",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_role",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_role",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_search_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_index",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "kw_options",
+          "named": true
+        },
+        {
+          "type": "kw_search",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_table",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_type",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "drop_user",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_user",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dropkweyspace",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_keyspace",
           "named": true
         },
         {
@@ -3490,6 +3181,77 @@
     }
   },
   {
+    "type": "grant_permission",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_grant",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "priviliges",
+          "named": true
+        },
+        {
+          "type": "resources",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "grant_role",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_grant",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "graph_engine_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "iconditions_blocks",
     "named": true,
     "fields": {},
@@ -3533,7 +3295,113 @@
           "named": true
         },
         {
-          "type": "kwkwey",
+          "type": "kw_key",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_exists",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_exists",
+          "named": true
+        },
+        {
+          "type": "kw_if",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "if_not_exists",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_exists",
+          "named": true
+        },
+        {
+          "type": "kw_if",
+          "named": true
+        },
+        {
+          "type": "kw_not",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "index_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "insert",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_not_exists",
+          "named": true
+        },
+        {
+          "type": "kw_insert",
+          "named": true
+        },
+        {
+          "type": "kw_into",
+          "named": true
+        },
+        {
+          "type": "kw_values",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        },
+        {
+          "type": "using_ttl_or_timestamp",
+          "named": true
+        },
+        {
+          "type": "usingconsistency_level",
           "named": true
         }
       ]
@@ -3875,6 +3743,26 @@
     "fields": {}
   },
   {
+    "type": "kw_key",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_keys",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_keyspace",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_keyspaces",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "kw_language",
     "named": true,
     "fields": {}
@@ -4105,11 +3993,6 @@
     "fields": {}
   },
   {
-    "type": "kw_select",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "kw_set",
     "named": true,
     "fields": {}
@@ -4245,22 +4128,7 @@
     "fields": {}
   },
   {
-    "type": "kwkwey",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "kwkweys",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "kwkweyspace",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "kwkweyspaces",
+    "type": "kwselect",
     "named": true,
     "fields": {}
   },
@@ -4274,6 +4142,103 @@
       "types": [
         {
           "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_permissions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_list",
+          "named": true
+        },
+        {
+          "type": "kw_norecursive",
+          "named": true
+        },
+        {
+          "type": "kw_of",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "priviliges",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_roles",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_list",
+          "named": true
+        },
+        {
+          "type": "kw_norecursive",
+          "named": true
+        },
+        {
+          "type": "kw_of",
+          "named": true
+        },
+        {
+          "type": "kw_roles",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list_users",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_list",
+          "named": true
+        },
+        {
+          "type": "kw_users",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
           "named": true
         }
       ]
@@ -4354,6 +4319,49 @@
     }
   },
   {
+    "type": "mv_relation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_conditions",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_is",
+          "named": true
+        },
+        {
+          "type": "kw_not",
+          "named": true
+        },
+        {
+          "type": "kw_null",
+          "named": true
+        },
+        {
+          "type": "kw_where",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "number",
     "named": true,
     "fields": {},
@@ -4400,9 +4408,891 @@
     }
   },
   {
+    "type": "o_add",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "cql_types_union",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_add",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_alter_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cql_types_union",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_alter",
+          "named": true
+        },
+        {
+          "type": "kw_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_and_columns",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_columns",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_and_compact_storage",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_compact",
+          "named": true
+        },
+        {
+          "type": "kw_storage",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_and_config",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_config",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_and_id",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_id",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_and_profiles",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_profiles",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_and_table_option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "table_option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_clustering_order",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "and_clustering_order_by",
+          "named": true
+        },
+        {
+          "type": "with_clustering_order_by",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_compact_storage",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "o_and_compact_storage",
+          "named": true
+        },
+        {
+          "type": "o_with_compact_storage",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_create_role",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "and_access_all_dc",
+          "named": true
+        },
+        {
+          "type": "and_access_from_all_cidrs",
+          "named": true
+        },
+        {
+          "type": "and_access_from_cidrs",
+          "named": true
+        },
+        {
+          "type": "and_access_to_dc",
+          "named": true
+        },
+        {
+          "type": "and_hashed_password",
+          "named": true
+        },
+        {
+          "type": "and_login",
+          "named": true
+        },
+        {
+          "type": "and_options",
+          "named": true
+        },
+        {
+          "type": "and_password",
+          "named": true
+        },
+        {
+          "type": "and_superuser",
+          "named": true
+        },
+        {
+          "type": "with_access_all_dc",
+          "named": true
+        },
+        {
+          "type": "with_access_from_all_cidrs",
+          "named": true
+        },
+        {
+          "type": "with_access_from_cidrs",
+          "named": true
+        },
+        {
+          "type": "with_access_to_dc",
+          "named": true
+        },
+        {
+          "type": "with_hashed_password",
+          "named": true
+        },
+        {
+          "type": "with_login",
+          "named": true
+        },
+        {
+          "type": "with_options",
+          "named": true
+        },
+        {
+          "type": "with_password",
+          "named": true
+        },
+        {
+          "type": "with_superuser",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_create_search_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "o_and_columns",
+          "named": true
+        },
+        {
+          "type": "o_and_config",
+          "named": true
+        },
+        {
+          "type": "o_and_profiles",
+          "named": true
+        },
+        {
+          "type": "o_with_columns",
+          "named": true
+        },
+        {
+          "type": "o_with_config",
+          "named": true
+        },
+        {
+          "type": "o_with_profiles",
+          "named": true
+        },
+        {
+          "type": "oand_options",
+          "named": true
+        },
+        {
+          "type": "owith_options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_drop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_compact",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_storage",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_id",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "o_and_id",
+          "named": true
+        },
+        {
+          "type": "o_with_id",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_rename",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_rename",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_with",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "o_and_table_option",
+          "named": true
+        },
+        {
+          "type": "o_with_table_option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_with_columns",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_columns",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_with_compact_storage",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_compact",
+          "named": true
+        },
+        {
+          "type": "kw_storage",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_with_config",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_config",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_with_id",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_id",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_with_profiles",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_profiles",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_with_table_option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "table_option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "o_without",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "table_option_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "oand_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "operator_multiplication",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "owith_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_options",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_main",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "kw_key",
+          "named": true
+        },
+        {
+          "type": "kw_primary",
+          "named": true
+        },
+        {
+          "type": "pk_options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "pk_partion_and_clustering",
+          "named": true
+        },
+        {
+          "type": "pk_partion_and_clustering_mult",
+          "named": true
+        },
+        {
+          "type": "pk_partion_and_clustering_single",
+          "named": true
+        },
+        {
+          "type": "pk_partion_explicit",
+          "named": true
+        },
+        {
+          "type": "pk_partion_mult_and_clustering",
+          "named": true
+        },
+        {
+          "type": "pk_partion_mult_and_clustering_mult",
+          "named": true
+        },
+        {
+          "type": "pk_partion_only",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_partion_and_clustering",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_partion_and_clustering_mult",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_partion_and_clustering_single",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_partion_explicit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_partion_mult_and_clustering",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_partion_mult_and_clustering_mult",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pk_partion_only",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "primary_expression",
@@ -4440,6 +5330,69 @@
     }
   },
   {
+    "type": "priviliges",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_all",
+          "named": true
+        },
+        {
+          "type": "kw_alter",
+          "named": true
+        },
+        {
+          "type": "kw_authorize",
+          "named": true
+        },
+        {
+          "type": "kw_create",
+          "named": true
+        },
+        {
+          "type": "kw_describe",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_execute",
+          "named": true
+        },
+        {
+          "type": "kw_login",
+          "named": true
+        },
+        {
+          "type": "kw_modify",
+          "named": true
+        },
+        {
+          "type": "kw_permissions",
+          "named": true
+        },
+        {
+          "type": "kw_proxy",
+          "named": true
+        },
+        {
+          "type": "kwselect",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "replication_statement",
     "named": true,
     "fields": {},
@@ -4468,6 +5421,202 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "resources",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "cql_types_union",
+          "named": true
+        },
+        {
+          "type": "kw_all",
+          "named": true
+        },
+        {
+          "type": "kw_function",
+          "named": true
+        },
+        {
+          "type": "kw_functions",
+          "named": true
+        },
+        {
+          "type": "kw_in",
+          "named": true
+        },
+        {
+          "type": "kw_keyspace",
+          "named": true
+        },
+        {
+          "type": "kw_keyspaces",
+          "named": true
+        },
+        {
+          "type": "kw_mbean",
+          "named": true
+        },
+        {
+          "type": "kw_mbeans",
+          "named": true
+        },
+        {
+          "type": "kw_pattern",
+          "named": true
+        },
+        {
+          "type": "kw_role",
+          "named": true
+        },
+        {
+          "type": "kw_roles",
+          "named": true
+        },
+        {
+          "type": "kw_rows",
+          "named": true
+        },
+        {
+          "type": "kw_table",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "revoke_permission",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_on",
+          "named": true
+        },
+        {
+          "type": "kw_revoke",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "priviliges",
+          "named": true
+        },
+        {
+          "type": "resources",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "revoke_role",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_revoke",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "conditionsselect",
+          "named": true
+        },
+        {
+          "type": "kw_distinct",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_json",
+          "named": true
+        },
+        {
+          "type": "kwselect",
+          "named": true
+        },
+        {
+          "type": "selectors",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        },
+        {
+          "type": "usingconsistency_level",
           "named": true
         }
       ]
@@ -4822,6 +5971,355 @@
     "fields": {}
   },
   {
+    "type": "truncate",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_table",
+          "named": true
+        },
+        {
+          "type": "kw_truncate",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_ascii",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_bigint",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_blob",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_boolean",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_counter",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_date",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_decimal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_double",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_float",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_frozen",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_inet",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_int",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_list",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_map",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_set",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_smallint",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_text",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_time",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_timestamp",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_timeuuid",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_tinyint",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_tuple",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_uuid",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_varchar",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "type_varint",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "update",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_operators",
+          "named": true
+        },
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "comma_separated",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "iconditions_blocks",
+          "named": true
+        },
+        {
+          "type": "if_conditions",
+          "named": true
+        },
+        {
+          "type": "if_exists",
+          "named": true
+        },
+        {
+          "type": "indexed_name",
+          "named": true
+        },
+        {
+          "type": "key_space_name",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_if",
+          "named": true
+        },
+        {
+          "type": "kw_in",
+          "named": true
+        },
+        {
+          "type": "kw_set",
+          "named": true
+        },
+        {
+          "type": "kw_timestamp",
+          "named": true
+        },
+        {
+          "type": "kw_ttl",
+          "named": true
+        },
+        {
+          "type": "kw_update",
+          "named": true
+        },
+        {
+          "type": "kw_using",
+          "named": true
+        },
+        {
+          "type": "kw_where",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        },
+        {
+          "type": "tablekweyspace_name",
+          "named": true
+        },
+        {
+          "type": "usingconsistency_level",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "use",
+    "named": true,
+    "fields": {
+      "command_family": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "kw_use",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "literal",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "using_ttl_or_timestamp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_timestamp",
+          "named": true
+        },
+        {
+          "type": "kw_ttl",
+          "named": true
+        },
+        {
+          "type": "kw_using",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "usingconsistency_level",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "consistency_lvls",
+          "named": true
+        },
+        {
+          "type": "kw_consistency",
+          "named": true
+        },
+        {
+          "type": "kw_level",
+          "named": true
+        },
+        {
+          "type": "kw_using",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "uuid",
     "named": true,
     "fields": {}
@@ -4831,9 +6329,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "type_uuid",
+          "named": true
+        },
         {
           "type": "uuid",
           "named": true
@@ -4845,6 +6347,308 @@
     "type": "wild_card",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "with_access_all_dc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_all",
+          "named": true
+        },
+        {
+          "type": "kw_dcs",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_access_from_all_cidrs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_all",
+          "named": true
+        },
+        {
+          "type": "kw_cidrs",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_access_from_cidrs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_cidrs",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_access_to_dc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "kw_access",
+          "named": true
+        },
+        {
+          "type": "kw_dcs",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_clustering_order_by",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_asc",
+          "named": true
+        },
+        {
+          "type": "kw_by",
+          "named": true
+        },
+        {
+          "type": "kw_clustering",
+          "named": true
+        },
+        {
+          "type": "kw_desc",
+          "named": true
+        },
+        {
+          "type": "kw_order",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_hashed_password",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_hashed",
+          "named": true
+        },
+        {
+          "type": "kw_password",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_login",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_choice",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_login",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "collection",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_options",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_password",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_password",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_superuser",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_choice",
+          "named": true
+        },
+        {
+          "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_superuser",
+          "named": true
+        },
+        {
+          "type": "kw_with",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "!=",
@@ -5704,11 +7508,11 @@
   },
   {
     "type": "blob",
-    "named": true
+    "named": false
   },
   {
     "type": "blob",
-    "named": false
+    "named": true
   },
   {
     "type": "block_comment",
@@ -5888,7 +7692,7 @@
   },
   {
     "type": "graph_engine",
-    "named": false
+    "named": true
   },
   {
     "type": "group",
