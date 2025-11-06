@@ -36,7 +36,7 @@ module.exports = grammar({
           choice("--", "//"),
           token.immediate(/[ \t]+/),
           $.outline_identifier,
-          optional(token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/))))),
+          optional(token(repeat(choice(/[^*]+/, /\*[^/]/)))),
         ),
       ),
 

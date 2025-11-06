@@ -99,23 +99,19 @@
               {
                 "type": "TOKEN",
                 "content": {
-                  "type": "PREC",
-                  "value": -1,
+                  "type": "REPEAT",
                   "content": {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "PATTERN",
-                          "value": "[^*]+"
-                        },
-                        {
-                          "type": "PATTERN",
-                          "value": "\\*[^/]"
-                        }
-                      ]
-                    }
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "[^*]+"
+                      },
+                      {
+                        "type": "PATTERN",
+                        "value": "\\*[^/]"
+                      }
+                    ]
                   }
                 }
               },
