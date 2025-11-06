@@ -52,7 +52,7 @@ module.exports = grammar({
           seq(optional(token.immediate(/[ \t]+/)), $.outline_identifier),
         ),
 
-        token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/, /[^\n]*/)))),
+        token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/, /[^\n|\/\*|\*\/]*/)))),
 
         "*/",
       ),
