@@ -728,9 +728,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "line_comment_text",
+          "named": true
+        },
         {
           "type": "outline_identifier",
           "named": true

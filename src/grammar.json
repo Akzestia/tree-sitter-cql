@@ -83,11 +83,16 @@
             ]
           },
           {
-            "type": "IMMEDIATE_TOKEN",
-            "content": {
-              "type": "PATTERN",
-              "value": "[ \\t]+"
-            }
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "\\s+"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           },
           {
             "type": "SYMBOL",
@@ -97,23 +102,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "TOKEN",
-                "content": {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "PATTERN",
-                        "value": "[^*]+"
-                      },
-                      {
-                        "type": "PATTERN",
-                        "value": "\\*[^/]"
-                      }
-                    ]
-                  }
-                }
+                "type": "SYMBOL",
+                "name": "line_comment_text"
               },
               {
                 "type": "BLANK"
@@ -189,27 +179,35 @@
           ]
         },
         {
-          "type": "TOKEN",
-          "content": {
-            "type": "PREC",
-            "value": -1,
-            "content": {
-              "type": "REPEAT",
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "TOKEN",
               "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "PATTERN",
-                    "value": "[^*]+"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "\\*[^/]"
+                "type": "PREC",
+                "value": -1,
+                "content": {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "PATTERN",
+                        "value": "[^*]+"
+                      },
+                      {
+                        "type": "PATTERN",
+                        "value": "\\*[^/]"
+                      }
+                    ]
                   }
-                ]
+                }
               }
+            },
+            {
+              "type": "BLANK"
             }
-          }
+          ]
         },
         {
           "type": "STRING",

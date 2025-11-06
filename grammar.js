@@ -34,9 +34,9 @@ module.exports = grammar({
         1,
         seq(
           choice("--", "//"),
-          token.immediate(/[ \t]+/),
+          optional(/\s+/),
           $.outline_identifier,
-          optional(token(repeat(choice(/[^*]+/, /\*[^/]/)))),
+          optional($.line_comment_text),
         ),
       ),
 
@@ -49,7 +49,7 @@ module.exports = grammar({
         optional(
           seq(optional(token.immediate(/[ \t]+/)), $.outline_identifier),
         ),
-        token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/)))),
+        optional(token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/))))),
         "*/",
       ),
 
