@@ -126,7 +126,7 @@ module.exports = grammar({
       ),
 
     _kw_use: ($) => choice("USE", "use"),
-    _kw_alter: ($) => token(choice("ALTER", "alter")),
+    kw_alter: ($) => token(choice("ALTER", "alter")),
     _kw_create: ($) => choice("CREATE", "create"),
     _kw_keyspace: ($) => choice("KEYSPACE", "keyspace"),
     _kw_table: ($) => choice("TABLE", "table"),
@@ -305,7 +305,7 @@ module.exports = grammar({
     cql_keyword: ($) =>
       choice(
         $._kw_use,
-        $._kw_alter,
+        $.kw_alter,
         $._kw_create,
         $._kw_keyspace,
         $._kw_table,
@@ -472,7 +472,7 @@ module.exports = grammar({
 
     _alter_keyspace: ($) =>
       seq(
-        field("command_family", $._kw_alter),
+        field("command_family", $.kw_alter),
         field("command_type", $._kw_keyspace),
         field("name", $.identifier),
         $._kw_with,
@@ -491,7 +491,7 @@ module.exports = grammar({
       ),
     _alter_materialized_view: ($) =>
       seq(
-        field("command_family", $._kw_alter),
+        field("command_family", $.kw_alter),
         field("command_type_modifier", $._kw_materialized),
         field("command_type", $._kw_view),
         field("name", choice($.key_space_name, $.table_label)),
@@ -511,7 +511,7 @@ module.exports = grammar({
       ),
     _alter_role: ($) =>
       seq(
-        field("command_family", $._kw_alter),
+        field("command_family", $.kw_alter),
         field("command_type", $._kw_role),
         field("name", $.identifier),
         optional(seq($._kw_with, repeat($.alter_role_option_args))),
@@ -521,7 +521,7 @@ module.exports = grammar({
       prec.left(
         1,
         seq(
-          field("command_family", $._kw_alter),
+          field("command_family", $.kw_alter),
           field("command_type", $._kw_table),
           field("name", $.table_keyspace_name),
           optional($.alter_table_options),
@@ -532,7 +532,7 @@ module.exports = grammar({
       prec.left(
         1,
         seq(
-          field("command_family", $._kw_alter),
+          field("command_family", $.kw_alter),
           field("command_type", $._kw_type),
           $.table_keyspace_name,
           optional($.alter_type_options),
@@ -541,7 +541,7 @@ module.exports = grammar({
       ),
     _alter_user: ($) =>
       seq(
-        $._kw_alter,
+        $.kw_alter,
         $._kw_user,
         $.identifier,
         optional(
@@ -1273,7 +1273,7 @@ module.exports = grammar({
     _priviliges: ($) =>
       choice(
         seq($._kw_all, $._kw_permissions),
-        $._kw_alter,
+        $.kw_alter,
         $._kw_create,
         $._kw_drop,
         $._kw_modify,
@@ -1659,7 +1659,7 @@ module.exports = grammar({
     _o_alter_type: ($) =>
       prec.left(
         2,
-        seq($._kw_alter, $.identifier, $._kw_type, $.cql_types_union),
+        seq($.kw_alter, $.identifier, $._kw_type, $.cql_types_union),
       ),
     _o_add: ($) =>
       seq(
@@ -1710,7 +1710,7 @@ module.exports = grammar({
       choice(
         prec.left(
           2,
-          seq($._kw_alter, $.identifier, $._kw_type, $.cql_types_union),
+          seq($.kw_alter, $.identifier, $._kw_type, $.cql_types_union),
         ),
         seq(
           $._kw_add,
