@@ -46,8 +46,16 @@ module.exports = grammar({
     block_comment: ($) =>
       seq(
         "/*",
-        optional(seq(token.immediate(/[ \t]+/), $.outline_identifier)),
-        token(prec(-1, repeat(choice(/[^*]+/, /\*[^/]/)))),
+        repeat(
+          choice(
+            // 1. Try to match an outline identifier first. We give it higher precedence.
+            prec(1, seq(token.immediate(/\s*/), $.outline_identifier)),
+            // 2. If that doesn't match, consume any other character that is not a star.
+            /[^*]/,
+            // 3. Or consume a star that is not followed by a slash.
+            /\*[^/]/,
+          ),
+        ),
         "*/",
       ),
 
