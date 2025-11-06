@@ -7,7 +7,7 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [/\s|\\\r?\n/, $.line_comment, $.block_comment],
+  extras: ($) => [/\s|\\\r?\n/, $.comment],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
@@ -126,7 +126,7 @@ module.exports = grammar({
       ),
 
     _kw_use: ($) => choice("USE", "use"),
-    _kw_alter: ($) => choice("ALTER", "alter"),
+    _kw_alter: ($) => token(choice("ALTER", "alter")),
     _kw_create: ($) => choice("CREATE", "create"),
     _kw_keyspace: ($) => choice("KEYSPACE", "keyspace"),
     _kw_table: ($) => choice("TABLE", "table"),
@@ -456,13 +456,25 @@ module.exports = grammar({
     //-----------[OUTLINE IDENTIFIRES]----------
     // outline_identifier: ($) => /@[a-zA-Z_][a-zA-Z0-9_]*/,
 
-    _use: ($) => seq($._kw_use, $.literal, $.semi_colon),
+    /*
+      field("command_family"
+      field("command_type_modifier"
+      field("command_type"
+      field("name
+    */
+
+    _use: ($) =>
+      seq(
+        field("command_family", $._kw_use),
+        field("name", $.literal),
+        $.semi_colon,
+      ),
 
     _alter_keyspace: ($) =>
       seq(
-        $._kw_alter,
-        $._kw_keyspace,
-        $.identifier,
+        field("command_family", $._kw_alter),
+        field("command_type", $._kw_keyspace),
+        field("name", $.identifier),
         $._kw_with,
         $._kw_replication,
         $.equal_sign,
@@ -479,10 +491,10 @@ module.exports = grammar({
       ),
     _alter_materialized_view: ($) =>
       seq(
-        $._kw_alter,
-        $._kw_materialized,
-        $._kw_view,
-        choice($.key_space_name, $.table_label),
+        field("command_family", $._kw_alter),
+        field("command_type_modifier", $._kw_materialized),
+        field("command_type", $._kw_view),
+        field("name", choice($.key_space_name, $.table_label)),
         optional(
           seq(
             $._kw_with,
@@ -499,9 +511,9 @@ module.exports = grammar({
       ),
     _alter_role: ($) =>
       seq(
-        $._kw_alter,
-        $._kw_role,
-        $.identifier,
+        field("command_family", $._kw_alter),
+        field("command_type", $._kw_role),
+        field("name", $.identifier),
         optional(seq($._kw_with, repeat($.alter_role_option_args))),
         $.semi_colon,
       ),
@@ -509,9 +521,9 @@ module.exports = grammar({
       prec.left(
         1,
         seq(
-          $._kw_alter,
-          $._kw_table,
-          $.table_keyspace_name,
+          field("command_family", $._kw_alter),
+          field("command_type", $._kw_table),
+          field("name", $.table_keyspace_name),
           optional($.alter_table_options),
           $.semi_colon,
         ),
@@ -520,8 +532,8 @@ module.exports = grammar({
       prec.left(
         1,
         seq(
-          $._kw_alter,
-          $._kw_type,
+          field("command_family", $._kw_alter),
+          field("command_type", $._kw_type),
           $.table_keyspace_name,
           optional($.alter_type_options),
           $.semi_colon,
@@ -1001,7 +1013,7 @@ module.exports = grammar({
       ),
     _grant_role: ($) =>
       seq($._kw_grant, $.identifier, $._kw_to, $.identifier, $.semi_colon),
-    _grant_premission: ($) =>
+    _grant_permission: ($) =>
       seq(
         $._kw_grant,
         $._priviliges,
@@ -1011,7 +1023,7 @@ module.exports = grammar({
         $.identifier,
         $.semi_colon,
       ),
-    _list_premissions: ($) =>
+    _list_permissions: ($) =>
       seq(
         $._kw_list,
         $._priviliges,
@@ -1020,7 +1032,7 @@ module.exports = grammar({
         optional($._kw_norecursive),
         $.semi_colon,
       ),
-    _revoke_premission: ($) =>
+    _revoke_permission: ($) =>
       seq(
         $._kw_revoke,
         $._priviliges,
@@ -1454,48 +1466,58 @@ module.exports = grammar({
 
     cql_commands: ($) =>
       choice(
-        $._alter_keyspace, // Working
-        $._alter_materialized_view, // Working
-        $._alter_role, // Working
-        $._alter_table, // Working
-        $._alter_type, // Working
-        $._alter_user, // Working
-        $._batch, // Working
-        $._commit_search_index, // Working
-        $._create_aggregate, // Working
-        $._create_function, // Working
-        $._create_index, // Working
-        $._create_keyspace, // Working
-        $._create_materialized_view, // Working
-        $._create_role, // Working
-        $._create_search_index, //Working
-        $._create_table, // Working
-        $._create_type, // Working
-        $._create_user, // Working
-        $._delete, // Working
-        $._drop_aggregate, // Working
-        $._drop_function, // Working
-        $._drop_index, // Working
-        $._drop_keyspace, // Working
-        $._drop_materialized_view, // Working
-        $._drop_role, // Working
-        $._drop_search_index, // Working
-        $._drop_table, // Working
-        $._drop_type, // Working
-        $._drop_user, // Working
-        $._grant_role, // Working
-        $._grant_premission, // Working
-        $._insert, // Working
-        $._list_premissions, // Working
-        $._list_roles, // Working
-        $._list_users, // Working
-        $._revoke_role, // Working
-        $._revoke_premission, // Working
-        $._select, // Working
-        $._truncate, // Working
-        $._update, // Working
-        $._use, // Working
-        $._consistency_level, // Working
+        field("alter_role", $._alter_role),
+        field("alter_table", $._alter_table),
+        field("alter_type", $._alter_type),
+        field("alter_user", $._alter_user),
+        field("alter_materialized_view", $._alter_materialized_view),
+        field("alter_keyspace", $._alter_keyspace),
+
+        field("batch", $._batch),
+        field("commit_search_index", $._commit_search_index),
+
+        field("create_aggregate", $._create_aggregate),
+        field("create_function", $._create_function),
+        field("create_index", $._create_index),
+        field("create_keyspace", $._create_keyspace),
+        field("create_materialized_view", $._create_materialized_view),
+        field("create_role", $._create_role),
+        field("create_search_index", $._create_search_index), // fixed typo
+        field("create_table", $._create_table),
+        field("create_type", $._create_type),
+        field("create_user", $._create_user),
+
+        field("delete", $._delete),
+
+        field("drop_aggregate", $._drop_aggregate),
+        field("drop_function", $._drop_function),
+        field("drop_index", $._drop_index),
+        field("drop_keyspace", $._drop_keyspace),
+        field("drop_materialized_view", $._drop_materialized_view),
+        field("drop_role", $._drop_role),
+        field("drop_search_index", $._drop_search_index),
+        field("drop_table", $._drop_table),
+        field("drop_type", $._drop_type),
+        field("drop_user", $._drop_user),
+
+        field("grant_role", $._grant_role),
+        field("grant_permission", $._grant_permission), // fixed spelling
+
+        field("insert", $._insert),
+
+        field("list_permissions", $._list_permissions), // fixed spelling
+        field("list_roles", $._list_roles),
+        field("list_users", $._list_users),
+
+        field("revoke_role", $._revoke_role),
+        field("revoke_permission", $._revoke_permission), // fixed spelling
+
+        field("select", $._select),
+        field("truncate", $._truncate),
+        field("update", $._update),
+        field("use", $._use),
+
+        field("consistency_level", $._consistency_level),
       ),
 
     _using_ttl_or_timestamp: ($) =>
