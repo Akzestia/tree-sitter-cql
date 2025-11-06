@@ -7,7 +7,13 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [/\s|\\\r?\n/, $.line_comment_plain, $.block_comment],
+  extras: ($) => [
+    /\s|\\\r?\n/,
+    $.line_comment_plain,
+    $.block_comment,
+    $.line_comment_with_outline,
+    $.block_comment_with_outline,
+  ],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 

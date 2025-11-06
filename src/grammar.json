@@ -11461,6 +11461,14 @@
     {
       "type": "SYMBOL",
       "name": "block_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "line_comment_with_outline"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "block_comment_with_outline"
     }
   ],
   "conflicts": [
