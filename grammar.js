@@ -57,9 +57,7 @@ module.exports = grammar({
         "*/",
       ),
 
-    block_comment_line: ($) => {
-      seq("/*", token(prec(0, /[^\n]*/)), "*/");
-    },
+    block_comment_line: ($) => seq("/*", token(prec(0, /[^\n]*/)), "*/"),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),
     _type_bigint: ($) => choice("BIGINT", "bigint"),
