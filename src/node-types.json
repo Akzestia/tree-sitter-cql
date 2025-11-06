@@ -16,6 +16,22 @@
           "named": true
         },
         {
+          "type": "kw_login",
+          "named": true
+        },
+        {
+          "type": "kw_options",
+          "named": true
+        },
+        {
+          "type": "kw_password",
+          "named": true
+        },
+        {
+          "type": "kw_superuser",
+          "named": true
+        },
+        {
           "type": "string_literal",
           "named": true
         }
@@ -28,7 +44,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "comma_separated",
@@ -43,7 +59,43 @@
           "named": true
         },
         {
+          "type": "kw_add",
+          "named": true
+        },
+        {
           "type": "kw_alter",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_compact",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "kw_rename",
+          "named": true
+        },
+        {
+          "type": "kw_storage",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "kw_type",
+          "named": true
+        },
+        {
+          "type": "kw_with",
           "named": true
         },
         {
@@ -67,7 +119,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "comma_separated",
@@ -82,7 +134,27 @@
           "named": true
         },
         {
+          "type": "kw_add",
+          "named": true
+        },
+        {
           "type": "kw_alter",
+          "named": true
+        },
+        {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_rename",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "kw_type",
           "named": true
         }
       ]
@@ -177,124 +249,10 @@
     "type": "cql_commands",
     "named": true,
     "fields": {
-      "alter_keyspace": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "'Classic'",
-            "named": false
-          },
-          {
-            "type": "'Core'",
-            "named": false
-          },
-          {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "DURABLE_WRITES",
-            "named": false
-          },
-          {
-            "type": "KEYSPACE",
-            "named": false
-          },
-          {
-            "type": "REPLICATION",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
-            "type": "bool_choice",
-            "named": true
-          },
-          {
-            "type": "durable_writes",
-            "named": false
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "graph_engine",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "keyspace",
-            "named": false
-          },
-          {
-            "type": "kw_alter",
-            "named": true
-          },
-          {
-            "type": "replication",
-            "named": false
-          },
-          {
-            "type": "replication_statement",
-            "named": true
-          },
-          {
-            "type": "replication_statement_dc",
-            "named": true
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "with",
-            "named": false
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
-          }
-        ]
-      },
       "alter_materialized_view": {
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "MATERIALIZED",
-            "named": false
-          },
-          {
-            "type": "VIEW",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
           {
             "type": "key_space_name",
             "named": true
@@ -304,8 +262,20 @@
             "named": true
           },
           {
-            "type": "materialized",
-            "named": false
+            "type": "kw_and",
+            "named": true
+          },
+          {
+            "type": "kw_materialized",
+            "named": true
+          },
+          {
+            "type": "kw_view",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
           },
           {
             "type": "semi_colon",
@@ -322,14 +292,6 @@
           {
             "type": "table_option_single",
             "named": true
-          },
-          {
-            "type": "view",
-            "named": false
-          },
-          {
-            "type": "with",
-            "named": false
           }
         ]
       },
@@ -337,14 +299,6 @@
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": "ROLE",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
           {
             "type": "alter_role_option_args",
             "named": true
@@ -358,16 +312,16 @@
             "named": true
           },
           {
-            "type": "role",
-            "named": false
+            "type": "kw_role",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
-          },
-          {
-            "type": "with",
-            "named": false
           }
         ]
       },
@@ -375,10 +329,6 @@
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": "TABLE",
-            "named": false
-          },
           {
             "type": "alter_table_options",
             "named": true
@@ -388,15 +338,15 @@
             "named": true
           },
           {
+            "type": "kw_table",
+            "named": true
+          },
+          {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -406,10 +356,6 @@
         "required": false,
         "types": [
           {
-            "type": "TYPE",
-            "named": false
-          },
-          {
             "type": "alter_type_options",
             "named": true
           },
@@ -418,16 +364,16 @@
             "named": true
           },
           {
+            "type": "kw_type",
+            "named": true
+          },
+          {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "type",
-            "named": false
           }
         ]
       },
@@ -436,31 +382,69 @@
         "required": false,
         "types": [
           {
-            "type": "HASHED",
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "kw_alter",
+            "named": true
+          },
+          {
+            "type": "kw_hashed",
+            "named": true
+          },
+          {
+            "type": "kw_nosuperuser",
+            "named": true
+          },
+          {
+            "type": "kw_password",
+            "named": true
+          },
+          {
+            "type": "kw_superuser",
+            "named": true
+          },
+          {
+            "type": "kw_user",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
+          },
+          {
+            "type": "semi_colon",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "alterkweyspace": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'Classic'",
             "named": false
           },
           {
-            "type": "NOSUPERUSER",
+            "type": "'Core'",
             "named": false
           },
           {
-            "type": "PASSWORD",
-            "named": false
+            "type": "bool_choice",
+            "named": true
           },
           {
-            "type": "SUPERUSER",
-            "named": false
+            "type": "equal_sign",
+            "named": true
           },
           {
-            "type": "USER",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "hashed",
+            "type": "graph_engine",
             "named": false
           },
           {
@@ -472,31 +456,43 @@
             "named": true
           },
           {
-            "type": "nosuperuser",
-            "named": false
+            "type": "kw_and",
+            "named": true
           },
           {
-            "type": "password",
-            "named": false
+            "type": "kw_durable_writes",
+            "named": true
+          },
+          {
+            "type": "kw_replication",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
+          },
+          {
+            "type": "kwkweyspace",
+            "named": true
+          },
+          {
+            "type": "replication_statement",
+            "named": true
+          },
+          {
+            "type": "replication_statement_dc",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "string_literal",
-            "named": true
-          },
-          {
-            "type": "superuser",
+            "type": "{",
             "named": false
           },
           {
-            "type": "user",
-            "named": false
-          },
-          {
-            "type": "with",
+            "type": "}",
             "named": false
           }
         ]
@@ -506,152 +502,84 @@
         "required": false,
         "types": [
           {
-            "type": "APPLY",
-            "named": false
-          },
-          {
-            "type": "BATCH",
-            "named": false
-          },
-          {
-            "type": "BEGIN",
-            "named": false
-          },
-          {
-            "type": "CONSISTENCY",
-            "named": false
-          },
-          {
-            "type": "COUNTER",
-            "named": false
-          },
-          {
-            "type": "EACH_QUORUM",
-            "named": false
-          },
-          {
-            "type": "LEVEL",
-            "named": false
-          },
-          {
-            "type": "LOCAL_ONE",
-            "named": false
-          },
-          {
-            "type": "LOCAL_QUORUM",
-            "named": false
-          },
-          {
-            "type": "LOGGED",
-            "named": false
-          },
-          {
-            "type": "ONE",
-            "named": false
-          },
-          {
-            "type": "QUORUM",
-            "named": false
-          },
-          {
-            "type": "THREE",
-            "named": false
-          },
-          {
-            "type": "TIMESTAMP",
-            "named": false
-          },
-          {
-            "type": "TWO",
-            "named": false
-          },
-          {
-            "type": "UNLOGGED",
-            "named": false
-          },
-          {
-            "type": "USING",
-            "named": false
-          },
-          {
-            "type": "apply",
-            "named": false
-          },
-          {
-            "type": "batch",
-            "named": false
-          },
-          {
-            "type": "begin",
-            "named": false
-          },
-          {
-            "type": "consistency",
-            "named": false
-          },
-          {
-            "type": "counter",
-            "named": false
-          },
-          {
             "type": "dml_statement",
             "named": true
           },
           {
-            "type": "each_quorum",
-            "named": false
+            "type": "kw_apply",
+            "named": true
           },
           {
-            "type": "level",
-            "named": false
+            "type": "kw_batch",
+            "named": true
           },
           {
-            "type": "local_one",
-            "named": false
+            "type": "kw_begin",
+            "named": true
           },
           {
-            "type": "local_quorum",
-            "named": false
+            "type": "kw_consistency",
+            "named": true
           },
           {
-            "type": "logged",
-            "named": false
+            "type": "kw_counter",
+            "named": true
+          },
+          {
+            "type": "kw_each_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_level",
+            "named": true
+          },
+          {
+            "type": "kw_local_one",
+            "named": true
+          },
+          {
+            "type": "kw_local_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_logged",
+            "named": true
+          },
+          {
+            "type": "kw_one",
+            "named": true
+          },
+          {
+            "type": "kw_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_three",
+            "named": true
+          },
+          {
+            "type": "kw_timestamp",
+            "named": true
+          },
+          {
+            "type": "kw_two",
+            "named": true
+          },
+          {
+            "type": "kw_unlogged",
+            "named": true
+          },
+          {
+            "type": "kw_using",
+            "named": true
           },
           {
             "type": "number",
             "named": true
           },
           {
-            "type": "one",
-            "named": false
-          },
-          {
-            "type": "quorum",
-            "named": false
-          },
-          {
             "type": "semi_colon",
             "named": true
-          },
-          {
-            "type": "three",
-            "named": false
-          },
-          {
-            "type": "timestamp",
-            "named": false
-          },
-          {
-            "type": "two",
-            "named": false
-          },
-          {
-            "type": "unlogged",
-            "named": false
-          },
-          {
-            "type": "using",
-            "named": false
           }
         ]
       },
@@ -660,16 +588,12 @@
         "required": false,
         "types": [
           {
-            "type": "USE",
-            "named": false
-          },
-          {
             "type": "kw_alter",
             "named": true
           },
           {
-            "type": "use",
-            "named": false
+            "type": "kw_use",
+            "named": true
           }
         ]
       },
@@ -678,44 +602,24 @@
         "required": false,
         "types": [
           {
-            "type": "KEYSPACE",
-            "named": false
+            "type": "kw_role",
+            "named": true
           },
           {
-            "type": "ROLE",
-            "named": false
+            "type": "kw_table",
+            "named": true
           },
           {
-            "type": "TABLE",
-            "named": false
+            "type": "kw_type",
+            "named": true
           },
           {
-            "type": "TYPE",
-            "named": false
+            "type": "kw_view",
+            "named": true
           },
           {
-            "type": "VIEW",
-            "named": false
-          },
-          {
-            "type": "keyspace",
-            "named": false
-          },
-          {
-            "type": "role",
-            "named": false
-          },
-          {
-            "type": "table",
-            "named": false
-          },
-          {
-            "type": "type",
-            "named": false
-          },
-          {
-            "type": "view",
-            "named": false
+            "type": "kwkweyspace",
+            "named": true
           }
         ]
       },
@@ -724,12 +628,8 @@
         "required": false,
         "types": [
           {
-            "type": "MATERIALIZED",
-            "named": false
-          },
-          {
-            "type": "materialized",
-            "named": false
+            "type": "kw_materialized",
+            "named": true
           }
         ]
       },
@@ -738,43 +638,27 @@
         "required": false,
         "types": [
           {
-            "type": "COMMIT",
-            "named": false
+            "type": "kw_commit",
+            "named": true
           },
           {
-            "type": "INDEX",
-            "named": false
+            "type": "kw_index",
+            "named": true
           },
           {
-            "type": "ON",
-            "named": false
+            "type": "kw_on",
+            "named": true
           },
           {
-            "type": "SEARCH",
-            "named": false
-          },
-          {
-            "type": "commit",
-            "named": false
-          },
-          {
-            "type": "index",
-            "named": false
-          },
-          {
-            "type": "on",
-            "named": false
-          },
-          {
-            "type": "search",
-            "named": false
+            "type": "kw_search",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -784,80 +668,44 @@
         "required": false,
         "types": [
           {
-            "type": "CONSISTENCY",
-            "named": false
+            "type": "kw_consistency",
+            "named": true
           },
           {
-            "type": "EACH_QUORUM",
-            "named": false
+            "type": "kw_each_quorum",
+            "named": true
           },
           {
-            "type": "LEVEL",
-            "named": false
+            "type": "kw_level",
+            "named": true
           },
           {
-            "type": "LOCAL_ONE",
-            "named": false
+            "type": "kw_local_one",
+            "named": true
           },
           {
-            "type": "LOCAL_QUORUM",
-            "named": false
+            "type": "kw_local_quorum",
+            "named": true
           },
           {
-            "type": "ONE",
-            "named": false
+            "type": "kw_one",
+            "named": true
           },
           {
-            "type": "QUORUM",
-            "named": false
+            "type": "kw_quorum",
+            "named": true
           },
           {
-            "type": "THREE",
-            "named": false
+            "type": "kw_three",
+            "named": true
           },
           {
-            "type": "TWO",
-            "named": false
-          },
-          {
-            "type": "consistency",
-            "named": false
-          },
-          {
-            "type": "each_quorum",
-            "named": false
-          },
-          {
-            "type": "level",
-            "named": false
-          },
-          {
-            "type": "local_one",
-            "named": false
-          },
-          {
-            "type": "local_quorum",
-            "named": false
-          },
-          {
-            "type": "one",
-            "named": false
-          },
-          {
-            "type": "quorum",
-            "named": false
+            "type": "kw_two",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
-          },
-          {
-            "type": "three",
-            "named": false
-          },
-          {
-            "type": "two",
-            "named": false
           }
         ]
       },
@@ -874,54 +722,6 @@
             "named": false
           },
           {
-            "type": "AGGREGATE",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "FINALFUNC",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "INITCOND",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "OR",
-            "named": false
-          },
-          {
-            "type": "REPLACE",
-            "named": false
-          },
-          {
-            "type": "SFUNC",
-            "named": false
-          },
-          {
-            "type": "STYPE",
-            "named": false
-          },
-          {
-            "type": "aggregate",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
           },
@@ -930,55 +730,59 @@
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "finalfunc",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_aggregate",
+            "named": true
           },
           {
-            "type": "initcond",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "or",
-            "named": false
+            "type": "kw_final_func",
+            "named": true
           },
           {
-            "type": "replace",
-            "named": false
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_init_cond",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_or",
+            "named": true
+          },
+          {
+            "type": "kw_replace",
+            "named": true
+          },
+          {
+            "type": "kw_sfunc",
+            "named": true
+          },
+          {
+            "type": "kw_stype",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "sfunc",
-            "named": false
-          },
-          {
-            "type": "stype",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -1000,86 +804,6 @@
             "named": false
           },
           {
-            "type": "AS",
-            "named": false
-          },
-          {
-            "type": "CALLED",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DETERMINISTIC",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "FUNCTION",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "INPUT",
-            "named": false
-          },
-          {
-            "type": "JAVA",
-            "named": false
-          },
-          {
-            "type": "JAVASCRIPT",
-            "named": false
-          },
-          {
-            "type": "LANGUAGE",
-            "named": false
-          },
-          {
-            "type": "MONOTONIC",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "NULL",
-            "named": false
-          },
-          {
-            "type": "ON",
-            "named": false
-          },
-          {
-            "type": "OR",
-            "named": false
-          },
-          {
-            "type": "REPLACE",
-            "named": false
-          },
-          {
-            "type": "RETURNS",
-            "named": false
-          },
-          {
-            "type": "as",
-            "named": false
-          },
-          {
-            "type": "called",
-            "named": false
-          },
-          {
             "type": "code_block",
             "named": true
           },
@@ -1092,76 +816,84 @@
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "deterministic",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "function",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
-          },
-          {
-            "type": "if",
-            "named": false
-          },
-          {
-            "type": "input",
-            "named": false
-          },
-          {
-            "type": "java",
-            "named": false
-          },
-          {
-            "type": "javascript",
-            "named": false
           },
           {
             "type": "key_space_name",
             "named": true
           },
           {
-            "type": "language",
-            "named": false
+            "type": "kw_as",
+            "named": true
           },
           {
-            "type": "monotonic",
-            "named": false
+            "type": "kw_called",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "null",
-            "named": false
+            "type": "kw_deterministic",
+            "named": true
           },
           {
-            "type": "on",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "or",
-            "named": false
+            "type": "kw_function",
+            "named": true
           },
           {
-            "type": "replace",
-            "named": false
+            "type": "kw_if",
+            "named": true
           },
           {
-            "type": "returns",
-            "named": false
+            "type": "kw_input",
+            "named": true
+          },
+          {
+            "type": "kw_java",
+            "named": true
+          },
+          {
+            "type": "kw_java_script",
+            "named": true
+          },
+          {
+            "type": "kw_language",
+            "named": true
+          },
+          {
+            "type": "kw_monotonic",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_null",
+            "named": true
+          },
+          {
+            "type": "kw_on",
+            "named": true
+          },
+          {
+            "type": "kw_or",
+            "named": true
+          },
+          {
+            "type": "kw_replace",
+            "named": true
+          },
+          {
+            "type": "kw_returns",
+            "named": true
           },
           {
             "type": "semi_colon",
@@ -1198,246 +930,80 @@
             "named": false
           },
           {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "CUSTOM",
-            "named": false
-          },
-          {
-            "type": "ENTRIES",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "FULL",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "INDEX",
-            "named": false
-          },
-          {
-            "type": "KEYS",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "ON",
-            "named": false
-          },
-          {
-            "type": "OPTIONS",
-            "named": false
-          },
-          {
-            "type": "USING",
-            "named": false
-          },
-          {
-            "type": "VALUES",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
             "type": "collection",
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "custom",
-            "named": false
-          },
-          {
-            "type": "entries",
-            "named": false
-          },
-          {
             "type": "equal_sign",
             "named": true
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "full",
-            "named": false
           },
           {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "index",
-            "named": false
+            "type": "kw_custom",
+            "named": true
           },
           {
-            "type": "keys",
-            "named": false
+            "type": "kw_entries",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "on",
-            "named": false
+            "type": "kw_full",
+            "named": true
           },
           {
-            "type": "options",
-            "named": false
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_index",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_on",
+            "named": true
+          },
+          {
+            "type": "kw_options",
+            "named": true
+          },
+          {
+            "type": "kw_using",
+            "named": true
+          },
+          {
+            "type": "kw_values",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
+          },
+          {
+            "type": "kwkweys",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "using",
-            "named": false
-          },
-          {
-            "type": "values",
-            "named": false
-          },
-          {
-            "type": "with",
-            "named": false
-          }
-        ]
-      },
-      "create_keyspace": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "'Classic'",
-            "named": false
-          },
-          {
-            "type": "'Core'",
-            "named": false
-          },
-          {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DURABLE_WRITES",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "KEYSPACE",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "REPLICATION",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
-            "type": "bool_choice",
-            "named": true
-          },
-          {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "durable_writes",
-            "named": false
-          },
-          {
-            "type": "equal_sign",
-            "named": true
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "graph_engine",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if",
-            "named": false
-          },
-          {
-            "type": "keyspace",
-            "named": false
-          },
-          {
-            "type": "map",
-            "named": true
-          },
-          {
-            "type": "not",
-            "named": false
-          },
-          {
-            "type": "replication",
-            "named": false
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "with",
-            "named": false
           }
         ]
       },
@@ -1454,192 +1020,112 @@
             "named": false
           },
           {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "AS",
-            "named": false
-          },
-          {
-            "type": "ASC",
-            "named": false
-          },
-          {
-            "type": "BY",
-            "named": false
-          },
-          {
-            "type": "CLUSTERING",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DESC",
-            "named": false
-          },
-          {
-            "type": "DISTINCT",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "FROM",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "IS",
-            "named": false
-          },
-          {
-            "type": "JSON",
-            "named": false
-          },
-          {
-            "type": "KEY",
-            "named": false
-          },
-          {
-            "type": "MATERIALIZED",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "NULL",
-            "named": false
-          },
-          {
-            "type": "ORDER",
-            "named": false
-          },
-          {
-            "type": "PRIMARY",
-            "named": false
-          },
-          {
-            "type": "SELECT",
-            "named": false
-          },
-          {
-            "type": "VIEW",
-            "named": false
-          },
-          {
-            "type": "WHERE",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
-            "type": "as",
-            "named": false
-          },
-          {
-            "type": "asc",
-            "named": false
-          },
-          {
-            "type": "by",
-            "named": false
-          },
-          {
-            "type": "clustering",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
-          },
-          {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "desc",
-            "named": false
-          },
-          {
-            "type": "distinct",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
           },
           {
             "type": "expression",
             "named": true
           },
           {
-            "type": "from",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
-          },
-          {
-            "type": "if",
-            "named": false
           },
           {
             "type": "if_conditions",
             "named": true
           },
           {
-            "type": "is",
-            "named": false
+            "type": "kw_and",
+            "named": true
           },
           {
-            "type": "json",
-            "named": false
+            "type": "kw_as",
+            "named": true
           },
           {
-            "type": "key",
-            "named": false
+            "type": "kw_asc",
+            "named": true
           },
           {
-            "type": "materialized",
-            "named": false
+            "type": "kw_by",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_clustering",
+            "named": true
           },
           {
-            "type": "null",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "order",
-            "named": false
+            "type": "kw_desc",
+            "named": true
           },
           {
-            "type": "primary",
-            "named": false
+            "type": "kw_distinct",
+            "named": true
           },
           {
-            "type": "select",
-            "named": false
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_from",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_is",
+            "named": true
+          },
+          {
+            "type": "kw_json",
+            "named": true
+          },
+          {
+            "type": "kw_materialized",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_null",
+            "named": true
+          },
+          {
+            "type": "kw_order",
+            "named": true
+          },
+          {
+            "type": "kw_primary",
+            "named": true
+          },
+          {
+            "type": "kw_select",
+            "named": true
+          },
+          {
+            "type": "kw_view",
+            "named": true
+          },
+          {
+            "type": "kw_where",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
+          },
+          {
+            "type": "kwkwey",
+            "named": true
           },
           {
             "type": "selectors",
@@ -1650,24 +1136,12 @@
             "named": true
           },
           {
-            "type": "table_keyspace_name",
-            "named": true
-          },
-          {
             "type": "table_option",
             "named": true
           },
           {
-            "type": "view",
-            "named": false
-          },
-          {
-            "type": "where",
-            "named": false
-          },
-          {
-            "type": "with",
-            "named": false
+            "type": "tablekweyspace_name",
+            "named": true
           }
         ]
       },
@@ -1676,152 +1150,92 @@
         "required": false,
         "types": [
           {
-            "type": "ACCESS",
-            "named": false
-          },
-          {
-            "type": "ALL",
-            "named": false
-          },
-          {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "CIDRS",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DATACENTERS",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "FROM",
-            "named": false
-          },
-          {
-            "type": "HASHED",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "LOGIN",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "OPTIONS",
-            "named": false
-          },
-          {
-            "type": "PASSWORD",
-            "named": false
-          },
-          {
-            "type": "ROLE",
-            "named": false
-          },
-          {
-            "type": "SUPERUSER",
-            "named": false
-          },
-          {
-            "type": "TO",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "access",
-            "named": false
-          },
-          {
-            "type": "all",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
             "type": "bool_choice",
             "named": true
-          },
-          {
-            "type": "cidrs",
-            "named": false
           },
           {
             "type": "collection",
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "datacenters",
-            "named": false
-          },
-          {
             "type": "equal_sign",
             "named": true
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "from",
-            "named": false
-          },
-          {
-            "type": "hashed",
-            "named": false
           },
           {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_access",
+            "named": true
           },
           {
-            "type": "login",
-            "named": false
+            "type": "kw_all",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_and",
+            "named": true
           },
           {
-            "type": "options",
-            "named": false
+            "type": "kw_cidrs",
+            "named": true
           },
           {
-            "type": "password",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "role",
-            "named": false
+            "type": "kw_dcs",
+            "named": true
+          },
+          {
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_from",
+            "named": true
+          },
+          {
+            "type": "kw_hashed",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_login",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_options",
+            "named": true
+          },
+          {
+            "type": "kw_password",
+            "named": true
+          },
+          {
+            "type": "kw_role",
+            "named": true
+          },
+          {
+            "type": "kw_superuser",
+            "named": true
+          },
+          {
+            "type": "kw_to",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
           },
           {
             "type": "semi_colon",
@@ -1830,18 +1244,6 @@
           {
             "type": "string",
             "named": true
-          },
-          {
-            "type": "superuser",
-            "named": false
-          },
-          {
-            "type": "to",
-            "named": false
-          },
-          {
-            "type": "with",
-            "named": false
           }
         ]
       },
@@ -1850,124 +1252,72 @@
         "required": false,
         "types": [
           {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "COLUMNS",
-            "named": false
-          },
-          {
-            "type": "CONFIG",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "INDEX",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "ON",
-            "named": false
-          },
-          {
-            "type": "OPTIONS",
-            "named": false
-          },
-          {
-            "type": "PROFILES",
-            "named": false
-          },
-          {
-            "type": "SEARCH",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
             "type": "collection",
             "named": true
-          },
-          {
-            "type": "columns",
-            "named": false
           },
           {
             "type": "comma_separated",
             "named": true
           },
           {
-            "type": "config",
-            "named": false
+            "type": "kw_and",
+            "named": true
           },
           {
-            "type": "create",
-            "named": false
+            "type": "kw_columns",
+            "named": true
           },
           {
-            "type": "exists",
-            "named": false
+            "type": "kw_config",
+            "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "index",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_if",
+            "named": true
           },
           {
-            "type": "on",
-            "named": false
+            "type": "kw_index",
+            "named": true
           },
           {
-            "type": "options",
-            "named": false
+            "type": "kw_not",
+            "named": true
           },
           {
-            "type": "profiles",
-            "named": false
+            "type": "kw_on",
+            "named": true
           },
           {
-            "type": "search",
-            "named": false
+            "type": "kw_options",
+            "named": true
+          },
+          {
+            "type": "kw_profiles",
+            "named": true
+          },
+          {
+            "type": "kw_search",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "with",
-            "named": false
           }
         ]
       },
@@ -1984,171 +1334,99 @@
             "named": false
           },
           {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "ASC",
-            "named": false
-          },
-          {
-            "type": "BY",
-            "named": false
-          },
-          {
-            "type": "CLUSTERING",
-            "named": false
-          },
-          {
-            "type": "COMPACT",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DESC",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "ID",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "KEY",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "ORDER",
-            "named": false
-          },
-          {
-            "type": "PRIMARY",
-            "named": false
-          },
-          {
-            "type": "STATIC",
-            "named": false
-          },
-          {
-            "type": "STORAGE",
-            "named": false
-          },
-          {
-            "type": "TABLE",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
-            "type": "asc",
-            "named": false
-          },
-          {
-            "type": "by",
-            "named": false
-          },
-          {
-            "type": "clustering",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
-          },
-          {
-            "type": "compact",
-            "named": false
           },
           {
             "type": "cql_types_union",
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "desc",
-            "named": false
-          },
-          {
             "type": "equal_sign",
             "named": true
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "id",
-            "named": false
           },
           {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_and",
+            "named": true
           },
           {
-            "type": "key",
-            "named": false
+            "type": "kw_asc",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_by",
+            "named": true
           },
           {
-            "type": "order",
-            "named": false
+            "type": "kw_clustering",
+            "named": true
           },
           {
-            "type": "primary",
-            "named": false
+            "type": "kw_compact",
+            "named": true
+          },
+          {
+            "type": "kw_create",
+            "named": true
+          },
+          {
+            "type": "kw_desc",
+            "named": true
+          },
+          {
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_id",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_order",
+            "named": true
+          },
+          {
+            "type": "kw_primary",
+            "named": true
+          },
+          {
+            "type": "kw_static",
+            "named": true
+          },
+          {
+            "type": "kw_storage",
+            "named": true
+          },
+          {
+            "type": "kw_table",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
+          },
+          {
+            "type": "kwkwey",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "static",
-            "named": false
-          },
-          {
-            "type": "storage",
-            "named": false
-          },
-          {
             "type": "string",
-            "named": true
-          },
-          {
-            "type": "table",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
             "named": true
           },
           {
@@ -2156,8 +1434,8 @@
             "named": true
           },
           {
-            "type": "with",
-            "named": false
+            "type": "tablekweyspace_name",
+            "named": true
           }
         ]
       },
@@ -2174,26 +1452,6 @@
             "named": false
           },
           {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "TYPE",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
           },
@@ -2202,36 +1460,36 @@
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_type",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "type",
-            "named": false
           }
         ]
       },
@@ -2240,80 +1498,52 @@
         "required": false,
         "types": [
           {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "HASHED",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "NOSUPERUSER",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "PASSWORD",
-            "named": false
-          },
-          {
-            "type": "SUPERUSER",
-            "named": false
-          },
-          {
-            "type": "USER",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
-            "type": "create",
-            "named": false
-          },
-          {
             "type": "equal_sign",
             "named": true
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "hashed",
-            "named": false
           },
           {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "nosuperuser",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "not",
-            "named": false
+            "type": "kw_hashed",
+            "named": true
           },
           {
-            "type": "password",
-            "named": false
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_nosuperuser",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_password",
+            "named": true
+          },
+          {
+            "type": "kw_superuser",
+            "named": true
+          },
+          {
+            "type": "kw_user",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
           },
           {
             "type": "semi_colon",
@@ -2322,18 +1552,80 @@
           {
             "type": "string",
             "named": true
-          },
+          }
+        ]
+      },
+      "createkweyspace": {
+        "multiple": true,
+        "required": false,
+        "types": [
           {
-            "type": "superuser",
+            "type": "'Classic'",
             "named": false
           },
           {
-            "type": "user",
+            "type": "'Core'",
             "named": false
           },
           {
-            "type": "with",
+            "type": "bool_choice",
+            "named": true
+          },
+          {
+            "type": "equal_sign",
+            "named": true
+          },
+          {
+            "type": "graph_engine",
             "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "kw_and",
+            "named": true
+          },
+          {
+            "type": "kw_create",
+            "named": true
+          },
+          {
+            "type": "kw_durable_writes",
+            "named": true
+          },
+          {
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_replication",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
+          },
+          {
+            "type": "kwkweyspace",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "semi_colon",
+            "named": true
           }
         ]
       },
@@ -2341,78 +1633,6 @@
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "CONSISTENCY",
-            "named": false
-          },
-          {
-            "type": "DELETE",
-            "named": false
-          },
-          {
-            "type": "EACH_QUORUM",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "FROM",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "LEVEL",
-            "named": false
-          },
-          {
-            "type": "LOCAL_ONE",
-            "named": false
-          },
-          {
-            "type": "LOCAL_QUORUM",
-            "named": false
-          },
-          {
-            "type": "ONE",
-            "named": false
-          },
-          {
-            "type": "QUORUM",
-            "named": false
-          },
-          {
-            "type": "THREE",
-            "named": false
-          },
-          {
-            "type": "TIMESTAMP",
-            "named": false
-          },
-          {
-            "type": "TWO",
-            "named": false
-          },
-          {
-            "type": "USING",
-            "named": false
-          },
-          {
-            "type": "WHERE",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
           {
             "type": "batch_delete_terms",
             "named": true
@@ -2426,92 +1646,96 @@
             "named": true
           },
           {
-            "type": "consistency",
-            "named": false
-          },
-          {
-            "type": "delete",
-            "named": false
-          },
-          {
-            "type": "each_quorum",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "from",
-            "named": false
-          },
-          {
             "type": "iconditions_blocks",
             "named": true
-          },
-          {
-            "type": "if",
-            "named": false
           },
           {
             "type": "if_conditions",
             "named": true
           },
           {
-            "type": "level",
-            "named": false
+            "type": "kw_and",
+            "named": true
+          },
+          {
+            "type": "kw_consistency",
+            "named": true
+          },
+          {
+            "type": "kw_delete",
+            "named": true
+          },
+          {
+            "type": "kw_each_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_from",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_level",
+            "named": true
+          },
+          {
+            "type": "kw_local_one",
+            "named": true
+          },
+          {
+            "type": "kw_local_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_one",
+            "named": true
+          },
+          {
+            "type": "kw_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_three",
+            "named": true
+          },
+          {
+            "type": "kw_timestamp",
+            "named": true
+          },
+          {
+            "type": "kw_two",
+            "named": true
+          },
+          {
+            "type": "kw_using",
+            "named": true
+          },
+          {
+            "type": "kw_where",
+            "named": true
           },
           {
             "type": "literal",
             "named": true
           },
           {
-            "type": "local_one",
-            "named": false
-          },
-          {
-            "type": "local_quorum",
-            "named": false
-          },
-          {
             "type": "number",
             "named": true
-          },
-          {
-            "type": "one",
-            "named": false
-          },
-          {
-            "type": "quorum",
-            "named": false
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "three",
-            "named": false
-          },
-          {
-            "type": "timestamp",
-            "named": false
-          },
-          {
-            "type": "two",
-            "named": false
-          },
-          {
-            "type": "using",
-            "named": false
-          },
-          {
-            "type": "where",
-            "named": false
           }
         ]
       },
@@ -2520,47 +1744,31 @@
         "required": false,
         "types": [
           {
-            "type": "AGGREGATE",
-            "named": false
-          },
-          {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "aggregate",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
           },
           {
-            "type": "drop",
-            "named": false
+            "type": "kw_aggregate",
+            "named": true
           },
           {
-            "type": "exists",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -2570,47 +1778,31 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "FUNCTION",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
           },
           {
-            "type": "drop",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "exists",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "function",
-            "named": false
+            "type": "kw_function",
+            "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_if",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -2620,89 +1812,27 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "EXISTS",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "IF",
-            "named": false
+            "type": "kw_if",
+            "named": true
           },
           {
-            "type": "INDEX",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "if",
-            "named": false
-          },
-          {
-            "type": "index",
-            "named": false
+            "type": "kw_index",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
-            "named": true
-          }
-        ]
-      },
-      "drop_keyspace": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "KEYSPACE",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "if",
-            "named": false
-          },
-          {
-            "type": "keyspace",
-            "named": false
-          },
-          {
-            "type": "semi_colon",
-            "named": true
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -2712,52 +1842,32 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "EXISTS",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "IF",
-            "named": false
+            "type": "kw_if",
+            "named": true
           },
           {
-            "type": "MATERIALIZED",
-            "named": false
+            "type": "kw_materialized",
+            "named": true
           },
           {
-            "type": "VIEW",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "if",
-            "named": false
-          },
-          {
-            "type": "materialized",
-            "named": false
+            "type": "kw_view",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "view",
-            "named": false
           }
         ]
       },
@@ -2766,40 +1876,24 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "ROLE",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "role",
-            "named": false
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_role",
+            "named": true
           },
           {
             "type": "semi_colon",
@@ -2812,30 +1906,6 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "INDEX",
-            "named": false
-          },
-          {
-            "type": "ON",
-            "named": false
-          },
-          {
-            "type": "OPTIONS",
-            "named": false
-          },
-          {
-            "type": "SEARCH",
-            "named": false
-          },
-          {
-            "type": "WITH",
-            "named": false
-          },
-          {
             "type": "collection",
             "named": true
           },
@@ -2844,36 +1914,36 @@
             "named": true
           },
           {
-            "type": "drop",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "index",
-            "named": false
+            "type": "kw_index",
+            "named": true
           },
           {
-            "type": "on",
-            "named": false
+            "type": "kw_on",
+            "named": true
           },
           {
-            "type": "options",
-            "named": false
+            "type": "kw_options",
+            "named": true
           },
           {
-            "type": "search",
-            "named": false
+            "type": "kw_search",
+            "named": true
+          },
+          {
+            "type": "kw_with",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "with",
-            "named": false
           }
         ]
       },
@@ -2882,43 +1952,27 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "EXISTS",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "IF",
-            "named": false
+            "type": "kw_if",
+            "named": true
           },
           {
-            "type": "TABLE",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "if",
-            "named": false
+            "type": "kw_table",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -2928,44 +1982,28 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "EXISTS",
-            "named": false
+            "type": "kw_exists",
+            "named": true
           },
           {
-            "type": "IF",
-            "named": false
+            "type": "kw_if",
+            "named": true
           },
           {
-            "type": "TYPE",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
-            "type": "if",
-            "named": false
+            "type": "kw_type",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "type",
-            "named": false
           }
         ]
       },
@@ -2974,44 +2012,58 @@
         "required": false,
         "types": [
           {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "USER",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_drop",
+            "named": true
+          },
+          {
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_user",
+            "named": true
+          },
+          {
+            "type": "semi_colon",
+            "named": true
+          }
+        ]
+      },
+      "dropkweyspace": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "kw_drop",
+            "named": true
+          },
+          {
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kwkweyspace",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "user",
-            "named": false
+            "type": "tablekweyspace_name",
+            "named": true
           }
         ]
       },
@@ -3032,118 +2084,6 @@
             "named": false
           },
           {
-            "type": "ALL",
-            "named": false
-          },
-          {
-            "type": "AUTHORIZE",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DESCRIBE",
-            "named": false
-          },
-          {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXECUTE",
-            "named": false
-          },
-          {
-            "type": "FUNCTION",
-            "named": false
-          },
-          {
-            "type": "FUNCTIONS",
-            "named": false
-          },
-          {
-            "type": "GRANT",
-            "named": false
-          },
-          {
-            "type": "IN",
-            "named": false
-          },
-          {
-            "type": "KEYSPACE",
-            "named": false
-          },
-          {
-            "type": "KEYSPACES",
-            "named": false
-          },
-          {
-            "type": "LOGIN",
-            "named": false
-          },
-          {
-            "type": "MBEAN",
-            "named": false
-          },
-          {
-            "type": "MBEANS",
-            "named": false
-          },
-          {
-            "type": "MODIFY",
-            "named": false
-          },
-          {
-            "type": "ON",
-            "named": false
-          },
-          {
-            "type": "PATTERN",
-            "named": false
-          },
-          {
-            "type": "PERMISSIONS",
-            "named": false
-          },
-          {
-            "type": "PROXY",
-            "named": false
-          },
-          {
-            "type": "ROLE",
-            "named": false
-          },
-          {
-            "type": "ROLES",
-            "named": false
-          },
-          {
-            "type": "ROWS",
-            "named": false
-          },
-          {
-            "type": "SELECT",
-            "named": false
-          },
-          {
-            "type": "TABLE",
-            "named": false
-          },
-          {
-            "type": "TO",
-            "named": false
-          },
-          {
-            "type": "all",
-            "named": false
-          },
-          {
-            "type": "authorize",
-            "named": false
-          },
-          {
             "type": "collection",
             "named": true
           },
@@ -3156,116 +2096,124 @@
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "describe",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "execute",
-            "named": false
-          },
-          {
-            "type": "function",
-            "named": false
-          },
-          {
-            "type": "functions",
-            "named": false
-          },
-          {
-            "type": "grant",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "in",
-            "named": false
-          },
-          {
-            "type": "keyspace",
-            "named": false
-          },
-          {
-            "type": "keyspaces",
-            "named": false
+            "type": "kw_all",
+            "named": true
           },
           {
             "type": "kw_alter",
             "named": true
           },
           {
-            "type": "login",
-            "named": false
+            "type": "kw_authorize",
+            "named": true
           },
           {
-            "type": "mbean",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "mbeans",
-            "named": false
+            "type": "kw_describe",
+            "named": true
           },
           {
-            "type": "modify",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "on",
-            "named": false
+            "type": "kw_execute",
+            "named": true
           },
           {
-            "type": "pattern",
-            "named": false
+            "type": "kw_function",
+            "named": true
           },
           {
-            "type": "permissions",
-            "named": false
+            "type": "kw_functions",
+            "named": true
           },
           {
-            "type": "proxy",
-            "named": false
+            "type": "kw_grant",
+            "named": true
           },
           {
-            "type": "role",
-            "named": false
+            "type": "kw_in",
+            "named": true
           },
           {
-            "type": "roles",
-            "named": false
+            "type": "kw_login",
+            "named": true
           },
           {
-            "type": "rows",
-            "named": false
+            "type": "kw_mbean",
+            "named": true
           },
           {
-            "type": "select",
-            "named": false
+            "type": "kw_mbeans",
+            "named": true
+          },
+          {
+            "type": "kw_modify",
+            "named": true
+          },
+          {
+            "type": "kw_on",
+            "named": true
+          },
+          {
+            "type": "kw_pattern",
+            "named": true
+          },
+          {
+            "type": "kw_permissions",
+            "named": true
+          },
+          {
+            "type": "kw_proxy",
+            "named": true
+          },
+          {
+            "type": "kw_role",
+            "named": true
+          },
+          {
+            "type": "kw_roles",
+            "named": true
+          },
+          {
+            "type": "kw_rows",
+            "named": true
+          },
+          {
+            "type": "kw_select",
+            "named": true
+          },
+          {
+            "type": "kw_table",
+            "named": true
+          },
+          {
+            "type": "kw_to",
+            "named": true
+          },
+          {
+            "type": "kwkweyspace",
+            "named": true
+          },
+          {
+            "type": "kwkweyspaces",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "to",
-            "named": false
           }
         ]
       },
@@ -3274,28 +2222,20 @@
         "required": false,
         "types": [
           {
-            "type": "GRANT",
-            "named": false
-          },
-          {
-            "type": "TO",
-            "named": false
-          },
-          {
-            "type": "grant",
-            "named": false
-          },
-          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "kw_grant",
+            "named": true
+          },
+          {
+            "type": "kw_to",
             "named": true
           },
           {
             "type": "semi_colon",
             "named": true
-          },
-          {
-            "type": "to",
-            "named": false
           }
         ]
       },
@@ -3312,87 +2252,7 @@
             "named": false
           },
           {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "CONSISTENCY",
-            "named": false
-          },
-          {
-            "type": "EACH_QUORUM",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "INSERT",
-            "named": false
-          },
-          {
-            "type": "INTO",
-            "named": false
-          },
-          {
             "type": "JSON",
-            "named": false
-          },
-          {
-            "type": "LEVEL",
-            "named": false
-          },
-          {
-            "type": "LOCAL_ONE",
-            "named": false
-          },
-          {
-            "type": "LOCAL_QUORUM",
-            "named": false
-          },
-          {
-            "type": "NOT",
-            "named": false
-          },
-          {
-            "type": "ONE",
-            "named": false
-          },
-          {
-            "type": "QUORUM",
-            "named": false
-          },
-          {
-            "type": "THREE",
-            "named": false
-          },
-          {
-            "type": "TIMESTAMP",
-            "named": false
-          },
-          {
-            "type": "TTL",
-            "named": false
-          },
-          {
-            "type": "TWO",
-            "named": false
-          },
-          {
-            "type": "USING",
-            "named": false
-          },
-          {
-            "type": "VALUES",
-            "named": false
-          },
-          {
-            "type": "and",
             "named": false
           },
           {
@@ -3404,92 +2264,96 @@
             "named": true
           },
           {
-            "type": "consistency",
-            "named": false
-          },
-          {
-            "type": "each_quorum",
-            "named": false
-          },
-          {
-            "type": "exists",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "if",
-            "named": false
+            "type": "kw_and",
+            "named": true
           },
           {
-            "type": "insert",
-            "named": false
+            "type": "kw_consistency",
+            "named": true
           },
           {
-            "type": "into",
-            "named": false
+            "type": "kw_each_quorum",
+            "named": true
           },
           {
-            "type": "level",
-            "named": false
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_insert",
+            "named": true
+          },
+          {
+            "type": "kw_into",
+            "named": true
+          },
+          {
+            "type": "kw_level",
+            "named": true
+          },
+          {
+            "type": "kw_local_one",
+            "named": true
+          },
+          {
+            "type": "kw_local_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_not",
+            "named": true
+          },
+          {
+            "type": "kw_one",
+            "named": true
+          },
+          {
+            "type": "kw_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_three",
+            "named": true
+          },
+          {
+            "type": "kw_timestamp",
+            "named": true
+          },
+          {
+            "type": "kw_ttl",
+            "named": true
+          },
+          {
+            "type": "kw_two",
+            "named": true
+          },
+          {
+            "type": "kw_using",
+            "named": true
+          },
+          {
+            "type": "kw_values",
+            "named": true
           },
           {
             "type": "literal",
             "named": true
           },
           {
-            "type": "local_one",
-            "named": false
-          },
-          {
-            "type": "local_quorum",
-            "named": false
-          },
-          {
-            "type": "not",
-            "named": false
-          },
-          {
-            "type": "one",
-            "named": false
-          },
-          {
-            "type": "quorum",
-            "named": false
-          },
-          {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "three",
-            "named": false
-          },
-          {
-            "type": "timestamp",
-            "named": false
-          },
-          {
-            "type": "ttl",
-            "named": false
-          },
-          {
-            "type": "two",
-            "named": false
-          },
-          {
-            "type": "using",
-            "named": false
-          },
-          {
-            "type": "values",
-            "named": false
           }
         ]
       },
@@ -3502,135 +2366,75 @@
             "named": false
           },
           {
-            "type": "ALL",
-            "named": false
-          },
-          {
-            "type": "AUTHORIZE",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DESCRIBE",
-            "named": false
-          },
-          {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXECUTE",
-            "named": false
-          },
-          {
-            "type": "LIST",
-            "named": false
-          },
-          {
-            "type": "LOGIN",
-            "named": false
-          },
-          {
-            "type": "MODIFY",
-            "named": false
-          },
-          {
-            "type": "NORECURSIVE",
-            "named": false
-          },
-          {
-            "type": "OF",
-            "named": false
-          },
-          {
-            "type": "ON",
-            "named": false
-          },
-          {
-            "type": "PERMISSIONS",
-            "named": false
-          },
-          {
-            "type": "PROXY",
-            "named": false
-          },
-          {
-            "type": "SELECT",
-            "named": false
-          },
-          {
-            "type": "all",
-            "named": false
-          },
-          {
-            "type": "authorize",
-            "named": false
-          },
-          {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "describe",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "execute",
-            "named": false
+            "type": "kw_all",
+            "named": true
           },
           {
             "type": "kw_alter",
             "named": true
           },
           {
-            "type": "list",
-            "named": false
+            "type": "kw_authorize",
+            "named": true
           },
           {
-            "type": "login",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "modify",
-            "named": false
+            "type": "kw_describe",
+            "named": true
           },
           {
-            "type": "norecursive",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "of",
-            "named": false
+            "type": "kw_execute",
+            "named": true
           },
           {
-            "type": "on",
-            "named": false
+            "type": "kw_list",
+            "named": true
           },
           {
-            "type": "permissions",
-            "named": false
+            "type": "kw_login",
+            "named": true
           },
           {
-            "type": "proxy",
-            "named": false
+            "type": "kw_modify",
+            "named": true
           },
           {
-            "type": "select",
-            "named": false
+            "type": "kw_norecursive",
+            "named": true
+          },
+          {
+            "type": "kw_of",
+            "named": true
+          },
+          {
+            "type": "kw_on",
+            "named": true
+          },
+          {
+            "type": "kw_permissions",
+            "named": true
+          },
+          {
+            "type": "kw_proxy",
+            "named": true
+          },
+          {
+            "type": "kw_select",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -3640,40 +2444,24 @@
         "required": false,
         "types": [
           {
-            "type": "LIST",
-            "named": false
-          },
-          {
-            "type": "NORECURSIVE",
-            "named": false
-          },
-          {
-            "type": "OF",
-            "named": false
-          },
-          {
-            "type": "ROLES",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "list",
-            "named": false
+            "type": "kw_list",
+            "named": true
           },
           {
-            "type": "norecursive",
-            "named": false
+            "type": "kw_norecursive",
+            "named": true
           },
           {
-            "type": "of",
-            "named": false
+            "type": "kw_of",
+            "named": true
           },
           {
-            "type": "roles",
-            "named": false
+            "type": "kw_roles",
+            "named": true
           },
           {
             "type": "semi_colon",
@@ -3686,24 +2474,16 @@
         "required": false,
         "types": [
           {
-            "type": "LIST",
-            "named": false
+            "type": "kw_list",
+            "named": true
           },
           {
-            "type": "USERS",
-            "named": false
-          },
-          {
-            "type": "list",
-            "named": false
+            "type": "kw_users",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
-          },
-          {
-            "type": "users",
-            "named": false
           }
         ]
       },
@@ -3724,11 +2504,11 @@
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "table_label",
             "named": true
           },
           {
-            "type": "table_label",
+            "type": "tablekweyspace_name",
             "named": true
           }
         ]
@@ -3750,122 +2530,6 @@
             "named": false
           },
           {
-            "type": "ALL",
-            "named": false
-          },
-          {
-            "type": "AUTHORIZE",
-            "named": false
-          },
-          {
-            "type": "CREATE",
-            "named": false
-          },
-          {
-            "type": "DESCRIBE",
-            "named": false
-          },
-          {
-            "type": "DROP",
-            "named": false
-          },
-          {
-            "type": "EXECUTE",
-            "named": false
-          },
-          {
-            "type": "FROM",
-            "named": false
-          },
-          {
-            "type": "FUNCTION",
-            "named": false
-          },
-          {
-            "type": "FUNCTIONS",
-            "named": false
-          },
-          {
-            "type": "IN",
-            "named": false
-          },
-          {
-            "type": "KEYSPACE",
-            "named": false
-          },
-          {
-            "type": "KEYSPACES",
-            "named": false
-          },
-          {
-            "type": "LOGIN",
-            "named": false
-          },
-          {
-            "type": "MBEAN",
-            "named": false
-          },
-          {
-            "type": "MBEANS",
-            "named": false
-          },
-          {
-            "type": "MODIFY",
-            "named": false
-          },
-          {
-            "type": "ON",
-            "named": false
-          },
-          {
-            "type": "PATTERN",
-            "named": false
-          },
-          {
-            "type": "PERMISSIONS",
-            "named": false
-          },
-          {
-            "type": "PROXY",
-            "named": false
-          },
-          {
-            "type": "REVOKE",
-            "named": false
-          },
-          {
-            "type": "ROLE",
-            "named": false
-          },
-          {
-            "type": "ROLES",
-            "named": false
-          },
-          {
-            "type": "ROWS",
-            "named": false
-          },
-          {
-            "type": "SELECT",
-            "named": false
-          },
-          {
-            "type": "TABLE",
-            "named": false
-          },
-          {
-            "type": "TO",
-            "named": false
-          },
-          {
-            "type": "all",
-            "named": false
-          },
-          {
-            "type": "authorize",
-            "named": false
-          },
-          {
             "type": "collection",
             "named": true
           },
@@ -3878,120 +2542,128 @@
             "named": true
           },
           {
-            "type": "create",
-            "named": false
-          },
-          {
-            "type": "describe",
-            "named": false
-          },
-          {
-            "type": "drop",
-            "named": false
-          },
-          {
-            "type": "execute",
-            "named": false
-          },
-          {
-            "type": "from",
-            "named": false
-          },
-          {
-            "type": "function",
-            "named": false
-          },
-          {
-            "type": "functions",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "in",
-            "named": false
-          },
-          {
-            "type": "keyspace",
-            "named": false
-          },
-          {
-            "type": "keyspaces",
-            "named": false
+            "type": "kw_all",
+            "named": true
           },
           {
             "type": "kw_alter",
             "named": true
           },
           {
-            "type": "login",
-            "named": false
+            "type": "kw_authorize",
+            "named": true
           },
           {
-            "type": "mbean",
-            "named": false
+            "type": "kw_create",
+            "named": true
           },
           {
-            "type": "mbeans",
-            "named": false
+            "type": "kw_describe",
+            "named": true
           },
           {
-            "type": "modify",
-            "named": false
+            "type": "kw_drop",
+            "named": true
           },
           {
-            "type": "on",
-            "named": false
+            "type": "kw_execute",
+            "named": true
           },
           {
-            "type": "pattern",
-            "named": false
+            "type": "kw_from",
+            "named": true
           },
           {
-            "type": "permissions",
-            "named": false
+            "type": "kw_function",
+            "named": true
           },
           {
-            "type": "proxy",
-            "named": false
+            "type": "kw_functions",
+            "named": true
           },
           {
-            "type": "revoke",
-            "named": false
+            "type": "kw_in",
+            "named": true
           },
           {
-            "type": "role",
-            "named": false
+            "type": "kw_login",
+            "named": true
           },
           {
-            "type": "roles",
-            "named": false
+            "type": "kw_mbean",
+            "named": true
           },
           {
-            "type": "rows",
-            "named": false
+            "type": "kw_mbeans",
+            "named": true
           },
           {
-            "type": "select",
-            "named": false
+            "type": "kw_modify",
+            "named": true
+          },
+          {
+            "type": "kw_on",
+            "named": true
+          },
+          {
+            "type": "kw_pattern",
+            "named": true
+          },
+          {
+            "type": "kw_permissions",
+            "named": true
+          },
+          {
+            "type": "kw_proxy",
+            "named": true
+          },
+          {
+            "type": "kw_revoke",
+            "named": true
+          },
+          {
+            "type": "kw_role",
+            "named": true
+          },
+          {
+            "type": "kw_roles",
+            "named": true
+          },
+          {
+            "type": "kw_rows",
+            "named": true
+          },
+          {
+            "type": "kw_select",
+            "named": true
+          },
+          {
+            "type": "kw_table",
+            "named": true
+          },
+          {
+            "type": "kw_to",
+            "named": true
+          },
+          {
+            "type": "kwkweyspace",
+            "named": true
+          },
+          {
+            "type": "kwkweyspaces",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "to",
-            "named": false
           }
         ]
       },
@@ -4000,24 +2672,16 @@
         "required": false,
         "types": [
           {
-            "type": "FROM",
-            "named": false
-          },
-          {
-            "type": "REVOKE",
-            "named": false
-          },
-          {
-            "type": "from",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "revoke",
-            "named": false
+            "type": "kw_from",
+            "named": true
+          },
+          {
+            "type": "kw_revoke",
+            "named": true
           },
           {
             "type": "semi_colon",
@@ -4030,134 +2694,6 @@
         "required": false,
         "types": [
           {
-            "type": "ALLOW",
-            "named": false
-          },
-          {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "ANN",
-            "named": false
-          },
-          {
-            "type": "ASC",
-            "named": false
-          },
-          {
-            "type": "BY",
-            "named": false
-          },
-          {
-            "type": "CONSISTENCY",
-            "named": false
-          },
-          {
-            "type": "DESC",
-            "named": false
-          },
-          {
-            "type": "DISTINCT",
-            "named": false
-          },
-          {
-            "type": "EACH_QUORUM",
-            "named": false
-          },
-          {
-            "type": "FILTERING",
-            "named": false
-          },
-          {
-            "type": "FROM",
-            "named": false
-          },
-          {
-            "type": "GROUP",
-            "named": false
-          },
-          {
-            "type": "HAVING",
-            "named": false
-          },
-          {
-            "type": "IN",
-            "named": false
-          },
-          {
-            "type": "JSON",
-            "named": false
-          },
-          {
-            "type": "LEVEL",
-            "named": false
-          },
-          {
-            "type": "LIKE",
-            "named": false
-          },
-          {
-            "type": "LIMIT",
-            "named": false
-          },
-          {
-            "type": "LOCAL_ONE",
-            "named": false
-          },
-          {
-            "type": "LOCAL_QUORUM",
-            "named": false
-          },
-          {
-            "type": "OF",
-            "named": false
-          },
-          {
-            "type": "OFFSET",
-            "named": false
-          },
-          {
-            "type": "ONE",
-            "named": false
-          },
-          {
-            "type": "ORDER",
-            "named": false
-          },
-          {
-            "type": "PARTITION",
-            "named": false
-          },
-          {
-            "type": "PER",
-            "named": false
-          },
-          {
-            "type": "QUORUM",
-            "named": false
-          },
-          {
-            "type": "SELECT",
-            "named": false
-          },
-          {
-            "type": "THREE",
-            "named": false
-          },
-          {
-            "type": "TWO",
-            "named": false
-          },
-          {
-            "type": "USING",
-            "named": false
-          },
-          {
-            "type": "WHERE",
-            "named": false
-          },
-          {
             "type": "[",
             "named": false
           },
@@ -4166,64 +2702,12 @@
             "named": false
           },
           {
-            "type": "allow",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
-            "type": "ann",
-            "named": false
-          },
-          {
-            "type": "asc",
-            "named": false
-          },
-          {
-            "type": "by",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
           },
           {
-            "type": "consistency",
-            "named": false
-          },
-          {
-            "type": "desc",
-            "named": false
-          },
-          {
-            "type": "distinct",
-            "named": false
-          },
-          {
-            "type": "each_quorum",
-            "named": false
-          },
-          {
             "type": "expression",
             "named": true
-          },
-          {
-            "type": "filtering",
-            "named": false
-          },
-          {
-            "type": "from",
-            "named": false
-          },
-          {
-            "type": "group",
-            "named": false
-          },
-          {
-            "type": "having",
-            "named": false
           },
           {
             "type": "iconditions_blocks",
@@ -4234,68 +2718,136 @@
             "named": true
           },
           {
-            "type": "in",
-            "named": false
+            "type": "kw_allow",
+            "named": true
           },
           {
-            "type": "json",
-            "named": false
+            "type": "kw_and",
+            "named": true
           },
           {
-            "type": "level",
-            "named": false
+            "type": "kw_ann",
+            "named": true
           },
           {
-            "type": "like",
-            "named": false
+            "type": "kw_asc",
+            "named": true
           },
           {
-            "type": "limit",
-            "named": false
+            "type": "kw_by",
+            "named": true
           },
           {
-            "type": "local_one",
-            "named": false
+            "type": "kw_consistency",
+            "named": true
           },
           {
-            "type": "local_quorum",
-            "named": false
+            "type": "kw_desc",
+            "named": true
+          },
+          {
+            "type": "kw_distinct",
+            "named": true
+          },
+          {
+            "type": "kw_each_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_filtering",
+            "named": true
+          },
+          {
+            "type": "kw_from",
+            "named": true
+          },
+          {
+            "type": "kw_group",
+            "named": true
+          },
+          {
+            "type": "kw_having",
+            "named": true
+          },
+          {
+            "type": "kw_in",
+            "named": true
+          },
+          {
+            "type": "kw_json",
+            "named": true
+          },
+          {
+            "type": "kw_level",
+            "named": true
+          },
+          {
+            "type": "kw_like",
+            "named": true
+          },
+          {
+            "type": "kw_limit",
+            "named": true
+          },
+          {
+            "type": "kw_local_one",
+            "named": true
+          },
+          {
+            "type": "kw_local_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_of",
+            "named": true
+          },
+          {
+            "type": "kw_offset",
+            "named": true
+          },
+          {
+            "type": "kw_one",
+            "named": true
+          },
+          {
+            "type": "kw_order",
+            "named": true
+          },
+          {
+            "type": "kw_partition",
+            "named": true
+          },
+          {
+            "type": "kw_per",
+            "named": true
+          },
+          {
+            "type": "kw_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_select",
+            "named": true
+          },
+          {
+            "type": "kw_three",
+            "named": true
+          },
+          {
+            "type": "kw_two",
+            "named": true
+          },
+          {
+            "type": "kw_using",
+            "named": true
+          },
+          {
+            "type": "kw_where",
+            "named": true
           },
           {
             "type": "number",
             "named": true
-          },
-          {
-            "type": "of",
-            "named": false
-          },
-          {
-            "type": "offset",
-            "named": false
-          },
-          {
-            "type": "one",
-            "named": false
-          },
-          {
-            "type": "order",
-            "named": false
-          },
-          {
-            "type": "partition",
-            "named": false
-          },
-          {
-            "type": "per",
-            "named": false
-          },
-          {
-            "type": "quorum",
-            "named": false
-          },
-          {
-            "type": "select",
-            "named": false
           },
           {
             "type": "selector_conditions",
@@ -4310,24 +2862,8 @@
             "named": true
           },
           {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "three",
-            "named": false
-          },
-          {
-            "type": "two",
-            "named": false
-          },
-          {
-            "type": "using",
-            "named": false
-          },
-          {
-            "type": "where",
-            "named": false
           }
         ]
       },
@@ -4336,28 +2872,20 @@
         "required": false,
         "types": [
           {
-            "type": "TABLE",
-            "named": false
+            "type": "kw_table",
+            "named": true
           },
           {
-            "type": "TRUNCATE",
-            "named": false
+            "type": "kw_truncate",
+            "named": true
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "table",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "truncate",
-            "named": false
           }
         ]
       },
@@ -4390,86 +2918,6 @@
             "named": false
           },
           {
-            "type": "AND",
-            "named": false
-          },
-          {
-            "type": "CONSISTENCY",
-            "named": false
-          },
-          {
-            "type": "EACH_QUORUM",
-            "named": false
-          },
-          {
-            "type": "EXISTS",
-            "named": false
-          },
-          {
-            "type": "IF",
-            "named": false
-          },
-          {
-            "type": "IN",
-            "named": false
-          },
-          {
-            "type": "LEVEL",
-            "named": false
-          },
-          {
-            "type": "LOCAL_ONE",
-            "named": false
-          },
-          {
-            "type": "LOCAL_QUORUM",
-            "named": false
-          },
-          {
-            "type": "ONE",
-            "named": false
-          },
-          {
-            "type": "QUORUM",
-            "named": false
-          },
-          {
-            "type": "SET",
-            "named": false
-          },
-          {
-            "type": "THREE",
-            "named": false
-          },
-          {
-            "type": "TIMESTAMP",
-            "named": false
-          },
-          {
-            "type": "TTL",
-            "named": false
-          },
-          {
-            "type": "TWO",
-            "named": false
-          },
-          {
-            "type": "UPDATE",
-            "named": false
-          },
-          {
-            "type": "USING",
-            "named": false
-          },
-          {
-            "type": "WHERE",
-            "named": false
-          },
-          {
-            "type": "and",
-            "named": false
-          },
-          {
             "type": "collection",
             "named": true
           },
@@ -4478,20 +2926,8 @@
             "named": true
           },
           {
-            "type": "consistency",
-            "named": false
-          },
-          {
-            "type": "each_quorum",
-            "named": false
-          },
-          {
             "type": "equal_sign",
             "named": true
-          },
-          {
-            "type": "exists",
-            "named": false
           },
           {
             "type": "expression",
@@ -4502,16 +2938,8 @@
             "named": true
           },
           {
-            "type": "if",
-            "named": false
-          },
-          {
             "type": "if_conditions",
             "named": true
-          },
-          {
-            "type": "in",
-            "named": false
           },
           {
             "type": "indexed_name",
@@ -4522,72 +2950,96 @@
             "named": true
           },
           {
-            "type": "level",
-            "named": false
+            "type": "kw_and",
+            "named": true
+          },
+          {
+            "type": "kw_consistency",
+            "named": true
+          },
+          {
+            "type": "kw_each_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_exists",
+            "named": true
+          },
+          {
+            "type": "kw_if",
+            "named": true
+          },
+          {
+            "type": "kw_in",
+            "named": true
+          },
+          {
+            "type": "kw_level",
+            "named": true
+          },
+          {
+            "type": "kw_local_one",
+            "named": true
+          },
+          {
+            "type": "kw_local_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_one",
+            "named": true
+          },
+          {
+            "type": "kw_quorum",
+            "named": true
+          },
+          {
+            "type": "kw_set",
+            "named": true
+          },
+          {
+            "type": "kw_three",
+            "named": true
+          },
+          {
+            "type": "kw_timestamp",
+            "named": true
+          },
+          {
+            "type": "kw_ttl",
+            "named": true
+          },
+          {
+            "type": "kw_two",
+            "named": true
+          },
+          {
+            "type": "kw_update",
+            "named": true
+          },
+          {
+            "type": "kw_using",
+            "named": true
+          },
+          {
+            "type": "kw_where",
+            "named": true
           },
           {
             "type": "literal",
             "named": true
           },
           {
-            "type": "local_one",
-            "named": false
-          },
-          {
-            "type": "local_quorum",
-            "named": false
-          },
-          {
             "type": "number",
             "named": true
-          },
-          {
-            "type": "one",
-            "named": false
-          },
-          {
-            "type": "quorum",
-            "named": false
           },
           {
             "type": "semi_colon",
             "named": true
           },
           {
-            "type": "set",
-            "named": false
-          },
-          {
-            "type": "table_keyspace_name",
+            "type": "tablekweyspace_name",
             "named": true
-          },
-          {
-            "type": "three",
-            "named": false
-          },
-          {
-            "type": "timestamp",
-            "named": false
-          },
-          {
-            "type": "ttl",
-            "named": false
-          },
-          {
-            "type": "two",
-            "named": false
-          },
-          {
-            "type": "update",
-            "named": false
-          },
-          {
-            "type": "using",
-            "named": false
-          },
-          {
-            "type": "where",
-            "named": false
           }
         ]
       },
@@ -4596,8 +3048,8 @@
         "required": false,
         "types": [
           {
-            "type": "USE",
-            "named": false
+            "type": "kw_use",
+            "named": true
           },
           {
             "type": "literal",
@@ -4606,10 +3058,6 @@
           {
             "type": "semi_colon",
             "named": true
-          },
-          {
-            "type": "use",
-            "named": false
           }
         ]
       }
@@ -4826,6 +3274,106 @@
           "named": true
         },
         {
+          "type": "kw_and",
+          "named": true
+        },
+        {
+          "type": "kw_consistency",
+          "named": true
+        },
+        {
+          "type": "kw_delete",
+          "named": true
+        },
+        {
+          "type": "kw_each_quorum",
+          "named": true
+        },
+        {
+          "type": "kw_exists",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_if",
+          "named": true
+        },
+        {
+          "type": "kw_in",
+          "named": true
+        },
+        {
+          "type": "kw_insert",
+          "named": true
+        },
+        {
+          "type": "kw_into",
+          "named": true
+        },
+        {
+          "type": "kw_level",
+          "named": true
+        },
+        {
+          "type": "kw_local_one",
+          "named": true
+        },
+        {
+          "type": "kw_local_quorum",
+          "named": true
+        },
+        {
+          "type": "kw_not",
+          "named": true
+        },
+        {
+          "type": "kw_one",
+          "named": true
+        },
+        {
+          "type": "kw_quorum",
+          "named": true
+        },
+        {
+          "type": "kw_set",
+          "named": true
+        },
+        {
+          "type": "kw_three",
+          "named": true
+        },
+        {
+          "type": "kw_timestamp",
+          "named": true
+        },
+        {
+          "type": "kw_ttl",
+          "named": true
+        },
+        {
+          "type": "kw_two",
+          "named": true
+        },
+        {
+          "type": "kw_update",
+          "named": true
+        },
+        {
+          "type": "kw_using",
+          "named": true
+        },
+        {
+          "type": "kw_values",
+          "named": true
+        },
+        {
+          "type": "kw_where",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -4838,7 +3386,7 @@
           "named": true
         },
         {
-          "type": "table_keyspace_name",
+          "type": "tablekweyspace_name",
           "named": true
         }
       ]
@@ -4876,14 +3424,6 @@
         "required": false,
         "types": [
           {
-            "type": "AS",
-            "named": false
-          },
-          {
-            "type": "as",
-            "named": false
-          },
-          {
             "type": "cql_types",
             "named": true
           },
@@ -4893,6 +3433,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "kw_as",
             "named": true
           },
           {
@@ -4910,64 +3454,36 @@
         "required": true,
         "types": [
           {
-            "type": "AVG",
-            "named": false
-          },
-          {
-            "type": "COUNT",
-            "named": false
-          },
-          {
-            "type": "MAX",
-            "named": false
-          },
-          {
-            "type": "MIN",
-            "named": false
-          },
-          {
-            "type": "SUM",
-            "named": false
-          },
-          {
-            "type": "TOKEN",
-            "named": false
-          },
-          {
-            "type": "WRITETIME",
-            "named": false
-          },
-          {
-            "type": "avg",
-            "named": false
-          },
-          {
-            "type": "count",
-            "named": false
-          },
-          {
             "type": "identifier",
             "named": true
           },
           {
-            "type": "max",
-            "named": false
+            "type": "kw_avg",
+            "named": true
           },
           {
-            "type": "min",
-            "named": false
+            "type": "kw_count",
+            "named": true
           },
           {
-            "type": "sum",
-            "named": false
+            "type": "kw_max",
+            "named": true
           },
           {
-            "type": "token",
-            "named": false
+            "type": "kw_min",
+            "named": true
           },
           {
-            "type": "writetime",
-            "named": false
+            "type": "kw_sum",
+            "named": true
+          },
+          {
+            "type": "kw_token",
+            "named": true
+          },
+          {
+            "type": "kw_writetime",
+            "named": true
           }
         ]
       }
@@ -4997,11 +3513,27 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "equal_sign",
+          "named": true
+        },
+        {
+          "type": "kw_any",
+          "named": true
+        },
+        {
+          "type": "kw_contains",
+          "named": true
+        },
+        {
+          "type": "kw_in",
+          "named": true
+        },
+        {
+          "type": "kwkwey",
           "named": true
         }
       ]
@@ -5021,6 +3553,716 @@
         }
       ]
     }
+  },
+  {
+    "type": "kw_access",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_add",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_aggregate",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_all",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_allow",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_and",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_ann",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_any",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_apply",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_as",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_asc",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_authorize",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_avg",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_batch",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_begin",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_by",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_called",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_cidrs",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_clustering",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_columns",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_commit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_compact",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_config",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_consistency",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_contains",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_count",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_counter",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_create",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_custom",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_dcs",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_delete",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_desc",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_describe",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_deterministic",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_distinct",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_drop",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_durable_writes",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_each_quorum",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_entries",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_execute",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_exists",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_filtering",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_final_func",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_from",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_full",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_function",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_functions",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_grant",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_group",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_hashed",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_having",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_id",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_if",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_in",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_index",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_infinity",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_init_cond",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_input",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_insert",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_into",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_is",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_java",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_java_script",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_json",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_language",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_level",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_like",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_limit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_list",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_local_one",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_local_quorum",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_logged",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_login",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_materialized",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_max",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_mbean",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_mbeans",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_min",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_modify",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_monotonic",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_nan",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_norecursive",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_nosuperuser",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_not",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_null",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_of",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_offset",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_on",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_one",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_options",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_or",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_order",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_partition",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_password",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_pattern",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_per",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_permissions",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_primary",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_profiles",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_proxy",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_quorum",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_rename",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_replace",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_replication",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_returns",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_revoke",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_role",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_roles",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_rows",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_search",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_select",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_set",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_sfunc",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_static",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_storage",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_stype",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_sum",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_superuser",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_table",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_three",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_timestamp",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_to",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_token",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_truncate",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_ttl",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_two",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_unlogged",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_update",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_use",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_user",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_users",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_using",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_values",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_view",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_where",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_with",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_writetime",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kwkwey",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kwkweys",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kwkweyspace",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kwkweyspaces",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "list",
@@ -5136,7 +4378,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "float",
@@ -5144,6 +4386,14 @@
         },
         {
           "type": "integer",
+          "named": true
+        },
+        {
+          "type": "kw_infinity",
+          "named": true
+        },
+        {
+          "type": "kw_nan",
           "named": true
         }
       ]
@@ -5236,7 +4486,7 @@
           "named": true
         },
         {
-          "type": "table_keyspace_name",
+          "type": "tablekweyspace_name",
           "named": true
         }
       ]
@@ -5265,19 +4515,15 @@
         "required": false,
         "types": [
           {
-            "type": "AS",
-            "named": false
-          },
-          {
-            "type": "as",
-            "named": false
-          },
-          {
             "type": "comma_separated",
             "named": true
           },
           {
             "type": "func_definition",
+            "named": true
+          },
+          {
+            "type": "kw_as",
             "named": true
           },
           {
@@ -5305,15 +4551,11 @@
         "required": false,
         "types": [
           {
-            "type": "AS",
-            "named": false
-          },
-          {
-            "type": "as",
-            "named": false
-          },
-          {
             "type": "comma_separated",
+            "named": true
+          },
+          {
+            "type": "kw_as",
             "named": true
           },
           {
@@ -5433,33 +4675,6 @@
     }
   },
   {
-    "type": "table_keyspace_name",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "key_space_name",
-          "named": true
-        },
-        {
-          "type": "table_label",
-          "named": true
-        },
-        {
-          "type": "wild_card",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "table_label",
     "named": true,
     "fields": {},
@@ -5569,6 +4784,33 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tablekweyspace_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "key_space_name",
+          "named": true
+        },
+        {
+          "type": "table_label",
+          "named": true
+        },
+        {
+          "type": "wild_card",
           "named": true
         }
       ]
