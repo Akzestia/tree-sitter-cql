@@ -729,7 +729,7 @@
         }
       ]
     },
-    "_kw_alter": {
+    "kw_alter": {
       "type": "TOKEN",
       "content": {
         "type": "CHOICE",
@@ -2678,7 +2678,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_kw_alter"
+          "name": "kw_alter"
         },
         {
           "type": "SYMBOL",
@@ -3296,7 +3296,7 @@
           "name": "command_family",
           "content": {
             "type": "SYMBOL",
-            "name": "_kw_alter"
+            "name": "kw_alter"
           }
         },
         {
@@ -3423,7 +3423,7 @@
           "name": "command_family",
           "content": {
             "type": "SYMBOL",
-            "name": "_kw_alter"
+            "name": "kw_alter"
           }
         },
         {
@@ -3528,7 +3528,7 @@
           "name": "command_family",
           "content": {
             "type": "SYMBOL",
-            "name": "_kw_alter"
+            "name": "kw_alter"
           }
         },
         {
@@ -3588,7 +3588,7 @@
             "name": "command_family",
             "content": {
               "type": "SYMBOL",
-              "name": "_kw_alter"
+              "name": "kw_alter"
             }
           },
           {
@@ -3637,7 +3637,7 @@
             "name": "command_family",
             "content": {
               "type": "SYMBOL",
-              "name": "_kw_alter"
+              "name": "kw_alter"
             }
           },
           {
@@ -3676,7 +3676,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_kw_alter"
+          "name": "kw_alter"
         },
         {
           "type": "SYMBOL",
@@ -8007,7 +8007,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_kw_alter"
+          "name": "kw_alter"
         },
         {
           "type": "SYMBOL",
@@ -10407,7 +10407,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_kw_alter"
+            "name": "kw_alter"
           },
           {
             "type": "SYMBOL",
@@ -10662,7 +10662,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_kw_alter"
+                "name": "kw_alter"
               },
               {
                 "type": "SYMBOL",

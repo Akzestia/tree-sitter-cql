@@ -43,6 +43,10 @@
           "named": true
         },
         {
+          "type": "kw_alter",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -75,6 +79,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_alter",
           "named": true
         }
       ]
@@ -230,6 +238,10 @@
             "named": false
           },
           {
+            "type": "kw_alter",
+            "named": true
+          },
+          {
             "type": "replication",
             "named": false
           },
@@ -288,6 +300,10 @@
             "named": true
           },
           {
+            "type": "kw_alter",
+            "named": true
+          },
+          {
             "type": "materialized",
             "named": false
           },
@@ -338,6 +354,10 @@
             "named": true
           },
           {
+            "type": "kw_alter",
+            "named": true
+          },
+          {
             "type": "role",
             "named": false
           },
@@ -364,6 +384,10 @@
             "named": true
           },
           {
+            "type": "kw_alter",
+            "named": true
+          },
+          {
             "type": "semi_colon",
             "named": true
           },
@@ -387,6 +411,10 @@
           },
           {
             "type": "alter_type_options",
+            "named": true
+          },
+          {
+            "type": "kw_alter",
             "named": true
           },
           {
@@ -437,6 +465,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "kw_alter",
             "named": true
           },
           {
@@ -630,6 +662,10 @@
           {
             "type": "USE",
             "named": false
+          },
+          {
+            "type": "kw_alter",
+            "named": true
           },
           {
             "type": "use",
@@ -3164,6 +3200,10 @@
             "named": false
           },
           {
+            "type": "kw_alter",
+            "named": true
+          },
+          {
             "type": "login",
             "named": false
           },
@@ -3546,6 +3586,10 @@
             "named": false
           },
           {
+            "type": "kw_alter",
+            "named": true
+          },
+          {
             "type": "list",
             "named": false
           },
@@ -3876,6 +3920,10 @@
           {
             "type": "keyspaces",
             "named": false
+          },
+          {
+            "type": "kw_alter",
+            "named": true
           },
           {
             "type": "login",
@@ -6566,11 +6614,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "from",
@@ -6699,6 +6747,10 @@
   {
     "type": "keyspaces",
     "named": false
+  },
+  {
+    "type": "kw_alter",
+    "named": true
   },
   {
     "type": "language",
