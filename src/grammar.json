@@ -65,11 +65,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "[^\\n]*"
-          },
-          {
-            "type": "PATTERN",
-            "value": "\\n"
+            "value": ".*"
           }
         ]
       }
@@ -84,24 +80,12 @@
             "value": "/*"
           },
           {
-            "type": "REPEAT",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[^*]"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\*[^/]"
-                }
-              ]
-            }
+            "type": "PATTERN",
+            "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
           },
           {
             "type": "STRING",
-            "value": "*/"
+            "value": "/"
           }
         ]
       }
@@ -11329,11 +11313,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "line_comment"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "block_comment"
+      "name": "comment"
     }
   ],
   "conflicts": [

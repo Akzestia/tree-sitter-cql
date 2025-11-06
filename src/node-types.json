@@ -121,6 +121,7 @@
   {
     "type": "comment",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2166,8 +2167,7 @@
   },
   {
     "type": "block_comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "boolean",
@@ -2463,8 +2463,7 @@
   },
   {
     "type": "line_comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "list",

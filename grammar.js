@@ -7,7 +7,7 @@
 module.exports = grammar({
   name: "cql",
 
-  extras: ($) => [/\s|\\\r?\n/, $.line_comment, $.block_comment],
+  extras: ($) => [/\s|\\\r?\n/, $.comment],
 
   conflicts: ($) => [[$._conditions_select, $.if_conditions]],
 
@@ -22,12 +22,9 @@ module.exports = grammar({
 
     outline_identifier: ($) => /\@[A-Za-z_][\w-]*/,
 
-    // Line comments must be tokens with explicit endings for extras
-    line_comment: ($) => token(seq(choice("--", "//"), /[^\n]*/, /\n/)),
+    line_comment: ($) => token(seq(choice("--", "//"), /.*/)),
 
-    // Block comments - handles both with and without outline
-    block_comment: ($) =>
-      token(seq("/*", repeat(choice(/[^*]/, /\*[^/]/)), "*/")),
+    block_comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
 
     _type_ascii: ($) => choice("ASCII", "ascii"),
     _type_bigint: ($) => choice("BIGINT", "bigint"),
