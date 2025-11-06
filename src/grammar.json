@@ -1928,7 +1928,7 @@
         }
       ]
     },
-    "kwselect": {
+    "kw_select": {
       "type": "CHOICE",
       "members": [
         {
@@ -3046,7 +3046,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "kwselect"
+          "name": "kw_select"
         },
         {
           "type": "SYMBOL",
@@ -5596,7 +5596,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "kwselect"
+          "name": "kw_select"
         },
         {
           "type": "CHOICE",
@@ -6661,7 +6661,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "kwselect"
+          "name": "kw_select"
         },
         {
           "type": "CHOICE",
@@ -8023,7 +8023,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "kwselect"
+          "name": "kw_select"
         },
         {
           "type": "SYMBOL",

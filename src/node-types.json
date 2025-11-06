@@ -2224,15 +2224,15 @@
           "named": true
         },
         {
+          "type": "kw_select",
+          "named": true
+        },
+        {
           "type": "kw_view",
           "named": true
         },
         {
           "type": "kw_with",
-          "named": true
-        },
-        {
-          "type": "kwselect",
           "named": true
         },
         {
@@ -3993,6 +3993,11 @@
     "fields": {}
   },
   {
+    "type": "kw_select",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "kw_set",
     "named": true,
     "fields": {}
@@ -4124,11 +4129,6 @@
   },
   {
     "type": "kw_writetime",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "kwselect",
     "named": true,
     "fields": {}
   },
@@ -5382,7 +5382,7 @@
           "named": true
         },
         {
-          "type": "kwselect",
+          "type": "kw_select",
           "named": true
         },
         {
@@ -5600,7 +5600,7 @@
           "named": true
         },
         {
-          "type": "kwselect",
+          "type": "kw_select",
           "named": true
         },
         {
