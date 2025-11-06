@@ -179,26 +179,29 @@
           ]
         },
         {
-          "type": "PREC",
-          "value": -1,
+          "type": "IMMEDIATE_TOKEN",
           "content": {
-            "type": "REPEAT",
+            "type": "PREC",
+            "value": -1,
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "[^*]+"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "\\*[^/]"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[^\\/\\*]\\s*.*[^\\*\\/]"
-                }
-              ]
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "PATTERN",
+                    "value": "[^*]+"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "\\*[^/]"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "[^\\/\\*]\\s*.*[^\\*\\/]"
+                  }
+                ]
+              }
             }
           }
         },
