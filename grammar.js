@@ -1015,6 +1015,7 @@ module.exports = grammar({
         $.identifier,
         $.semi_colon,
       ),
+    drop: ($) => seq($.kw_drop, $.identifier, $.semi_colon),
     grant_role: ($) =>
       seq($.kw_grant, $.identifier, $.kw_to, $.identifier, $.semi_colon),
     grant_permission: ($) =>
@@ -1484,6 +1485,7 @@ module.exports = grammar({
         field("drop_table", $.drop_table),
         field("drop_type", $.drop_type),
         field("drop_user", $.drop_user),
+        field("drop", $.drop),
 
         field("grant_role", $.grant_role),
         field("grant_permission", $.grant_permission), // fixed spelling
