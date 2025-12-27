@@ -875,6 +875,45 @@
         }
       ]
     },
+    "kw_vertex": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "VERTEX"
+        },
+        {
+          "type": "STRING",
+          "value": "vertex"
+        }
+      ]
+    },
+    "kw_edge": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "EDGE"
+        },
+        {
+          "type": "STRING",
+          "value": "edge"
+        }
+      ]
+    },
+    "kw_label": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "LABEL"
+        },
+        {
+          "type": "STRING",
+          "value": "label"
+        }
+      ]
+    },
     "kw_from": {
       "type": "CHOICE",
       "members": [
@@ -3243,6 +3282,18 @@
         {
           "type": "SYMBOL",
           "name": "kw_having"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "kw_vertex"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "kw_edge"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "kw_label"
         }
       ]
     },
@@ -6401,6 +6452,23 @@
         }
       ]
     },
+    "drop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "kw_drop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "semi_colon"
+        }
+      ]
+    },
     "grant_role": {
       "type": "SEQ",
       "members": [
@@ -9478,6 +9546,14 @@
         },
         {
           "type": "FIELD",
+          "name": "drop",
+          "content": {
+            "type": "SYMBOL",
+            "name": "drop"
+          }
+        },
+        {
+          "type": "FIELD",
           "name": "grant_role",
           "content": {
             "type": "SYMBOL",
@@ -9844,18 +9920,18 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "VERTEX"
+              "type": "SYMBOL",
+              "name": "kw_vertex"
             },
             {
-              "type": "STRING",
-              "value": "EDGE"
+              "type": "SYMBOL",
+              "name": "kw_edge"
             }
           ]
         },
         {
-          "type": "STRING",
-          "value": "LABEL"
+          "type": "SYMBOL",
+          "name": "kw_label"
         },
         {
           "type": "SYMBOL",
@@ -9868,8 +9944,8 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "FROM"
+                  "type": "SYMBOL",
+                  "name": "kw_from"
                 },
                 {
                   "type": "SYMBOL",
@@ -9908,8 +9984,8 @@
                   "value": ")"
                 },
                 {
-                  "type": "STRING",
-                  "value": "TO"
+                  "type": "SYMBOL",
+                  "name": "kw_to"
                 },
                 {
                   "type": "SYMBOL",
@@ -10547,18 +10623,18 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "VERTEX"
+                  "type": "SYMBOL",
+                  "name": "kw_vertex"
                 },
                 {
-                  "type": "STRING",
-                  "value": "EDGE"
+                  "type": "SYMBOL",
+                  "name": "kw_edge"
                 }
               ]
             },
             {
-              "type": "STRING",
-              "value": "LABEL"
+              "type": "SYMBOL",
+              "name": "kw_label"
             },
             {
               "type": "SYMBOL",

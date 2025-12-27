@@ -1389,6 +1389,16 @@
           }
         ]
       },
+      "drop": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "drop",
+            "named": true
+          }
+        ]
+      },
       "drop_aggregate": {
         "multiple": false,
         "required": false,
@@ -2742,6 +2752,29 @@
     }
   },
   {
+    "type": "drop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_drop",
+          "named": true
+        },
+        {
+          "type": "semi_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "drop_aggregate",
     "named": true,
     "fields": {},
@@ -3613,6 +3646,11 @@
     "fields": {}
   },
   {
+    "type": "kw_edge",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "kw_entries",
     "named": true,
     "fields": {}
@@ -3759,6 +3797,11 @@
   },
   {
     "type": "kw_keyspaces",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_label",
     "named": true,
     "fields": {}
   },
@@ -4109,6 +4152,11 @@
   },
   {
     "type": "kw_values",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "kw_vertex",
     "named": true,
     "fields": {}
   },
@@ -4842,11 +4890,23 @@
           "named": true
         },
         {
+          "type": "kw_edge",
+          "named": true
+        },
+        {
+          "type": "kw_label",
+          "named": true
+        },
+        {
           "type": "kw_rename",
           "named": true
         },
         {
           "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "kw_vertex",
           "named": true
         },
         {
@@ -5879,6 +5939,26 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "kw_edge",
+          "named": true
+        },
+        {
+          "type": "kw_from",
+          "named": true
+        },
+        {
+          "type": "kw_label",
+          "named": true
+        },
+        {
+          "type": "kw_to",
+          "named": true
+        },
+        {
+          "type": "kw_vertex",
           "named": true
         },
         {
@@ -7631,6 +7711,10 @@
     "named": false
   },
   {
+    "type": "edge",
+    "named": false
+  },
+  {
     "type": "entries",
     "named": false
   },
@@ -7797,6 +7881,10 @@
   {
     "type": "kw_alter",
     "named": true
+  },
+  {
+    "type": "label",
+    "named": false
   },
   {
     "type": "language",
@@ -8148,6 +8236,10 @@
   },
   {
     "type": "varint",
+    "named": false
+  },
+  {
+    "type": "vertex",
     "named": false
   },
   {
