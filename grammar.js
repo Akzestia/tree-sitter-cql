@@ -137,6 +137,9 @@ module.exports = grammar({
     kw_set: ($) => choice("SET", "set"),
     kw_in: ($) => choice("IN", "in"),
     kw_to: ($) => choice("TO", "to"),
+    kw_vertex: ($) => choice("VERTEX", "vertex"),
+    kw_edge: ($) => choice("EDGE", "edge"),
+    kw_label: ($) => choice("LABEL", "label"),
     kw_from: ($) => choice("FROM", "from"),
     kw_using: ($) => choice("USING", "using"),
     kw_timestamp: ($) => choice("TIMESTAMP", "timestamp"),
@@ -1532,17 +1535,17 @@ module.exports = grammar({
     table_option_multi: ($) => seq($.identifier, $.equal_sign, $.collection),
     table_option_label: ($) =>
       seq(
-        choice("VERTEX", "EDGE"),
-        "LABEL",
+        choice($.kw_vertex, $.kw_edge),
+        $.kw_label,
         $.string,
         optional(
           seq(
-            "FROM",
+            $.kw_from,
             $.identifier,
             "(",
             repeat(seq($.identifier, optional($.comma_separated))),
             ")",
-            "TO",
+            $.kw_to,
             $.identifier,
             "(",
             repeat(seq($.identifier, optional($.comma_separated))),
@@ -1655,7 +1658,13 @@ module.exports = grammar({
     o_rename: ($) =>
       choice(
         seq($.kw_rename, $.identifier, $.kw_to, $.identifier),
-        seq($.kw_rename, choice("VERTEX", "EDGE"), "LABEL", $.kw_to, $.string),
+        seq(
+          $.kw_rename,
+          choice($.kw_vertex, $.kw_edge),
+          $.kw_label,
+          $.kw_to,
+          $.string,
+        ),
       ),
 
     o_with_table_option: ($) => $.table_option,
