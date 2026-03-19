@@ -4,7 +4,7 @@
 
 </div>
 
-# CQL（Cassandra 查詢語言）的 Tree-Sitter 語法
+# CQL（Cassandra Query Language）的 Tree-Sitter 語法
 本語法基於 [DataStax 超融合資料庫的 CQL](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html)
 
 > [!IMPORTANT]
