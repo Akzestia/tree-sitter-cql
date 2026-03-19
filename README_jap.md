@@ -4,7 +4,7 @@
 
 </div>
 
-# CQL用Tree-Sitter文法
+# CQL (Cassandra Query Language) 用Tree-Sitter文法
 
 この文法は、[DataStax ハイパーコンバージドデータベース用 CQL](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html) に基づいています。
 
