@@ -9,4 +9,4 @@
 この文法は、[DataStax ハイパーコンバージドデータベース用 CQL](https://docs.datastax.com/en/cql/hcd/reference/cql-reference-about.html) に基づいています。
 
 > [!IMPORTANT]
-> ツリーシッター文法に関する問題やご提案がありましたら、お気軽に言語サーバーの [リポジトリ](https://github.com/Akzestia/cql-lsp/issues) にイシューを起票してください。
+> tree-sitter 文法に関する問題やご提案がありましたら、お気軽に言語サーバーの repo に issue を起票してください。
